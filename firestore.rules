@@ -1,0 +1,90 @@
+rules_version = '2';
+
+// Dua lapis akses:
+// 1. BACA (read): terbuka untuk siapa pun yang authenticated, TERMASUK
+//    Anonymous Auth (lihat src/config/firebase.js) -- ini yang bikin
+//    landing page & 3 layar publik (/display/*) bisa diakses warga TANPA
+//    login sama sekali, sesuai kebutuhan "dashboard publik".
+// 2. TULIS (write): wajib Google Sign-In DAN emailnya terdaftar di
+//    collection `authorized_emails` (dokumen dibuat manual oleh admin
+//    lewat Firestore console -- TIDAK ada Cloud Functions/custom claims,
+//    supaya tetap di plan gratis Firebase/Spark). Anonymous user TIDAK
+//    akan lolos isAuthorized() karena tidak punya token.email.
+//
+// PIN Ketua KPPS di app adalah gate TAMBAHAN untuk aksi sensitif (lock
+// presensi, submit tally) -- bukan pengganti rules ini. Dua-duanya jalan
+// bareng: harus authorized_emails DULU untuk bisa menulis apa pun, lalu
+// PIN khusus untuk aksi yang mengunci state secara permanen.
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    function isAuthorized() {
+      return request.auth != null
+        && request.auth.token.email != null
+        && exists(/databases/$(database)/documents/authorized_emails/$(request.auth.token.email));
+    }
+
+    match /dpt/{noUrut} {
+      allow read: if request.auth != null;
+      allow write: if isAuthorized();
+    }
+
+    match /presensi_log/{logId} {
+      // append-only: tidak boleh diubah/dihapus setelah ditulis, supaya
+      // tetap valid sebagai audit trail untuk rekonsiliasi/dispute saksi.
+      allow read: if request.auth != null;
+      allow create: if isAuthorized();
+      allow update, delete: if false;
+    }
+
+    match /devices/{deviceId} {
+      allow read: if request.auth != null;
+      allow write: if isAuthorized();
+    }
+
+    match /tally_votes/{voteId} {
+      // append-only mirip presensi_log: create untuk mencatat suara,
+      // update HANYA dipakai untuk menandai dibatalkan=true (undo),
+      // tidak pernah delete -- supaya tetap ada jejak audit lengkap
+      // termasuk suara yang dibatalkan.
+      //
+      // Update dibatasi ketat: field lain (calon_id, device_id, waktu, dst)
+      // tidak boleh ikut berubah -- affectedKeys() harus persis {dibatalkan},
+      // dan hanya boleh mengubah dari false ke true (bukan flip balik jadi
+      // false lagi, supaya undo tidak bisa "diundo lagi" untuk memalsukan
+      // jejak audit).
+      allow read: if request.auth != null;
+      allow create: if isAuthorized();
+      allow update: if isAuthorized()
+        && request.resource.data.diff(resource.data).affectedKeys().hasOnly(['dibatalkan'])
+        && resource.data.dibatalkan == false
+        && request.resource.data.dibatalkan == true;
+      allow delete: if false;
+    }
+
+    match /tps_config/{tpsId} {
+      allow read: if request.auth != null;
+      allow write: if isAuthorized();
+    }
+
+    match /authorized_emails/{email} {
+      // Hanya bisa dibaca oleh petugas yang sudah authorized (sekadar
+      // supaya UI internal bisa cek, bukan requirement fungsional).
+      //
+      // Writable dari app (AdminView.vue) oleh siapa pun yang sudah
+      // authorized -- sama persis pola tps_config. Ini keputusan sadar
+      // yang MEMBALIK keputusan awal ("tidak bisa ditulis dari app sama
+      // sekali"): PIN Ketua dipakai sebagai gate UI sebelum tombol
+      // tambah/hapus email bisa dipakai, TAPI itu HANYA gate UX (sama
+      // seperti lockPresensi/lockTally) -- bisa dilewati petugas yang
+      // authorized lewat DevTools/SDK langsung. Server-side, kontrol akses
+      // sesungguhnya sekarang jadi "siapa pun yang sudah di-whitelist
+      // boleh mengubah whitelist". Diterima demi kemudahan operasional di
+      // skala 1 TPS (bukan multi-tenant, dipakai orang-orang yang saling
+      // percaya) -- kalau butuh kontrol lebih ketat di masa depan, perlu
+      // verifikasi PIN server-side (Cloud Function), bukan client-side.
+      allow read: if isAuthorized();
+      allow write: if isAuthorized();
+    }
+  }
+}

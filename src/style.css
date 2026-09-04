@@ -1,0 +1,69 @@
+/*
+  Arah desain: ini bukan produk konsumer, tapi alat kerja resmi yang dipegang
+  petugas berdiri di TPS, seringkali di bawah tenda/cahaya matahari langsung,
+  dengan jari yang mungkin berkeringat/gemetar karena antrean padat.
+  Prioritas: kontras tinggi, target sentuh besar, status tidak ambigu.
+  Referensi visual: terminal kasir/EDC dan formulir resmi kenegaraan --
+  bukan aplikasi konsumer yang playful.
+*/
+
+:root {
+  --color-navy: #1e3a5f;      /* otoritas / KPPS */
+  --color-navy-dark: #142a45;
+  --color-amber: #c9752a;     /* Petugas Depan / gerbang masuk */
+  --color-amber-dark: #a65f1f;
+  --color-green: #1f7a4d;     /* HADIR_SAH */
+  --color-red: #b8433a;       /* penuh / batal / error */
+  --color-paper: #f7f5f0;     /* latar - kertas formulir resmi */
+  --color-ink: #1c1c1a;       /* teks utama */
+  --color-line: #d8d3c6;
+
+  --font-display: Georgia, 'Times New Roman', serif; /* header, terasa resmi */
+  --font-body: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --font-data: 'SF Mono', 'Roboto Mono', ui-monospace, monospace; /* nomor urut, digit */
+
+  --radius: 10px;
+  --touch-min: 56px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-body);
+  -webkit-tap-highlight-color: transparent;
+}
+
+button {
+  font-family: inherit;
+  min-height: var(--touch-min);
+  border-radius: var(--radius);
+  border: none;
+  cursor: pointer;
+  font-size: 1.1rem;
+  touch-action: manipulation;
+}
+
+button:focus-visible {
+  outline: 3px solid var(--color-navy);
+  outline-offset: 2px;
+}
+
+button:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+h1, h2, h3 {
+  font-family: var(--font-display);
+  margin: 0;
+}
+
+.mono {
+  font-family: var(--font-data);
+  font-variant-numeric: tabular-nums;
+}
