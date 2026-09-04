@@ -6,15 +6,13 @@ import {
 } from 'firebase/firestore'
 import { getAuth, GoogleAuthProvider, signInAnonymously, onAuthStateChanged } from 'firebase/auth'
 
-// TODO: ganti dengan config project Firebase kamu sendiri
-// (Firebase Console > Project Settings > General > Your apps)
 const firebaseConfig = {
-  apiKey: 'GANTI_DENGAN_API_KEY',
-  authDomain: 'GANTI.firebaseapp.com',
-  projectId: 'GANTI_PROJECT_ID',
-  storageBucket: 'GANTI.appspot.com',
-  messagingSenderId: 'GANTI',
-  appId: 'GANTI'
+  apiKey: 'AIzaSyC5H_EhFu0lHSXQ2IpUu_Eg8bTM7a27xBE',
+  authDomain: 'kpps-pilkalurah.firebaseapp.com',
+  projectId: 'kpps-pilkalurah',
+  storageBucket: 'kpps-pilkalurah.firebasestorage.app',
+  messagingSenderId: '187148279102',
+  appId: '1:187148279102:web:87788a8999f7767bf9e06f'
 }
 
 export const app = initializeApp(firebaseConfig)
