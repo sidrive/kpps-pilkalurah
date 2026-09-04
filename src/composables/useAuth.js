@@ -1,5 +1,10 @@
 import { ref, computed } from 'vue'
-import { signInWithRedirect, signOut, onAuthStateChanged } from 'firebase/auth'
+import {
+  signInWithPopup,
+  signInWithRedirect,
+  signOut,
+  onAuthStateChanged
+} from 'firebase/auth'
 import { doc, getDoc } from 'firebase/firestore'
 import { auth, db, googleProvider } from '../config/firebase.js'
 
@@ -31,21 +36,31 @@ onAuthStateChanged(auth, (user) => {
 async function checkAuthorized(user) {
   if (!user || user.isAnonymous || !user.email) return false
 
+  // Normalisasi ke lowercase -- dokumen authorized_emails dibuat lewat
+  // scripts/bootstrap-firestore.mjs yang selalu men-lowercase email, jadi
+  // lookup di sini harus konsisten atau akun yang seharusnya authorized
+  // bisa gagal match hanya karena beda kapitalisasi.
+  const email = user.email.toLowerCase()
+
   const cached = localStorage.getItem(AUTHORIZED_CACHE_KEY)
-  if (cached === user.email) return true
+  if (cached === email) return true
 
   try {
-    const snap = await getDoc(doc(db, 'authorized_emails', user.email))
+    const snap = await getDoc(doc(db, 'authorized_emails', email))
     if (snap.exists()) {
-      localStorage.setItem(AUTHORIZED_CACHE_KEY, user.email)
+      localStorage.setItem(AUTHORIZED_CACHE_KEY, email)
       return true
     }
     return false
-  } catch {
+  } catch (err) {
     // Offline & belum pernah tervalidasi sebelumnya di device ini --
     // tidak bisa dipastikan, jadi fail closed (anggap belum authorized),
     // bukan fail open. Petugas yang device-nya sudah pernah online sekali
     // untuk login tidak akan kena ini karena sudah ke-cache di atas.
+    // Tetap dicetak ke console (bukan disembunyikan total) supaya error
+    // permission-denied/network beneran kelihatan saat troubleshooting,
+    // bukan cuma keliatan sebagai "belum terdaftar".
+    console.error('checkAuthorized gagal membaca authorized_emails:', err)
     return false
   }
 }
@@ -73,10 +88,16 @@ export function useAuth() {
   )
 
   function loginWithGoogle() {
-    // signInWithRedirect (bukan signInWithPopup) dipilih karena lebih
-    // reliable di PWA yang di-install ke homescreen / WebView Android --
-    // popup sering diblokir atau gagal render di konteks itu.
-    return signInWithRedirect(auth, googleProvider)
+    // Browser biasa memakai popup agar hasil OAuth tidak bergantung pada
+    // penyimpanan lintas-domain saat kembali dari redirect. PWA standalone
+    // tetap memakai redirect karena popup sering diblokir di WebView/mobile.
+    const isStandalone = window.matchMedia('(display-mode: standalone)').matches
+      || window.navigator.standalone === true
+
+    if (isStandalone) {
+      return signInWithRedirect(auth, googleProvider)
+    }
+    return signInWithPopup(auth, googleProvider)
   }
 
   async function logout() {

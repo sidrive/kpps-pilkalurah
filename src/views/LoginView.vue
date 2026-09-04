@@ -8,8 +8,9 @@
 
     <div v-else-if="!currentUser || currentUser.isAnonymous">
       <p class="intro">Masuk dengan akun Google yang sudah didaftarkan sebagai petugas KPPS.</p>
-      <button class="btn-google" @click="handleLogin">
-        Masuk dengan Google
+      <p v-if="loginError" class="login-error">{{ loginError }}</p>
+      <button class="btn-google" :disabled="loggingIn" @click="handleLogin">
+        {{ loggingIn ? 'Membuka Google...' : 'Masuk dengan Google' }}
       </button>
     </div>
 
@@ -29,7 +30,7 @@
 </template>
 
 <script setup>
-import { ref, watch, onMounted } from 'vue'
+import { ref, watch } from 'vue'
 import { useRouter } from 'vue-router'
 import { useAuth } from '../composables/useAuth.js'
 
@@ -38,6 +39,8 @@ const { currentUser, authChecked, loginWithGoogle, logout, checkAuthorized } = u
 
 const checking = ref(true)
 const authorized = ref(false)
+const loggingIn = ref(false)
+const loginError = ref('')
 
 async function evaluate() {
   if (!authChecked.value) return
@@ -51,13 +54,26 @@ async function evaluate() {
   checking.value = false
 }
 
-onMounted(evaluate)
-watch(currentUser, evaluate)
+// Pantau keduanya. authChecked dapat berubah menjadi true tanpa perubahan
+// referensi currentUser yang sempat terlihat komponen, khususnya saat state
+// Auth sudah dipulihkan sebelum LoginView selesai di-mount.
+watch([currentUser, authChecked], evaluate, { immediate: true })
 
 async function handleLogin() {
-  await loginWithGoogle()
-  // Browser akan redirect ke Google, lalu kembali ke app -- evaluate()
-  // jalan lagi otomatis lewat watch(currentUser) setelah redirect selesai.
+  loginError.value = ''
+  loggingIn.value = true
+  try {
+    await loginWithGoogle()
+    // Browser biasa selesai lewat popup; PWA standalone kembali lewat
+    // redirect dan evaluate() jalan dari perubahan state Firebase Auth.
+  } catch (err) {
+    console.error('Login Google gagal:', err)
+    loginError.value = err?.code
+      ? `Login Google gagal (${err.code}). Silakan coba lagi.`
+      : 'Login Google gagal. Silakan coba lagi.'
+  } finally {
+    loggingIn.value = false
+  }
 }
 
 async function handleLogout() {
@@ -84,12 +100,23 @@ h1 {
   font-size: 0.9rem;
 }
 
+.login-error {
+  color: var(--color-red);
+  font-size: 0.85rem;
+  margin-bottom: 1rem;
+}
+
 .btn-google {
   background: var(--color-navy);
   color: white;
   font-weight: 700;
   padding: 0.9rem 1.5rem;
   width: 100%;
+}
+
+.btn-google:disabled {
+  cursor: wait;
+  opacity: 0.7;
 }
 
 .status-message {
