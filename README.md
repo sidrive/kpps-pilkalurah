@@ -8,6 +8,7 @@ Scaffold Modul 1–3 + landing page publik + login petugas dari PROJECT_CONTEXT.
 - Firestore dengan `persistentLocalCache` (multi-tab) — offline-first sesuai strategi A
 - **Landing page publik** (`/`) — dashboard untuk warga TANPA login, link ke 3 layar publik + tombol login petugas
 - **Login petugas** (`/login`) — Google Sign-In + whitelist Firestore (`authorized_emails`), lihat bagian Auth di bawah
+- **Admin internal** (`/admin`) — kelola daftar calon dan whitelist email petugas (perubahan whitelist memakai gate PIN Ketua di UI)
 - Guard client-side untuk double-tap / race condition — lihat komentar panjang di `src/composables/useDpt.js` soal kenapa `runTransaction` TIDAK dipakai
 - Client-generated timestamp untuk sorting antrean/suara — `serverTimestamp()` tetap dipakai terpisah untuk audit resmi
 - **Modul 1**: Setup device (pilih role + nama, prefill dari akun Google), Petugas Depan (numpad + buffer 10), KPPS (daftar antrean + filter centang manual)
@@ -30,48 +31,29 @@ Scaffold Modul 1–3 + landing page publik + login petugas dari PROJECT_CONTEXT.
 Edit `src/config/firebase.js`, ganti `firebaseConfig` dengan config dari langkah 1.
 
 ### 3. Deploy security rules
+Firebase CLI sudah tersedia sebagai dependency project, jadi tidak perlu instalasi global:
 ```bash
-npm install -g firebase-tools
-firebase login
-firebase init firestore   # pilih project yang sudah dibuat, pakai firestore.rules yang sudah ada
-firebase deploy --only firestore:rules
+npx firebase login
+npx firebase deploy --only firestore:rules
 ```
+Project default sudah dikunci ke `kpps-pilkalurah` di `.firebaserc`; tetap periksa nama project pada output CLI sebelum menyetujui deployment.
 
-### 4. Daftarkan email petugas (whitelist akses)
-Ini yang mengontrol siapa boleh login sebagai petugas. Dua cara, pilih salah satu:
-
-**Cara A — manual lewat Firestore Console** (paling simpel untuk sedikit orang):
-Buat collection `authorized_emails`, lalu buat dokumen baru dengan **ID dokumen = email persis** (misal `budi@gmail.com`), isi field apa saja (boleh kosong/`{}`).
-
-**Cara B — script bulk** (kalau petugasnya banyak):
+### 4. Bootstrap data awal
+Taruh service account key di `scripts/serviceAccountKey.json` (file ini sudah diabaikan Git), lalu jalankan:
 ```bash
-npm install firebase-admin
-# taruh service account key di scripts/serviceAccountKey.json
-node scripts/add-authorized-emails.mjs budi@gmail.com siti@gmail.com ...
+node scripts/bootstrap-firestore.mjs
 ```
+Script interaktif ini membuat whitelist email pertama dan dokumen `tps_config/tps-default` secara atomik. Script meminta email admin pertama, nama TPS, serta PIN Ketua tanpa menampilkan ulang PIN di terminal, lalu memverifikasi hasil tulisannya.
 
-Kalau ada petugas baru di tengah jalan atau ada yang perlu dicabut aksesnya, tinggal tambah/hapus dokumen di collection ini kapan saja — tidak perlu redeploy kode.
+Setelah admin pertama dapat login, buka `/admin` untuk:
+- mengisi atau mengubah `daftar_calon` tanpa redeploy;
+- menambah atau mencabut whitelist email petugas (dengan gate PIN Ketua di UI).
 
-### 5. Isi dokumen `tps_config`
-Manual lewat Firestore Console, buat dokumen di collection `tps_config` dengan ID `tps-default` (sesuai `TPS_ID` di `src/config/constants.js`):
-```json
-{
-  "nama_tps": "TPS Contoh",
-  "pin_ketua": "123456",
-  "status_tps": "PRESENSI_OPEN",
-  "daftar_calon": [
-    { "id": "calon-1", "nama": "Calon 1" },
-    { "id": "calon-2", "nama": "Calon 2" },
-    { "id": "calon-3", "nama": "Calon 3" },
-    { "id": "calon-4", "nama": "Calon 4" }
-  ]
-}
-```
-`daftar_calon` sengaja array yang bisa diedit kapan saja di Firestore Console (tambah/hapus elemen) tanpa perlu redeploy kode — Papan Hitung di Modul 2 otomatis menyesuaikan jumlah tombol. Defaultnya 4 calon (placeholder), ganti nama & jumlah sesuai calon riil sebelum hari-H.
+Petugas yang sudah authorized secara teknis memiliki izin Firestore untuk mengubah whitelist. PIN Ketua pada halaman admin adalah gate UX client-side, bukan verifikasi server-side; pembatas keamanan utama tetap whitelist Google email di Firestore Rules.
 
-Field Modul 3 (`tanggal_pemilihan`, `waktu_mulai_pemungutan`, dst, `catatan_khusus`, `daftar_saksi`) TIDAK perlu diisi manual di sini — semua bisa diisi langsung lewat form di halaman `/rekap`.
+Field Modul 3 (`tanggal_pemilihan`, `waktu_mulai_pemungutan`, dst, `catatan_khusus`, `daftar_saksi`) dapat diisi langsung melalui `/rekap`.
 
-### 6. Import data DPT (H-1)
+### 5. Import data DPT (H-1)
 Siapkan CSV dengan header `no_urut,nama,rt,rw,jenis_kelamin`, lalu:
 ```bash
 npm install firebase-admin
@@ -79,14 +61,60 @@ npm install firebase-admin
 node scripts/import-dpt.mjs path/ke/dpt.csv
 ```
 
-### 7. Install & jalankan
+### 6. Deploy ke server Armbian dengan Nginx
+Aplikasi ini merupakan frontend statis. Setelah build, Nginx dapat menyajikan isi folder `dist/` secara langsung; PM2 tidak diperlukan untuk menjalankan aplikasinya.
+
+Build di komputer development:
+```bash
+npm run build
+```
+
+Salin **isi** folder `dist/` ke document root server, misalnya `/var/www/kpps-pilkalurah/`. Contoh konfigurasi Nginx:
+```nginx
+server {
+    listen 80;
+    server_name kpps.example.com;
+    root /var/www/kpps-pilkalurah;
+    index index.html;
+
+    location / {
+        try_files $uri $uri/ /index.html;
+    }
+
+    location = /index.html {
+        add_header Cache-Control "no-cache";
+    }
+
+    location ~ ^/(sw\.js|registerSW\.js|manifest\.webmanifest)$ {
+        add_header Cache-Control "no-cache";
+        try_files $uri =404;
+    }
+}
+```
+
+`try_files ... /index.html` wajib karena router memakai history mode; tanpanya, membuka atau refresh `/setup`, `/admin`, dan `/display/*` akan menghasilkan 404. Aktifkan HTTPS (misalnya Certbot/Let's Encrypt), karena service worker, instalasi PWA, dan Google login pada domain produksi membutuhkan secure context.
+
+Tambahkan domain HTTPS produksi ke `Firebase Console > Authentication > Settings > Authorized domains` sebelum menguji Google login.
+
+Smoke test pascadeploy:
+- `/` menampilkan landing publik.
+- buka langsung dan refresh `/display/presensi` tidak menghasilkan 404.
+- login petugas dari `/login` berhasil dan mengarah ke `/setup`.
+- `/admin` dapat membaca dan mengubah calon serta whitelist.
+- pengguna anonim tetap hanya mendapat akses read sesuai rules.
+- service worker terdaftar dan tidak ada error 404 untuk `manifest`/icon.
+
+### 7. Jalankan secara lokal
 ```bash
 npm install
 npm run dev
 ```
-Buka di HP via IP LAN (`npm run dev` akan tampilkan alamat network) atau deploy ke Firebase Hosting / Netlify / Vercel untuk akses via HTTPS (wajib HTTPS untuk PWA install prompt, service worker, DAN Google Sign-In).
+Pilihan lain di luar produksi adalah preview build produksi:
+```bash
+npm run preview
+```
 
-**Catatan penting soal testing Google Sign-In**: `localhost` biasanya sudah otomatis authorized, tapi akses lewat IP LAN (misal `192.168.x.x:5173`) BELUM TENTU authorized untuk redirect Google -- kalau login gagal saat testing di HP lewat IP LAN, itu sebabnya. Deploy ke domain HTTPS asli untuk testing penuh, atau uji dulu di localhost lewat browser desktop.
+**Catatan penting soal testing Google Sign-In**: `localhost` biasanya sudah otomatis authorized, tapi akses lewat IP LAN (misal `192.168.x.x:5173`) BELUM TENTU authorized untuk redirect/popup Google -- kalau login gagal saat testing di HP lewat IP LAN, itu sebabnya. Pakai URL Hosting produksi untuk pengujian penuh dari HP, atau uji dulu di `localhost` lewat browser desktop.
 
 ### 8. Testing offline
 Chrome DevTools → Network tab → set ke "Offline" untuk simulasi TPS tanpa sinyal. Data DPT yang sudah diimport tetap bisa dicari & diproses karena sudah di IndexedDB. Login Google WAJIB online sekali di awal (OAuth butuh internet); setelah itu sesi tersimpan dan device bisa kerja offline seperti biasa.
@@ -118,10 +146,8 @@ Dua lapis yang berjalan bersamaan:
 
 - **`devices/{device_id}` registrasi** — saat ini device_id hanya disimpan di localStorage, belum di-push ke Firestore collection `devices`
 - **Icon PWA** (`public/icons/icon-192.png`, `icon-512.png`) — belum dibuat
-- **UI untuk mengubah `daftar_calon`** — saat ini harus edit manual lewat Firestore console
 - **Format BA/C1 belum final** — struktur PDF di `generateBeritaAcaraPdf.js` dibuat modular per-section
-- **Bundle size membengkak** karena `jsPDF` menarik `html2canvas` + `dompurify` sebagai dependency bawaan meski tidak dipakai langsung
-- **Halaman admin untuk kelola `authorized_emails` dari dalam app** — saat ini murni manual lewat Firestore console/script, belum ada UI
+- **Penggantian data simulasi yang aman** — belum ada prosedur pembersihan/rotasi data trial di `presensi_log`/`tally_votes` sebelum hari-H
 
 ## Catatan keamanan
 
