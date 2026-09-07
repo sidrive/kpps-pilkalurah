@@ -61,15 +61,29 @@ npm install firebase-admin
 node scripts/import-dpt.mjs path/ke/dpt.csv
 ```
 
-### 6. Deploy ke server Armbian dengan Nginx
-Aplikasi ini merupakan frontend statis. Setelah build, Nginx dapat menyajikan isi folder `dist/` secara langsung; PM2 tidak diperlukan untuk menjalankan aplikasinya.
+### 6. Build & deploy
 
-Build di komputer development:
 ```bash
+# Development (hot reload)
+npm run dev
+
+# Production build (bundle)
 npm run build
+# Output: ./dist/
+
+# Preview build production secara lokal
+npm run preview
 ```
 
-Salin **isi** folder `dist/` ke document root server, misalnya `/var/www/kpps-pilkalurah/`. Contoh konfigurasi Nginx:
+**Deploy flow:**
+1. Jalankan `npm run build`.
+2. Backup isi document root yang sedang aktif karena belum ada rollback otomatis.
+3. Upload **isi** folder `dist/` ke server (web server, CDN, dan sebagainya).
+4. Jalankan smoke test sebelum menghapus backup versi sebelumnya.
+
+Untuk server Armbian, Nginx dapat menyajikan hasil build sebagai file statis; PM2 tidak diperlukan. Contoh document root: `/var/www/kpps-pilkalurah/`.
+
+Karena aplikasi memakai Vue Router history mode, konfigurasi Nginx wajib memiliki fallback ke `index.html`:
 ```nginx
 server {
     listen 80;
@@ -92,9 +106,7 @@ server {
 }
 ```
 
-`try_files ... /index.html` wajib karena router memakai history mode; tanpanya, membuka atau refresh `/setup`, `/admin`, dan `/display/*` akan menghasilkan 404. Aktifkan HTTPS (misalnya Certbot/Let's Encrypt), karena service worker, instalasi PWA, dan Google login pada domain produksi membutuhkan secure context.
-
-Tambahkan domain HTTPS produksi ke `Firebase Console > Authentication > Settings > Authorized domains` sebelum menguji Google login.
+Aktifkan HTTPS (misalnya Certbot/Let's Encrypt), karena service worker, instalasi PWA, dan Google login pada domain produksi membutuhkan secure context. Tambahkan domain HTTPS produksi ke `Firebase Console > Authentication > Settings > Authorized domains` sebelum menguji Google login.
 
 Smoke test pascadeploy:
 - `/` menampilkan landing publik.
@@ -104,17 +116,7 @@ Smoke test pascadeploy:
 - pengguna anonim tetap hanya mendapat akses read sesuai rules.
 - service worker terdaftar dan tidak ada error 404 untuk `manifest`/icon.
 
-### 7. Jalankan secara lokal
-```bash
-npm install
-npm run dev
-```
-Pilihan lain di luar produksi adalah preview build produksi:
-```bash
-npm run preview
-```
-
-**Catatan penting soal testing Google Sign-In**: `localhost` biasanya sudah otomatis authorized, tapi akses lewat IP LAN (misal `192.168.x.x:5173`) BELUM TENTU authorized untuk redirect/popup Google -- kalau login gagal saat testing di HP lewat IP LAN, itu sebabnya. Pakai URL Hosting produksi untuk pengujian penuh dari HP, atau uji dulu di `localhost` lewat browser desktop.
+**Catatan penting soal testing Google Sign-In**: `localhost` biasanya sudah otomatis authorized, tapi akses lewat IP LAN (misal `192.168.x.x:5173`) belum tentu authorized untuk redirect/popup Google. Gunakan domain HTTPS produksi untuk pengujian penuh dari HP, atau uji lebih dahulu di `localhost` melalui browser desktop.
 
 ### 8. Testing offline
 Chrome DevTools → Network tab → set ke "Offline" untuk simulasi TPS tanpa sinyal. Data DPT yang sudah diimport tetap bisa dicari & diproses karena sudah di IndexedDB. Login Google WAJIB online sekali di awal (OAuth butuh internet); setelah itu sesi tersimpan dan device bisa kerja offline seperti biasa.

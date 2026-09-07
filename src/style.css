@@ -1,69 +1,93 @@
-/*
-  Arah desain: ini bukan produk konsumer, tapi alat kerja resmi yang dipegang
-  petugas berdiri di TPS, seringkali di bawah tenda/cahaya matahari langsung,
-  dengan jari yang mungkin berkeringat/gemetar karena antrean padat.
-  Prioritas: kontras tinggi, target sentuh besar, status tidak ambigu.
-  Referensi visual: terminal kasir/EDC dan formulir resmi kenegaraan --
-  bukan aplikasi konsumer yang playful.
-*/
-
 :root {
-  --color-navy: #1e3a5f;      /* otoritas / KPPS */
-  --color-navy-dark: #142a45;
-  --color-amber: #c9752a;     /* Petugas Depan / gerbang masuk */
-  --color-amber-dark: #a65f1f;
-  --color-green: #1f7a4d;     /* HADIR_SAH */
-  --color-red: #b8433a;       /* penuh / batal / error */
-  --color-paper: #f7f5f0;     /* latar - kertas formulir resmi */
-  --color-ink: #1c1c1a;       /* teks utama */
-  --color-line: #d8d3c6;
+  --color-navy: #0e516b;
+  --color-navy-dark: #062d3d;
+  --color-navy-soft: #e7f0f4;
+  --color-amber: #c9852f;
+  --color-amber-dark: #9a5c14;
+  --color-green: #19815d;
+  --color-green-bright: #2fa36d;
+  --color-blue: #2b5ead;
+  --color-purple: #7150aa;
+  --color-orange: #cf7816;
+  --color-red: #b51f2d;
+  --series-1: #2a78d6;
+  --series-2: #eb6834;
+  --series-3: #1baf7a;
+  --series-4: #eda100;
+  --series-5: #e87ba4;
+  --series-6: #008300;
+  --series-7: #4a3aa7;
+  --color-bg: #eef4f7;
+  --color-paper: #eef4f7;
+  --color-surface: #ffffff;
+  --color-ink: #10212a;
+  --color-muted: #66757e;
+  --color-faint: #8b99a1;
+  --color-line: #d8e2e7;
+  --color-track: #e7ecef;
 
-  --font-display: Georgia, 'Times New Roman', serif; /* header, terasa resmi */
+  --font-display: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
   --font-body: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
-  --font-data: 'SF Mono', 'Roboto Mono', ui-monospace, monospace; /* nomor urut, digit */
+  --font-data: 'SF Mono', 'Roboto Mono', ui-monospace, monospace;
 
-  --radius: 10px;
+  --radius: 14px;
+  --radius-sm: 9px;
+  --shadow-card: 0 12px 32px rgba(6, 45, 61, 0.08);
+  --shadow-header: 0 12px 24px rgba(6, 45, 61, 0.18);
   --touch-min: 56px;
 }
 
-* {
-  box-sizing: border-box;
-}
-
+* { box-sizing: border-box; }
+html { min-width: 320px; background: var(--color-bg); }
 body {
   margin: 0;
-  background: var(--color-paper);
+  min-width: 320px;
+  min-height: 100vh;
+  overflow-x: hidden;
+  background: var(--color-bg);
   color: var(--color-ink);
   font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
   -webkit-tap-highlight-color: transparent;
 }
-
+button, input, select, textarea { font: inherit; }
 button {
-  font-family: inherit;
   min-height: var(--touch-min);
-  border-radius: var(--radius);
-  border: none;
+  border: 0;
+  border-radius: var(--radius-sm);
   cursor: pointer;
-  font-size: 1.1rem;
   touch-action: manipulation;
 }
-
-button:focus-visible {
-  outline: 3px solid var(--color-navy);
-  outline-offset: 2px;
+button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible {
+  outline: 3px solid var(--color-amber);
+  outline-offset: 3px;
 }
+button:disabled { opacity: 0.45; cursor: not-allowed; }
+h1, h2, h3, p { margin-top: 0; }
+h1, h2, h3 { font-family: var(--font-display); }
+a { color: inherit; }
+.mono { font-family: var(--font-data); font-variant-numeric: tabular-nums; }
 
-button:disabled {
-  opacity: 0.45;
-  cursor: not-allowed;
+.page-wrap {
+  width: min(100% - 2rem, 960px);
+  margin-inline: auto;
+  padding-block: clamp(1.25rem, 4vw, 3.5rem);
 }
-
-h1, h2, h3 {
-  font-family: var(--font-display);
-  margin: 0;
+.work-wrap { width: min(100% - 2rem, 520px); margin-inline: auto; padding-block: 1.25rem 3rem; }
+.surface-card {
+  background: var(--color-surface);
+  border: 1px solid rgba(6, 45, 61, 0.06);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-card);
 }
+.btn-primary { background: var(--color-navy); color: #fff; font-weight: 750; }
+.btn-secondary { background: #fff; color: var(--color-navy-dark); border: 1px solid var(--color-line); font-weight: 700; }
+.input-control {
+  width: 100%; min-height: var(--touch-min); padding: 0.75rem 0.9rem;
+  color: var(--color-ink); background: #fff; border: 1px solid var(--color-line); border-radius: var(--radius-sm);
+}
+.muted { color: var(--color-muted); }
 
-.mono {
-  font-family: var(--font-data);
-  font-variant-numeric: tabular-nums;
+@media (max-width: 600px) {
+  .page-wrap, .work-wrap { width: min(100% - 1.25rem, 960px); }
 }

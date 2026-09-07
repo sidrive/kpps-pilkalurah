@@ -1,396 +1,119 @@
 <template>
   <div class="wrap">
-    <header>
-      <h1>Papan Hitung Suara</h1>
-      <p class="mono petugas-info">{{ namaPetugas }} · {{ role }}</p>
-    </header>
+    <OperationalHeader title="Papan Hitung Suara" :subtitle="config?.nama_tps || 'TPS Pilkalurah'" :name="namaPetugas" @exit="$router.push('/setup')" />
 
     <div v-if="isPresensiOpen" class="gate-banner">
-      <h3>Presensi Belum Dikunci</h3>
-      <p>
-        Penghitungan suara baru bisa dimulai setelah data pemilih hadir
-        dikunci final oleh Ketua KPPS. Ini mencegah data presensi berubah
-        di tengah proses hitung.
-      </p>
-      <button class="btn-lock" @click="openPinPrompt('lock_presensi')">
-        Kunci Presensi Sekarang
-      </button>
+      <strong>Presensi Belum Dikunci</strong>
+      <p>Penghitungan suara baru bisa dimulai setelah data pemilih hadir dikunci. Ini mencegah perubahan di tengah proses hitung.</p>
+      <button class="btn-primary full" @click="openPinPrompt('lock_presensi')">Kunci Presensi Sekarang</button>
     </div>
+    <div v-if="config?.status_tps === STATUS_TPS.TALLY_DONE" class="locked-banner">Hasil tally sudah dikunci — papan hitung dalam mode baca-saja.</div>
 
-    <div v-if="config?.status_tps === STATUS_TPS.TALLY_DONE" class="locked-banner">
-      Hasil tally sudah dikunci. Papan hitung dalam mode baca-saja.
-    </div>
+    <section class="validation" :class="{ mismatch: !validasiCocok }" aria-live="polite">
+      <div class="validation-row"><span>Pemilih Hadir</span><span class="mono">{{ jumlahHadir }}</span></div>
+      <div class="validation-row"><span>Total Suara Sah + Tidak Sah</span><span class="mono">{{ totalKeseluruhan }}</span></div>
+      <strong class="validation-status" :class="{ ok: validasiCocok, warn: !validasiCocok }">{{ validasiCocok ? '✓ Cocok' : '⚠ Tidak cocok — cek ulang' }}</strong>
+    </section>
 
-    <!-- Validasi matematis: Total Suara (Sah + Tidak Sah) vs Pemilih Hadir -->
-    <div class="validation" :class="{ mismatch: !validasiCocok }">
-      <div class="validation-row">
-        <span>Pemilih Hadir (Modul 1)</span>
-        <span class="mono">{{ jumlahHadir }}</span>
-      </div>
-      <div class="validation-row">
-        <span>Total Suara Sah + Tidak Sah</span>
-        <span class="mono">{{ totalKeseluruhan }}</span>
-      </div>
-      <div class="validation-status">
-        {{ validasiCocok ? '✓ Cocok' : '⚠ Tidak cocok — cek ulang' }}
-      </div>
-    </div>
-
-    <div class="calon-grid">
-      <button
-        v-for="calon in daftarCalon"
-        :key="calon.id"
-        class="calon-btn"
-        :disabled="isTapDisabled"
-        @click="tap(calon.id)"
-      >
-        <span class="calon-nama">{{ calon.nama }}</span>
+    <section class="calon-stack" aria-label="Tombol calon">
+      <button v-for="(calon, idx) in daftarCalon" :key="calon.id" class="calon-card" :disabled="isTapDisabled" @click="tap(calon.id)">
+        <span class="calon-index mono" :style="{ background: candidateColor(idx) }">{{ idx + 1 }}</span>
+        <span class="calon-copy"><strong>{{ calon.nama }}</strong><small>Calon {{ idx + 1 }}</small></span>
         <span class="calon-count mono">{{ countsByCalonId[calon.id] || 0 }}</span>
       </button>
-
-      <button class="calon-btn tidak-sah" :disabled="isTapDisabled" @click="tap(TIDAK_SAH_ID)">
-        <span class="calon-nama">Tidak Sah</span>
+      <button class="calon-card invalid" :disabled="isTapDisabled" @click="tap(TIDAK_SAH_ID)">
+        <span class="calon-index mono">!</span>
+        <span class="calon-copy"><strong>Tidak Sah</strong><small>Suara tidak sah</small></span>
         <span class="calon-count mono">{{ totalTidakSah }}</span>
       </button>
-    </div>
+    </section>
 
-    <button class="btn-undo" :disabled="isTapDisabled || votes.length === 0" @click="undo">
-      ⌫ Batalkan Suara Terakhir
-    </button>
+    <button class="btn-secondary full undo" :disabled="isTapDisabled || votes.length === 0" @click="undo">↩ Batalkan Suara Terakhir</button>
+    <p v-if="lastUndo" class="undo-feedback">Suara terakhir untuk "{{ namaCalonById(lastUndo) }}" dibatalkan.</p>
 
-    <div v-if="lastUndo" class="undo-feedback">
-      Suara terakhir untuk "{{ namaCalonById(lastUndo) }}" dibatalkan.
-    </div>
+    <section class="lock-section">
+      <button class="btn-primary full" :disabled="isPresensiOpen || isLocked" @click="openPinPrompt('lock_tally')">Kunci &amp; Submit Hasil Tally</button>
+      <p v-if="isPresensiOpen" class="lock-hint">Kunci presensi dulu di atas sebelum bisa submit hasil tally.</p>
+      <router-link v-if="isLocked" to="/rekap" class="link-rekap">Lanjut ke Rekapitulasi &amp; Berita Acara →</router-link>
+    </section>
 
-    <div class="lock-section">
-      <button
-        class="btn-lock"
-        :disabled="isPresensiOpen || isLocked"
-        @click="openPinPrompt('lock_tally')"
-      >
-        Kunci & Submit Hasil Tally
-      </button>
-      <p v-if="isPresensiOpen" class="lock-hint">
-        Kunci presensi dulu di atas sebelum bisa submit hasil tally.
-      </p>
-      <router-link v-if="isLocked" to="/rekap" class="link-rekap">
-        Lanjut ke Rekapitulasi & Berita Acara →
-      </router-link>
-    </div>
-
-    <div v-if="showPinPrompt" class="pin-overlay">
+    <div v-if="showPinPrompt" class="pin-overlay" @click.self="closePinPrompt">
       <div class="pin-card">
         <h3>Konfirmasi PIN Ketua KPPS</h3>
         <p class="pin-context">{{ pinPromptLabel }}</p>
-        <input v-model="pinInput" type="password" inputmode="numeric" placeholder="PIN" />
+        <input v-model="pinInput" type="password" inputmode="numeric" placeholder="PIN" @keyup.enter="submitPin">
         <p v-if="pinError" class="pin-error">PIN salah, coba lagi.</p>
-        <div class="pin-actions">
-          <button class="btn-secondary" @click="closePinPrompt">
-            Batal
-          </button>
-          <button class="btn-primary" @click="submitPin">Kunci</button>
-        </div>
+        <div class="pin-actions"><button class="btn-secondary" @click="closePinPrompt">Batal</button><button class="btn-primary" @click="submitPin">Kunci</button></div>
       </div>
     </div>
   </div>
 </template>
 
 <script setup>
-import { ref, computed } from 'vue'
+import { ref, computed, onUnmounted } from 'vue'
 import { useTally } from '../composables/useTally.js'
 import { useTpsConfig } from '../composables/useTpsConfig.js'
 import { useDevice } from '../composables/useDevice.js'
 import { STATUS_TPS, TIDAK_SAH_ID, STATUS_PROSES } from '../config/constants.js'
 import { collection, query, where, onSnapshot } from 'firebase/firestore'
 import { db } from '../config/firebase.js'
+import OperationalHeader from '../components/OperationalHeader.vue'
 
 const { votes, countsByCalonId, totalTidakSah, totalKeseluruhan, catatSuara, batalkanSuaraTerakhir } = useTally()
 const { config, daftarCalon, lockPresensi, lockTally } = useTpsConfig()
-const { deviceId, namaPetugas, role } = useDevice()
-
-// Jumlah pemilih hadir dari Modul 1 -- query terpisah (bukan re-pakai
-// antreanList dari useDpt karena itu khusus status DI_ANTREAN).
+const { deviceId, namaPetugas } = useDevice()
+const SERIES = ['var(--series-1)', 'var(--series-2)', 'var(--series-3)', 'var(--series-4)', 'var(--series-5)', 'var(--series-6)', 'var(--series-7)']
 const jumlahHadir = ref(0)
-const hadirQuery = query(collection(db, 'dpt'), where('status_proses', '==', STATUS_PROSES.HADIR_SAH))
-onSnapshot(hadirQuery, (snap) => {
-  jumlahHadir.value = snap.docs.length
-})
-
+const unsubscribeHadir = onSnapshot(query(collection(db, 'dpt'), where('status_proses', '==', STATUS_PROSES.HADIR_SAH)), (snap) => { jumlahHadir.value = snap.docs.length })
+onUnmounted(() => unsubscribeHadir())
 const validasiCocok = computed(() => jumlahHadir.value === totalKeseluruhan.value)
-
-// FIX gap: hard gate, bukan cuma banner peringatan. Tap suara & tombol
-// kunci tally benar-benar disabled selama status_tps masih PRESENSI_OPEN --
-// mencegah data presensi berubah di tengah proses hitung (poin "Important
-// #5" dari review arsitektur sebelumnya).
 const isPresensiOpen = computed(() => config.value?.status_tps === STATUS_TPS.PRESENSI_OPEN)
 const isLocked = computed(() => config.value?.status_tps === STATUS_TPS.TALLY_DONE)
 const isTapDisabled = computed(() => isPresensiOpen.value || isLocked.value)
-
 const lastUndo = ref(null)
 const showPinPrompt = ref(false)
 const pinInput = ref('')
 const pinError = ref(false)
-const pinAction = ref(null) // 'lock_presensi' | 'lock_tally'
-
-const pinPromptLabel = computed(() =>
-  pinAction.value === 'lock_presensi'
-    ? 'Mengunci data presensi (tidak bisa diubah lagi setelah ini).'
-    : 'Submit hasil akhir tally (tidak bisa diubah lagi setelah ini).'
-)
-
-async function tap(calonId) {
-  if (isTapDisabled.value) return
-  await catatSuara(calonId, deviceId, namaPetugas.value)
-}
-
-async function undo() {
-  if (isTapDisabled.value) return
-  const result = await batalkanSuaraTerakhir()
-  if (result.success) {
-    lastUndo.value = result.calonId
-    setTimeout(() => {
-      if (lastUndo.value === result.calonId) lastUndo.value = null
-    }, 2500)
-  }
-}
-
-function namaCalonById(id) {
-  if (id === TIDAK_SAH_ID) return 'Tidak Sah'
-  return daftarCalon.value.find((c) => c.id === id)?.nama || id
-}
-
-function openPinPrompt(action) {
-  pinAction.value = action
-  showPinPrompt.value = true
-}
-
-function closePinPrompt() {
-  showPinPrompt.value = false
-  pinInput.value = ''
-  pinError.value = false
-  pinAction.value = null
-}
-
-async function submitPin() {
-  const result =
-    pinAction.value === 'lock_presensi'
-      ? await lockPresensi(pinInput.value)
-      : await lockTally(pinInput.value)
-
-  if (result.success) {
-    closePinPrompt()
-  } else {
-    pinError.value = true
-  }
-}
+const pinAction = ref(null)
+const pinPromptLabel = computed(() => pinAction.value === 'lock_presensi' ? 'Mengunci data presensi (tidak bisa diubah lagi).' : 'Submit hasil akhir tally (tidak bisa diubah lagi).')
+async function tap(calonId) { if (isTapDisabled.value) return; await catatSuara(calonId, deviceId, namaPetugas.value) }
+async function undo() { if (isTapDisabled.value) return; const result = await batalkanSuaraTerakhir(); if (result.success) { lastUndo.value = result.calonId; setTimeout(() => { if (lastUndo.value === result.calonId) lastUndo.value = null }, 2500) } }
+function candidateColor(index) { return SERIES[index] || 'var(--color-faint)' }
+function namaCalonById(id) { if (id === TIDAK_SAH_ID) return 'Tidak Sah'; return daftarCalon.value.find((c) => c.id === id)?.nama || id }
+function openPinPrompt(action) { pinAction.value = action; showPinPrompt.value = true }
+function closePinPrompt() { showPinPrompt.value = false; pinInput.value = ''; pinError.value = false; pinAction.value = null }
+async function submitPin() { const result = pinAction.value === 'lock_presensi' ? await lockPresensi(pinInput.value) : await lockTally(pinInput.value); if (result.success) closePinPrompt(); else pinError.value = true }
 </script>
 
 <style scoped>
-.wrap {
-  max-width: 480px;
-  margin: 0 auto;
-  padding: 1.5rem 1rem 3rem;
-}
-
-header {
-  margin-bottom: 1rem;
-}
-.petugas-info {
-  color: #6b6b66;
-  font-size: 0.85rem;
-}
-
-.warning-banner {
-  background: #fbeee0;
-  color: var(--color-amber-dark);
-  border: 1px solid var(--color-amber);
-  padding: 0.75rem 1rem;
-  border-radius: var(--radius);
-  font-size: 0.9rem;
-  margin-bottom: 1rem;
-}
-
-.gate-banner {
-  background: #fbeee0;
-  border: 2px solid var(--color-amber);
-  border-radius: var(--radius);
-  padding: 1.25rem;
-  margin-bottom: 1.25rem;
-}
-.gate-banner h3 {
-  color: var(--color-amber-dark);
-  margin-bottom: 0.5rem;
-}
-.gate-banner p {
-  font-size: 0.9rem;
-  margin-bottom: 1rem;
-}
-.gate-banner .btn-lock {
-  width: 100%;
-}
-
-.locked-banner {
-  background: #e2f1e8;
-  color: var(--color-green);
-  padding: 0.75rem 1rem;
-  border-radius: var(--radius);
-  font-weight: 600;
-  margin-bottom: 1rem;
-}
-
-.validation {
-  background: white;
-  border: 2px solid var(--color-line);
-  border-radius: var(--radius);
-  padding: 1rem;
-  margin-bottom: 1.25rem;
-}
-.validation.mismatch {
-  border-color: var(--color-red);
-}
-.validation-row {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 0.4rem;
-}
-.validation-status {
-  text-align: center;
-  font-weight: 700;
-  margin-top: 0.4rem;
-}
-.validation.mismatch .validation-status {
-  color: var(--color-red);
-}
-.validation:not(.mismatch) .validation-status {
-  color: var(--color-green);
-}
-
-.calon-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 0.75rem;
-  margin-bottom: 1rem;
-}
-
-.calon-btn {
-  background: white;
-  border: 2px solid var(--color-navy);
-  border-radius: var(--radius);
-  padding: 1rem 0.5rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.4rem;
-  min-height: 90px;
-}
-.calon-nama {
-  font-weight: 700;
-  text-align: center;
-  font-size: 0.95rem;
-}
-.calon-count {
-  font-size: 1.8rem;
-  font-weight: 700;
-  color: var(--color-navy);
-}
-.calon-btn.tidak-sah {
-  border-color: var(--color-red);
-  grid-column: span 2;
-}
-.calon-btn.tidak-sah .calon-count {
-  color: var(--color-red);
-}
-
-.btn-undo {
-  width: 100%;
-  background: white;
-  border: 2px solid var(--color-line);
-  font-weight: 600;
-  margin-bottom: 1.5rem;
-}
-
-.undo-feedback {
-  text-align: center;
-  color: var(--color-amber-dark);
-  margin-top: -1rem;
-  margin-bottom: 1rem;
-}
-
-.lock-section {
-  border-top: 1px solid var(--color-line);
-  padding-top: 1.25rem;
-}
-.lock-hint {
-  text-align: center;
-  font-size: 0.85rem;
-  color: #6b6b66;
-  margin-top: 0.5rem;
-}
-.link-rekap {
-  display: block;
-  text-align: center;
-  margin-top: 0.75rem;
-  color: var(--color-navy);
-  font-weight: 600;
-  text-decoration: none;
-}
-.btn-lock {
-  width: 100%;
-  background: var(--color-navy);
-  color: white;
-  font-weight: 700;
-}
-
-.pin-overlay {
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,0.5);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 1.5rem;
-}
-.pin-card {
-  background: white;
-  border-radius: var(--radius);
-  padding: 1.5rem;
-  width: 100%;
-  max-width: 320px;
-}
-.pin-context {
-  font-size: 0.85rem;
-  color: #6b6b66;
-  text-align: center;
-}
-.pin-card input {
-  width: 100%;
-  min-height: var(--touch-min);
-  border: 1px solid var(--color-line);
-  border-radius: var(--radius);
-  padding: 0 1rem;
-  font-size: 1.3rem;
-  margin: 1rem 0;
-  text-align: center;
-}
-.pin-error {
-  color: var(--color-red);
-  text-align: center;
-  margin-top: -0.5rem;
-}
-.pin-actions {
-  display: flex;
-  gap: 0.6rem;
-}
-.pin-actions button {
-  flex: 1;
-}
-.btn-secondary {
-  background: white;
-  border: 2px solid var(--color-line);
-}
-.btn-primary {
-  background: var(--color-navy);
-  color: white;
-  font-weight: 600;
-}
+.wrap { max-width:520px; margin:0 auto; padding:1.5rem 1rem 3rem; }
+.gate-banner { padding:1rem; margin-bottom:1rem; background:#fff6e8; border:1px solid #f0c98a; border-radius:var(--radius); }
+.gate-banner strong{color:var(--color-amber-dark)} .gate-banner p{color:var(--color-muted); font-size:.78rem; margin:.4rem 0 .8rem}
+.locked-banner{padding:.75rem 1rem; margin-bottom:1rem; color:var(--color-green); background:#e4f3ed; border-radius:10px; font-weight:700; font-size:.8rem}
+.validation{padding:1rem; margin-bottom:1rem; background:#fff; border:1px solid var(--color-line); border-radius:var(--radius); box-shadow:var(--shadow-card)}
+.validation.mismatch{border-color:#e7b9bd}
+.validation-row{display:flex;justify-content:space-between;color:var(--color-muted);font-size:.78rem;margin-bottom:.3rem}
+.validation-row .mono{color:var(--color-ink);font-weight:800}
+.validation-status{display:block; text-align:center; margin-top:.45rem; font-size:.78rem}
+.validation-status.ok{color:var(--color-green)} .validation-status.warn{color:var(--color-red)}
+.calon-stack{display:flex;flex-direction:column;gap:.55rem;margin-bottom:.75rem}
+.calon-card{display:grid;grid-template-columns:38px 1fr auto;align-items:center;gap:.6rem; min-height:64px; padding:.7rem .75rem; background:#fff; border:1px solid rgba(6,45,61,.06); border-radius:12px; box-shadow:0 4px 14px rgba(6,45,61,.05); text-align:left}
+.calon-card.invalid{border-color:#f0c3c6}
+.calon-card.invalid .calon-index{color:#fff;background:var(--color-red)}
+.calon-index{display:grid;place-items:center;width:30px;height:30px;color:#fff;border-radius:50%;font-size:.72rem;font-weight:900}
+.calon-copy{display:flex;flex-direction:column;min-width:0}.calon-copy strong{font-size:.85rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.calon-copy small{color:var(--color-muted);font-size:.63rem}
+.calon-count{color:var(--color-navy-dark);font-size:1.55rem;font-weight:900}
+.undo.full{margin-bottom:.6rem}
+.undo-feedback{color:var(--color-amber-dark);text-align:center;font-size:.76rem;margin-bottom:.8rem}
+.lock-section{border-top:1px solid var(--color-line); padding-top:1rem}
+.lock-hint{color:var(--color-muted);text-align:center;font-size:.72rem;margin-top:.45rem}
+.link-rekap{display:block;margin-top:.7rem;color:var(--color-navy);text-align:center;text-decoration:none;font-size:.8rem;font-weight:750}
+.btn-primary.full,.btn-secondary.full{width:100%}
+.pin-overlay{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;padding:1.5rem;background:rgba(6,45,61,.45);z-index:10}
+.pin-card{width:min(100%,340px);padding:1.5rem;background:#fff;border-radius:14px}
+.pin-card h3{margin:0 0 .35rem;color:var(--color-navy-dark);text-align:center;font-size:1rem}
+.pin-context{color:var(--color-muted);text-align:center;font-size:.72rem}
+.pin-card input{width:100%;min-height:var(--touch-min);margin:1rem 0;padding:0 1rem;border:1px solid var(--color-line);border-radius:10px;text-align:center;font-size:1.2rem}
+.pin-error{color:var(--color-red);text-align:center;font-size:.75rem;margin-top:-.5rem}
+.pin-actions{display:flex;gap:.6rem}.pin-actions button{flex:1}
 </style>

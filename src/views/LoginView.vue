@@ -1,32 +1,29 @@
 <template>
-  <div class="login-wrap">
-    <h1>Login Petugas</h1>
+  <main class="auth-page">
+    <router-link to="/" class="brand"><span class="seal mono">KP</span><strong>KPPS PILKALURAH</strong></router-link>
+    <section class="login-card">
+      <div class="crest mono">KP</div>
+      <h1>Login Petugas</h1>
+      <p class="intro">Masuk dengan akun Google yang telah didaftarkan untuk mengakses ruang kerja KPPS.</p>
 
-    <div v-if="checking" class="status-message">
-      <p>Memeriksa akses...</p>
-    </div>
+      <div v-if="checking" class="status-message">Memeriksa akses akun…</div>
+      <template v-else-if="!currentUser || currentUser.isAnonymous">
+        <p v-if="loginError" class="status-message denied">{{ loginError }}</p>
+        <button class="btn-google" :disabled="loggingIn" @click="handleLogin">
+          <span class="google">G</span>{{ loggingIn ? 'Membuka Google…' : 'Lanjutkan dengan Google' }}
+        </button>
+      </template>
+      <div v-else-if="!authorized" class="status-message denied">
+        <strong>{{ currentUser.email }}</strong> belum terdaftar sebagai petugas.
+        <small>Hubungi admin TPS untuk memperoleh akses.</small>
+        <button class="btn-secondary" @click="handleLogout">Coba Akun Lain</button>
+      </div>
+      <div v-else class="status-message success">✓ Berhasil masuk sebagai {{ currentUser.email }}<small>Mengalihkan ke setup device…</small></div>
 
-    <div v-else-if="!currentUser || currentUser.isAnonymous">
-      <p class="intro">Masuk dengan akun Google yang sudah didaftarkan sebagai petugas KPPS.</p>
-      <p v-if="loginError" class="login-error">{{ loginError }}</p>
-      <button class="btn-google" :disabled="loggingIn" @click="handleLogin">
-        {{ loggingIn ? 'Membuka Google...' : 'Masuk dengan Google' }}
-      </button>
-    </div>
-
-    <div v-else-if="!authorized" class="status-message denied">
-      <p><strong>{{ currentUser.email }}</strong> belum terdaftar sebagai petugas.</p>
-      <p class="hint">Hubungi admin untuk didaftarkan (email perlu ditambahkan ke daftar akses).</p>
-      <button class="btn-secondary" @click="handleLogout">Coba Akun Lain</button>
-    </div>
-
-    <div v-else class="status-message success">
-      <p>✓ Berhasil masuk sebagai {{ currentUser.email }}</p>
-      <p class="hint">Mengalihkan...</p>
-    </div>
-
+      <p class="secure-note">🔒 Akses diamankan dengan Firebase Authentication</p>
+    </section>
     <router-link to="/" class="back-link">← Kembali ke halaman publik</router-link>
-  </div>
+  </main>
 </template>
 
 <script setup>
@@ -36,119 +33,46 @@ import { useAuth } from '../composables/useAuth.js'
 
 const router = useRouter()
 const { currentUser, authChecked, loginWithGoogle, logout, checkAuthorized } = useAuth()
-
 const checking = ref(true)
 const authorized = ref(false)
 const loggingIn = ref(false)
 const loginError = ref('')
-
 async function evaluate() {
   if (!authChecked.value) return
   checking.value = true
   if (currentUser.value && !currentUser.value.isAnonymous) {
     authorized.value = await checkAuthorized()
-    if (authorized.value) {
-      setTimeout(() => router.push({ name: 'setup' }), 800)
-    }
+    if (authorized.value) setTimeout(() => router.push({ name: 'setup' }), 800)
   }
   checking.value = false
 }
-
-// Pantau keduanya. authChecked dapat berubah menjadi true tanpa perubahan
-// referensi currentUser yang sempat terlihat komponen, khususnya saat state
-// Auth sudah dipulihkan sebelum LoginView selesai di-mount.
 watch([currentUser, authChecked], evaluate, { immediate: true })
-
 async function handleLogin() {
-  loginError.value = ''
-  loggingIn.value = true
-  try {
-    await loginWithGoogle()
-    // Browser biasa selesai lewat popup; PWA standalone kembali lewat
-    // redirect dan evaluate() jalan dari perubahan state Firebase Auth.
-  } catch (err) {
+  loginError.value = ''; loggingIn.value = true
+  try { await loginWithGoogle() }
+  catch (err) {
     console.error('Login Google gagal:', err)
-    loginError.value = err?.code
-      ? `Login Google gagal (${err.code}). Silakan coba lagi.`
-      : 'Login Google gagal. Silakan coba lagi.'
-  } finally {
-    loggingIn.value = false
-  }
+    loginError.value = err?.code ? `Login Google gagal (${err.code}). Silakan coba lagi.` : 'Login Google gagal. Silakan coba lagi.'
+  } finally { loggingIn.value = false }
 }
-
-async function handleLogout() {
-  await logout()
-  authorized.value = false
-}
+async function handleLogout() { await logout(); authorized.value = false }
 </script>
 
 <style scoped>
-.login-wrap {
-  max-width: 400px;
-  margin: 15vh auto 0;
-  padding: 0 1.25rem;
-  text-align: center;
-}
-
-h1 {
-  margin-bottom: 1.5rem;
-}
-
-.intro {
-  color: #6b6b66;
-  margin-bottom: 1.5rem;
-  font-size: 0.9rem;
-}
-
-.login-error {
-  color: var(--color-red);
-  font-size: 0.85rem;
-  margin-bottom: 1rem;
-}
-
-.btn-google {
-  background: var(--color-navy);
-  color: white;
-  font-weight: 700;
-  padding: 0.9rem 1.5rem;
-  width: 100%;
-}
-
-.btn-google:disabled {
-  cursor: wait;
-  opacity: 0.7;
-}
-
-.status-message {
-  padding: 1.5rem;
-  border-radius: var(--radius);
-  margin-bottom: 1.5rem;
-}
-.status-message.denied {
-  background: #f6e4e1;
-  color: var(--color-red);
-}
-.status-message.success {
-  background: #e2f1e8;
-  color: var(--color-green);
-}
-.hint {
-  font-size: 0.85rem;
-  margin-top: 0.5rem;
-  opacity: 0.85;
-}
-
-.btn-secondary {
-  background: white;
-  border: 2px solid var(--color-line);
-  margin-top: 0.75rem;
-}
-
-.back-link {
-  display: block;
-  margin-top: 1.5rem;
-  color: #6b6b66;
-  font-size: 0.9rem;
-  text-decoration: none;
-}
+.auth-page { min-height:100vh; display:flex; flex-direction:column; align-items:center; padding:2rem 1rem; background:radial-gradient(circle at 50% 20%,#f9fbfc,#edf3f6 58%); }
+.brand { display:flex; align-items:center; gap:.6rem; color:var(--color-navy-dark); text-decoration:none; font-size:.76rem; letter-spacing:.08em; }
+.seal { display:grid; place-items:center; width:36px; height:36px; color:var(--color-amber-dark); border:2px solid var(--color-amber); border-radius:50%; font-size:.58rem; }
+.login-card { width:min(100%,440px); margin:auto 0 1rem; padding:2.4rem 2.2rem 1.5rem; text-align:center; background:#fff; border:1px solid rgba(6,45,61,.07); border-radius:18px; box-shadow:0 20px 55px rgba(6,45,61,.11); }
+.crest { display:grid; place-items:center; width:72px; height:72px; margin:0 auto 1.25rem; color:var(--color-amber-dark); border:3px double var(--color-amber); border-radius:50%; font-weight:900; }
+h1 { margin-bottom:.6rem; color:var(--color-navy-dark); font-size:1.65rem; }
+.intro { color:var(--color-muted); font-size:.86rem; line-height:1.55; margin-bottom:1.5rem; }
+.btn-google { display:flex; align-items:center; justify-content:center; gap:.75rem; width:100%; color:var(--color-ink); background:#fff; border:1px solid var(--color-line); font-weight:700; font-size:.9rem; }
+.google { display:grid; place-items:center; width:25px; height:25px; color:#4285f4; border:1px solid var(--color-line); border-radius:50%; font-weight:900; }
+.status-message { padding:1rem; border-radius:10px; background:var(--color-navy-soft); color:var(--color-navy); font-size:.86rem; }
+.status-message small { display:block; margin-top:.4rem; }
+.status-message.denied { background:#f9e7e8; color:var(--color-red); }
+.status-message.success { background:#e4f3ed; color:var(--color-green); }
+.status-message .btn-secondary { width:100%; margin-top:1rem; }
+.secure-note { margin:1.4rem 0 0; color:var(--color-faint); font-size:.65rem; }
+.back-link { margin:auto 0 0; color:var(--color-muted); font-size:.75rem; text-decoration:none; }
 </style>

@@ -7,28 +7,16 @@ export default defineConfig({
     vue(),
     VitePWA({
       registerType: 'autoUpdate',
-      includeAssets: ['favicon.ico'],
+      includeAssets: [],
       manifest: {
         name: 'KPPS Pilkalurah',
         short_name: 'KPPS',
         description: 'Asisten Digital KPPS - Presensi, Tally, Rekapitulasi',
-        theme_color: '#1e3a5f',
-        background_color: '#ffffff',
+        theme_color: '#062d3d',
+        background_color: '#eef4f7',
         display: 'standalone',
         orientation: 'portrait',
-        start_url: '/',
-        icons: [
-          {
-            src: 'icons/icon-192.png',
-            sizes: '192x192',
-            type: 'image/png'
-          },
-          {
-            src: 'icons/icon-512.png',
-            sizes: '512x512',
-            type: 'image/png'
-          }
-        ]
+        start_url: '/'
       },
       workbox: {
         // App shell + assets di-cache. Data Firestore ditangani terpisah oleh
