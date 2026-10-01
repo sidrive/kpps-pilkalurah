@@ -40,19 +40,16 @@
 </template>
 
 <script setup>
-import { computed, ref, onUnmounted } from 'vue'
-import { collection, query, where, onSnapshot } from 'firebase/firestore'
-import { db } from '../config/firebase.js'
+import { computed } from 'vue'
 import { useTally } from '../composables/useTally.js'
 import { useTpsConfig } from '../composables/useTpsConfig.js'
-import { STATUS_PROSES, TIDAK_SAH_ID } from '../config/constants.js'
+import { useDpt } from '../composables/useDpt.js'
+import { TIDAK_SAH_ID } from '../config/constants.js'
 import PublicDisplayHeader from '../components/PublicDisplayHeader.vue'
 
 const { countsByCalonId, totalKeseluruhan } = useTally()
 const { daftarCalon } = useTpsConfig()
-const jumlahHadir = ref(0)
-const unsubHadir = onSnapshot(query(collection(db, 'dpt'), where('status_proses', '==', STATUS_PROSES.HADIR_SAH)), (snap) => (jumlahHadir.value = snap.docs.length))
-onUnmounted(() => unsubHadir())
+const { jumlahHadir } = useDpt()
 
 const SERIES = ['var(--series-1)','var(--series-2)','var(--series-3)','var(--series-4)','var(--series-5)','var(--series-6)','var(--series-7)']
 function colorFor(item){

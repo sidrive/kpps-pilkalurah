@@ -48,19 +48,19 @@
 </template>
 
 <script setup>
-import { ref, reactive, computed, watch, onUnmounted } from 'vue'
-import { collection, onSnapshot } from 'firebase/firestore'
-import { db } from '../config/firebase.js'
+import { ref, reactive, computed, watch } from 'vue'
 import { useTpsConfig } from '../composables/useTpsConfig.js'
 import { useTally } from '../composables/useTally.js'
 import { useDevice } from '../composables/useDevice.js'
-import { STATUS_TPS, STATUS_PROSES, TIDAK_SAH_ID } from '../config/constants.js'
+import { useDpt } from '../composables/useDpt.js'
+import { STATUS_TPS, TIDAK_SAH_ID } from '../config/constants.js'
 import { generateBeritaAcaraPdf } from '../utils/generateBeritaAcaraPdf.js'
 import OperationalHeader from '../components/OperationalHeader.vue'
 
 const { config, daftarCalon, updateRekapInfo } = useTpsConfig()
 const { countsByCalonId, totalKeseluruhan } = useTally()
 const { namaPetugas } = useDevice()
+const { totalDpt, jumlahHadir, jumlahBelumHadir } = useDpt()
 const form = reactive({ tanggal_pemilihan:'', waktu_mulai_pemungutan:'', waktu_selesai_pemungutan:'', waktu_mulai_hitung:'', waktu_selesai_hitung:'', catatan_khusus:'', daftar_saksi:[''] })
 const saved = ref(false)
 let initialized = false
@@ -78,12 +78,6 @@ watch(config, (val) => {
 function tambahSaksi(){ form.daftar_saksi.push('') }
 function hapusSaksi(i){ form.daftar_saksi.splice(i,1); if(!form.daftar_saksi.length) form.daftar_saksi.push('') }
 async function simpan(){ await updateRekapInfo({ ...form }); saved.value = true; setTimeout(()=>saved.value=false,2000) }
-const allDpt = ref([])
-const unsubscribeDpt = onSnapshot(collection(db,'dpt'), (snap)=>{ allDpt.value = snap.docs.map((d)=>d.data()) })
-onUnmounted(() => unsubscribeDpt())
-const totalDpt = computed(()=>allDpt.value.length)
-const jumlahHadir = computed(()=>allDpt.value.filter((d)=>d.status_proses===STATUS_PROSES.HADIR_SAH).length)
-const jumlahBelumHadir = computed(()=>totalDpt.value-jumlahHadir.value)
 const persenHadir = computed(()=> totalDpt.value===0?0:Math.round((jumlahHadir.value/totalDpt.value)*100))
 const hasilSuara = computed(()=>{ const items=daftarCalon.value.map((c)=>({nama:c.nama,count:countsByCalonId.value[c.id]||0})); items.push({nama:'Tidak Sah',count:countsByCalonId.value[TIDAK_SAH_ID]||0}); return items })
 async function exportPdf(){

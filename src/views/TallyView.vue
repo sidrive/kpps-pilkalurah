@@ -50,22 +50,19 @@
 </template>
 
 <script setup>
-import { ref, computed, onUnmounted } from 'vue'
+import { ref, computed } from 'vue'
 import { useTally } from '../composables/useTally.js'
 import { useTpsConfig } from '../composables/useTpsConfig.js'
 import { useDevice } from '../composables/useDevice.js'
-import { STATUS_TPS, TIDAK_SAH_ID, STATUS_PROSES } from '../config/constants.js'
-import { collection, query, where, onSnapshot } from 'firebase/firestore'
-import { db } from '../config/firebase.js'
+import { useDpt } from '../composables/useDpt.js'
+import { STATUS_TPS, TIDAK_SAH_ID } from '../config/constants.js'
 import OperationalHeader from '../components/OperationalHeader.vue'
 
 const { votes, countsByCalonId, totalTidakSah, totalKeseluruhan, catatSuara, batalkanSuaraTerakhir } = useTally()
 const { config, daftarCalon, lockPresensi, lockTally } = useTpsConfig()
 const { deviceId, namaPetugas } = useDevice()
+const { jumlahHadir } = useDpt()
 const SERIES = ['var(--series-1)', 'var(--series-2)', 'var(--series-3)', 'var(--series-4)', 'var(--series-5)', 'var(--series-6)', 'var(--series-7)']
-const jumlahHadir = ref(0)
-const unsubscribeHadir = onSnapshot(query(collection(db, 'dpt'), where('status_proses', '==', STATUS_PROSES.HADIR_SAH)), (snap) => { jumlahHadir.value = snap.docs.length })
-onUnmounted(() => unsubscribeHadir())
 const validasiCocok = computed(() => jumlahHadir.value === totalKeseluruhan.value)
 const isPresensiOpen = computed(() => config.value?.status_tps === STATUS_TPS.PRESENSI_OPEN)
 const isLocked = computed(() => config.value?.status_tps === STATUS_TPS.TALLY_DONE)

@@ -19,7 +19,7 @@
 - **Frontend**: Vue 3 (Vite + `vite-plugin-pwa`), PWA installable.
 - **Database & Cloud**: Firebase Firestore (Web SDK v10, modular).
 - **Konektivitas TPS**: internet lemah (kuota/hotspot/WiFi) **selalu ada** — bukan zero-connectivity. Ini keputusan penting: arsitektur Firestore standar dipakai apa adanya, TIDAK perlu local sync server / PouchDB-CouchDB.
-- **Offline Persistence**: `persistentLocalCache` + `persistentMultipleTabManager` **wajib aktif** (`src/config/firebase.js`). Seluruh DPT diunduh ke IndexedDB H-1 lewat script import (`scripts/import-dpt.mjs`), sehingga pencarian & pencatatan presensi 100% instan secara lokal.
+- **Offline Persistence**: `persistentLocalCache` + `persistentMultipleTabManager` **wajib aktif** (`src/config/firebase.js`) untuk state presensi/tally Firestore. Master DPT sekarang dibundel lokal sebagai JSON (`src/data/dpt-tps-004.json`) hasil generate dari DOCX, sehingga pencarian identitas pemilih instan tanpa menyimpan data master DPT ke Firestore.
 - **Auth**: **Anonymous Auth** (bukan auth penuh, bukan tanpa auth). Alasan: mencegah akses publik ke Firestore (siapa pun yang tahu `firebaseConfig` bisa baca/tulis data kalau rules terbuka), tanpa menambah friction UX (auto sign-in di background) atau kompleksitas (tidak perlu login manual).
 - **PIN Ketua KPPS**: plain string di `tps_config/{tps_id}.pin_ketua`, divalidasi client-side dari cache lokal (bukan hash, bukan Firebase Auth penuh). Keputusan sadar mengingat skala pemakaian (1 TPS, milik sendiri) — prioritas: simple, gratis, cepat, tetap jalan offline.
 
@@ -31,19 +31,29 @@
 
 ## 4. Modul 1: Presensi Dual-App System — **STATUS: SCAFFOLD SELESAI, BUILD SUKSES**
 
-### Struktur Data DPT (Firestore `dpt/{no_urut}`)
+### Struktur Data DPT Lokal (`src/data/dpt-tps-004.json`)
 ```json
 {
   "no_urut": 42,
+  "tps": "004",
   "nama": "Budi Santoso",
-  "rt": "02",
-  "rw": "05",
   "jenis_kelamin": "L",
+  "status_pemilih": "K",
+  "alamat": "DERESAN",
+  "rt": "004"
+}
+```
+
+### Struktur State Presensi (Firestore `presensi_status/{no_urut}`)
+```json
+{
+  "no_urut": 42,
   "status_proses": "DI_ANTREAN",
+  "nomor_kedatangan": 17,
+  "waktu_validasi": 1755500000000,
   "waktu_masuk_antrean": 1755500000000,
   "waktu_konfirmasi": null,
   "status_centang_manual": false,
-  "kategori_pemilih": "DPT",
   "updated_by_device": "uuid-device",
   "updated_by_nama": "Nama Petugas"
 }
@@ -51,27 +61,30 @@
 
 ### Collection lain
 ```
-tps_config/{tps_id}     -- nama_tps, pin_ketua, status_tps
-presensi_log/{auto_id}  -- audit trail append-only (no_urut, status_lama, status_baru, device_id, nama_petugas, waktu_server)
-devices/{device_id}     -- BELUM diimplementasi (device_id baru di localStorage, belum di-push ke Firestore)
+tps_config/{tps_id}           -- nama_tps, pin_ketua, status_tps
+presensi_status/{no_urut}     -- status presensi mutable, sparse; doc absen berarti BELUM_HADIR
+presensi_log/{auto_id}        -- audit trail append-only (no_urut, nomor_kedatangan, status_lama, status_baru, device_id, nama_petugas, waktu_client, waktu_server)
+devices/{device_id}           -- BELUM diimplementasi (device_id baru di localStorage, belum di-push ke Firestore)
 ```
 
 ### State Flow Status Pemilih
-`BELUM_HADIR` → `DI_ANTREAN` (Petugas Depan, buffer max 10 hardcoded) → `HADIR_SAH` (KPPS 1/2 konfirmasi).
+`BELUM_HADIR` → `DI_ANTREAN` (layar Presensi & Antrean gabungan validasi data pemilih + beri nomor kedatangan, buffer max 100 hardcoded) → `HADIR_SAH` (konfirmasi dari layar yang sama).
 
 ### File yang sudah ada
 ```
 src/config/firebase.js         -- init Firestore offline + anonymous auth
-src/config/constants.js        -- MAX_QUEUE_BUFFER=10, STATUS_PROSES, STATUS_TPS, ROLE, TPS_ID
+src/config/constants.js        -- MAX_QUEUE_BUFFER=100, STATUS_PROSES, STATUS_TPS, ROLE, TPS_ID
 src/composables/useDevice.js   -- identitas device (UUID persisten + role, localStorage)
-src/composables/useDpt.js      -- query realtime antrean, tambahKeAntrean, konfirmasiHadir, batalkanAntrean
+src/composables/useDpt.js      -- query realtime presensi_status, merge dengan DPT JSON, tambahKeAntrean/nomor kedatangan, konfirmasiHadir, batalkanAntrean
+src/composables/useVoterMaster.js -- akses master DPT lokal dari JSON
 src/composables/useTpsConfig.js -- PIN Ketua, ubahStatusTps, lockPresensi
 src/views/SetupView.vue        -- pilih role & nama petugas per device
 src/views/PetugasDepanView.vue -- numpad besar, guard buffer + double-tap
 src/views/KppsView.vue         -- daftar antrean, konfirmasi/batal, filter centang manual
 firestore.rules                -- security rules dengan anonymous auth gate
-scripts/import-dpt.mjs         -- import CSV DPT via firebase-admin (dijalankan H-1)
-README.md                      -- instruksi setup Firebase project, deploy rules, import data, run dev
+scripts/generate-dpt-json.py   -- generate master DPT lokal dari DOCX ke `src/data/dpt-tps-004.json`
+scripts/import-dpt.mjs         -- legacy rollback: import CSV DPT via firebase-admin
+README.md                      -- instruksi setup Firebase project, deploy rules, generate DPT JSON, run dev
 ```
 
 ### Belum ada di Modul 1 (opsional, tidak blocking Modul 2)
@@ -200,7 +213,7 @@ scripts/add-authorized-emails.mjs -- bulk-add email ke whitelist (alternatif dar
 |---|---|---|
 | Platform | PWA, bukan native Android | Kebutuhan sudah terpenuhi tanpa native; native disimpan untuk v2 (NFC e-KTP) |
 | Konektivitas | Selalu ada internet (lemah) di TPS | Menghindari kompleksitas local sync server |
-| Buffer antrean | Hardcoded 10 | Skala kecil, 1 TPS; catatan v2: pindah ke `tps_config` kalau perlu configurable |
+| Buffer antrean | Hardcoded 100 | Diminta dinaikkan agar praktis tidak membatasi alur; catatan v2: pindah ke `tps_config` kalau perlu configurable |
 | Auth (baca/publik) | Anonymous Auth + rules | Gratis, tidak nambah friction, tapi tetap menutup akses publik untuk WRITE |
 | Auth (petugas/tulis) | Google Sign-In + whitelist `authorized_emails` | Gratis (tanpa Cloud Functions/Blaze), tanpa password, kontrol akses manual konsisten dengan pola PIN |
 | PIN Ketua | Plain string, validasi client-side | Simple/murah/cepat, cocok untuk pemakaian sendiri (bukan multi-tenant) |

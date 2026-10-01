@@ -5,17 +5,17 @@ Scaffold Modul 1–3 + landing page publik + login petugas dari PROJECT_CONTEXT.
 ## Yang sudah termasuk di scaffold ini
 
 - Vue 3 + Vite + PWA (offline installable, service worker untuk app shell)
-- Firestore dengan `persistentLocalCache` (multi-tab) — offline-first sesuai strategi A
+- Firestore dengan `persistentLocalCache` (multi-tab) — offline-first untuk status presensi/tally; master DPT disimpan lokal sebagai JSON
 - **Landing page publik** (`/`) — dashboard untuk warga TANPA login, link ke 3 layar publik + tombol login petugas
 - **Login petugas** (`/login`) — Google Sign-In + whitelist Firestore (`authorized_emails`), lihat bagian Auth di bawah
-- **Admin internal** (`/admin`) — kelola daftar calon dan whitelist email petugas (perubahan whitelist memakai gate PIN Ketua di UI)
+- **Admin internal** (`/admin`) — kelola daftar calon, whitelist email petugas, dan laporan kedatangan urut nomor kedatangan
 - Guard client-side untuk double-tap / race condition — lihat komentar panjang di `src/composables/useDpt.js` soal kenapa `runTransaction` TIDAK dipakai
-- Client-generated timestamp untuk sorting antrean/suara — `serverTimestamp()` tetap dipakai terpisah untuk audit resmi
-- **Modul 1**: Setup device (pilih role + nama, prefill dari akun Google), Petugas Depan (numpad + buffer 10), KPPS (daftar antrean + filter centang manual)
+- Client-generated timestamp dan nomor kedatangan untuk sorting antrean; `serverTimestamp()` tetap dipakai terpisah untuk audit resmi
+- **Modul 1**: Setup device (pilih role + nama, prefill dari akun Google), layar Presensi & Antrean gabungan untuk Petugas Depan/KPPS (input nomor → validasi data pemilih → beri nomor kedatangan → lihat antrean → konfirmasi/batal)
 - **Modul 2**: Papan Hitung Suara (tombol besar per calon + undo), validasi otomatis (Total Suara vs Pemilih Hadir), PIN gate berlapis (`PRESENSI_OPEN` → `PRESENSI_LOCKED` → `TALLY_DONE`)
 - **Modul 3**: Form rekap (waktu, catatan, daftar saksi) + preview + export PDF Berita Acara (client-side via `jsPDF`, tanpa backend)
 - **Layar publik** (`/display/presensi`, `/display/tally`, `/display/hasil-akhir`): donut chart kehadiran, bar chart hasil suara real-time, dan layar hasil final — semua untuk dibuka di device terpisah menghadap saksi/publik
-- Script import DPT dari CSV via Firebase Admin SDK
+- Script generate DPT JSON lokal dari DOCX
 - Script bulk-add email petugas ke whitelist
 
 ## Setup
@@ -53,13 +53,17 @@ Petugas yang sudah authorized secara teknis memiliki izin Firestore untuk mengub
 
 Field Modul 3 (`tanggal_pemilihan`, `waktu_mulai_pemungutan`, dst, `catatan_khusus`, `daftar_saksi`) dapat diisi langsung melalui `/rekap`.
 
-### 5. Import data DPT (H-1)
-Siapkan CSV dengan header `no_urut,nama,rt,rw,jenis_kelamin`, lalu:
+### 5. Generate data DPT lokal dari DOCX
+Master DPT tidak lagi diimpor ke Firestore. Data pemilih dibundel sebagai JSON lokal, sementara Firestore hanya menyimpan status presensi (`presensi_status`) dan audit (`presensi_log`).
+
+Generate ulang JSON dari file DOCX sumber:
 ```bash
-npm install firebase-admin
-# taruh service account key di scripts/serviceAccountKey.json (lihat komentar di script)
-node scripts/import-dpt.mjs path/ke/dpt.csv
+python3 scripts/generate-dpt-json.py /Users/s_idrive/Downloads/Daftar_Pemilih_TPS_004.docx src/data/dpt-tps-004.json
 ```
+
+Script memvalidasi jumlah 600 pemilih, nomor urut unik, dan field wajib sebelum menulis JSON. Kalau format DOCX berubah, perbaiki script/mapping lebih dulu sebelum build.
+
+Catatan: `scripts/import-dpt.mjs` lama masih ada sebagai jalur rollback/legacy, tapi bukan flow utama lagi.
 
 ### 6. Build & deploy
 
@@ -119,7 +123,9 @@ Smoke test pascadeploy:
 **Catatan penting soal testing Google Sign-In**: `localhost` biasanya sudah otomatis authorized, tapi akses lewat IP LAN (misal `192.168.x.x:5173`) belum tentu authorized untuk redirect/popup Google. Gunakan domain HTTPS produksi untuk pengujian penuh dari HP, atau uji lebih dahulu di `localhost` melalui browser desktop.
 
 ### 8. Testing offline
-Chrome DevTools → Network tab → set ke "Offline" untuk simulasi TPS tanpa sinyal. Data DPT yang sudah diimport tetap bisa dicari & diproses karena sudah di IndexedDB. Login Google WAJIB online sekali di awal (OAuth butuh internet); setelah itu sesi tersimpan dan device bisa kerja offline seperti biasa.
+Chrome DevTools → Network tab → set ke "Offline" untuk simulasi TPS tanpa sinyal. Master DPT tersedia dari JSON lokal yang ikut dibundel app; status presensi/tally tetap memakai Firestore offline cache. Login Google WAJIB online sekali di awal (OAuth butuh internet); setelah itu sesi tersimpan dan device bisa kerja offline seperti biasa.
+
+Nomor kedatangan dibuat client-side dari snapshot lokal (`max + 1`) agar tetap cocok dengan strategi offline-first. Operasional idealnya hanya memakai 1 device Petugas Depan untuk validasi masuk; jika 2 device memvalidasi bersamaan/offline, nomor bisa duplikat dan perlu direkonsiliasi dari `presensi_log`.
 
 ## Autentikasi & Otorisasi (penting dibaca)
 
@@ -137,8 +143,8 @@ Dua lapis yang berjalan bersamaan:
 1. Warga buka domain app → langsung lihat landing page (tanpa login) → bisa klik ke layar presensi/tally/hasil akhir kapan saja.
 2. Petugas buka domain app → klik "Login Petugas" → masuk dengan Google → (kalau emailnya sudah terdaftar) diarahkan ke Setup Device.
 3. Setiap device petugas pilih role + nama (prefill dari akun Google, bisa diedit) — tersimpan di localStorage device itu.
-4. Petugas Depan input no. urut lewat numpad → masuk antrean (maks 10).
-5. KPPS 1/2 konfirmasi hadir dari daftar antrean, atau batalkan kalau salah.
+4. Petugas Depan/KPPS membuka layar Presensi & Antrean gabungan, input no. urut lewat numpad → data pemilih muncul untuk divalidasi → validasi masuk memberi nomor kedatangan dan masuk antrean (maks 100).
+5. Di layar yang sama, petugas melihat daftar antrean urut nomor kedatangan lalu konfirmasi hadir, atau batalkan kalau salah.
 6. Ketua (di `/tally`) kunci presensi dulu (PIN) → baru bisa mulai tap suara per calon.
 7. Setelah semua surat suara dihitung, Ketua kunci & submit hasil tally (PIN).
 8. Buka `/rekap`, isi waktu pelaksanaan + catatan + daftar saksi, cek ringkasan, lalu export PDF Berita Acara.

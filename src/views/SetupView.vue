@@ -11,11 +11,11 @@
         <legend>Pilih Peran</legend>
         <label class="role-card" :class="{ selected: selectedRole === ROLE.PETUGAS_DEPAN }">
           <input v-model="selectedRole" type="radio" :value="ROLE.PETUGAS_DEPAN">
-          <span class="role-icon">⌕</span><span><strong>Petugas Depan</strong><small>Panggil dan masukkan pemilih ke antrean</small></span><i>›</i>
+          <span class="role-icon">⌕</span><span><strong>Petugas Depan</strong><small>Input pemilih, lihat antrean, konfirmasi/batal</small></span><i>›</i>
         </label>
         <div class="role-card kpps-role" :class="{ selected: [ROLE.KPPS_1, ROLE.KPPS_2].includes(selectedRole) }">
           <span class="role-icon">☷</span>
-          <span class="role-copy"><strong>Anggota KPPS</strong><small>Verifikasi kehadiran di meja registrasi</small></span>
+          <span class="role-copy"><strong>Anggota KPPS</strong><small>Input pemilih, lihat antrean, konfirmasi/batal</small></span>
           <span class="kpps-options" aria-label="Pilih nomor anggota KPPS">
             <label :class="{ active: selectedRole === ROLE.KPPS_1 }"><input v-model="selectedRole" type="radio" :value="ROLE.KPPS_1">KPPS 1</label>
             <label :class="{ active: selectedRole === ROLE.KPPS_2 }"><input v-model="selectedRole" type="radio" :value="ROLE.KPPS_2">KPPS 2</label>
@@ -47,8 +47,7 @@ const nama = ref(''); const selectedRole = ref('')
 onMounted(() => { if (currentUser.value?.displayName) nama.value = currentUser.value.displayName })
 function lanjut() {
   setNamaPetugas(nama.value.trim()); setRole(selectedRole.value)
-  if (selectedRole.value === ROLE.PETUGAS_DEPAN) router.push({ name:'petugas-depan' })
-  else if (selectedRole.value === ROLE.KETUA) router.push({ name:'tally' })
+  if (selectedRole.value === ROLE.KETUA) router.push({ name:'tally' })
   else router.push({ name:'kpps' })
 }
 async function handleLogout() { await logout(); router.push({ name:'landing' }) }

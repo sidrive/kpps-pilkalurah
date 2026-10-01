@@ -23,18 +23,11 @@
 </template>
 
 <script setup>
-import { ref, computed, onUnmounted } from 'vue'
-import { collection, onSnapshot } from 'firebase/firestore'
-import { db } from '../config/firebase.js'
-import { STATUS_PROSES } from '../config/constants.js'
+import { computed } from 'vue'
+import { useDpt } from '../composables/useDpt.js'
 import PublicDisplayHeader from '../components/PublicDisplayHeader.vue'
 
-const allDpt = ref([])
-const unsubscribe = onSnapshot(collection(db, 'dpt'), (snap) => { allDpt.value = snap.docs.map((d) => d.data()) })
-onUnmounted(() => unsubscribe())
-const total = computed(() => allDpt.value.length)
-const hadir = computed(() => allDpt.value.filter((d) => d.status_proses === STATUS_PROSES.HADIR_SAH).length)
-const belumHadir = computed(() => total.value - hadir.value)
+const { totalDpt: total, jumlahHadir: hadir, jumlahBelumHadir: belumHadir } = useDpt()
 const persenHadir = computed(() => total.value === 0 ? 0 : Math.round((hadir.value / total.value) * 100))
 const radius = 80
 const circumference = 2 * Math.PI * radius

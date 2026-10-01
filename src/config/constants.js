@@ -2,7 +2,7 @@
 // Hardcoded sesuai keputusan awal (skala kecil, 1 TPS, dipakai sendiri).
 // TODO(v2): pindahkan ke dokumen `tps_config/{tps_id}.max_antrean` di Firestore
 // kalau nanti perlu berbeda-beda per TPS / mudah diubah tanpa redeploy kode.
-export const MAX_QUEUE_BUFFER = 10
+export const MAX_QUEUE_BUFFER = 100
 
 export const STATUS_PROSES = {
   BELUM_HADIR: 'BELUM_HADIR',

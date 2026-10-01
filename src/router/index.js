@@ -2,7 +2,6 @@ import { createRouter, createWebHistory } from 'vue-router'
 import LandingView from '../views/LandingView.vue'
 import LoginView from '../views/LoginView.vue'
 import SetupView from '../views/SetupView.vue'
-import PetugasDepanView from '../views/PetugasDepanView.vue'
 import KppsView from '../views/KppsView.vue'
 import TallyView from '../views/TallyView.vue'
 import RekapView from '../views/RekapView.vue'
@@ -19,7 +18,7 @@ const routes = [
 
   // Fitur petugas -- wajib Google Sign-In + email ada di authorized_emails
   { path: '/setup', name: 'setup', component: SetupView, meta: { requiresAuth: true } },
-  { path: '/petugas-depan', name: 'petugas-depan', component: PetugasDepanView, meta: { requiresAuth: true } },
+  { path: '/petugas-depan', name: 'petugas-depan', component: KppsView, meta: { requiresAuth: true } },
   { path: '/kpps', name: 'kpps', component: KppsView, meta: { requiresAuth: true } },
   { path: '/tally', name: 'tally', component: TallyView, meta: { requiresAuth: true } },
   { path: '/rekap', name: 'rekap', component: RekapView, meta: { requiresAuth: true } },

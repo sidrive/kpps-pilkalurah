@@ -1,0 +1,5402 @@
+[
+  {
+    "no_urut": 1,
+    "tps": "004",
+    "nama": "TEKAD RAHARJO",
+    "jenis_kelamin": "L",
+    "status_pemilih": "K",
+    "alamat": "DERESAN",
+    "rt": "004"
+  },
+  {
+    "no_urut": 2,
+    "tps": "004",
+    "nama": "TITAH GEMA TAKBIR",
+    "jenis_kelamin": "L",
+    "status_pemilih": "BK",
+    "alamat": "DERESAN",
+    "rt": "004"
+  },
+  {
+    "no_urut": 3,
+    "tps": "004",
+    "nama": "TRI SANTOSO",
+    "jenis_kelamin": "L",
+    "status_pemilih": "K",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "004"
+  },
+  {
+    "no_urut": 4,
+    "tps": "004",
+    "nama": "ULFAH NURUL IBAD",
+    "jenis_kelamin": "P",
+    "status_pemilih": "BK",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "004"
+  },
+  {
+    "no_urut": 5,
+    "tps": "004",
+    "nama": "UMI AKHADIYAH",
+    "jenis_kelamin": "P",
+    "status_pemilih": "K",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "004"
+  },
+  {
+    "no_urut": 6,
+    "tps": "004",
+    "nama": "URIP WARTIYEM",
+    "jenis_kelamin": "P",
+    "status_pemilih": "K",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "004"
+  },
+  {
+    "no_urut": 7,
+    "tps": "004",
+    "nama": "WAKHID ARIWIBAWA",
+    "jenis_kelamin": "L",
+    "status_pemilih": "K",
+    "alamat": "DERESAN",
+    "rt": "004"
+  },
+  {
+    "no_urut": 8,
+    "tps": "004",
+    "nama": "WARSILAH",
+    "jenis_kelamin": "P",
+    "status_pemilih": "C",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "004"
+  },
+  {
+    "no_urut": 9,
+    "tps": "004",
+    "nama": "WASILAH FAUZIYYAH",
+    "jenis_kelamin": "P",
+    "status_pemilih": "",
+    "alamat": "DUSUN DERESAN",
+    "rt": "004"
+  },
+  {
+    "no_urut": 10,
+    "tps": "004",
+    "nama": "WIDIYANING PRIHARINI",
+    "jenis_kelamin": "P",
+    "status_pemilih": "",
+    "alamat": "DERESAN",
+    "rt": "004"
+  },
+  {
+    "no_urut": 11,
+    "tps": "004",
+    "nama": "YULI ASIH",
+    "jenis_kelamin": "P",
+    "status_pemilih": "K",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "004"
+  },
+  {
+    "no_urut": 12,
+    "tps": "004",
+    "nama": "YUNI ASTUTI",
+    "jenis_kelamin": "P",
+    "status_pemilih": "K",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "004"
+  },
+  {
+    "no_urut": 13,
+    "tps": "004",
+    "nama": "YUTAVIANANDA DEVINTHA",
+    "jenis_kelamin": "P",
+    "status_pemilih": "BK",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "004"
+  },
+  {
+    "no_urut": 14,
+    "tps": "004",
+    "nama": "ZAKY ANDIKA PUTRA",
+    "jenis_kelamin": "L",
+    "status_pemilih": "BK",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "004"
+  },
+  {
+    "no_urut": 15,
+    "tps": "004",
+    "nama": "ZASKIA AUFA ZAHRA",
+    "jenis_kelamin": "P",
+    "status_pemilih": "BK",
+    "alamat": "DERESAN",
+    "rt": "004"
+  },
+  {
+    "no_urut": 16,
+    "tps": "004",
+    "nama": "ADE RATNA PUTRI",
+    "jenis_kelamin": "P",
+    "status_pemilih": "BK",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "005"
+  },
+  {
+    "no_urut": 17,
+    "tps": "004",
+    "nama": "AHMAD KHOZIN",
+    "jenis_kelamin": "L",
+    "status_pemilih": "K",
+    "alamat": "DERESAN",
+    "rt": "005"
+  },
+  {
+    "no_urut": 18,
+    "tps": "004",
+    "nama": "AISYA RAHMA AULIA",
+    "jenis_kelamin": "P",
+    "status_pemilih": "BK",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "005"
+  },
+  {
+    "no_urut": 19,
+    "tps": "004",
+    "nama": "ALIEK ARSYAD",
+    "jenis_kelamin": "L",
+    "status_pemilih": "BK",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "005"
+  },
+  {
+    "no_urut": 20,
+    "tps": "004",
+    "nama": "ALLIFI ANA ANNAS",
+    "jenis_kelamin": "P",
+    "status_pemilih": "BK",
+    "alamat": "DERESAN",
+    "rt": "005"
+  },
+  {
+    "no_urut": 21,
+    "tps": "004",
+    "nama": "AMANAH",
+    "jenis_kelamin": "P",
+    "status_pemilih": "K",
+    "alamat": "DERESAN",
+    "rt": "005"
+  },
+  {
+    "no_urut": 22,
+    "tps": "004",
+    "nama": "AMANAT",
+    "jenis_kelamin": "L",
+    "status_pemilih": "BK",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "005"
+  },
+  {
+    "no_urut": 23,
+    "tps": "004",
+    "nama": "ANDI SETIAWAN",
+    "jenis_kelamin": "L",
+    "status_pemilih": "BK",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "005"
+  },
+  {
+    "no_urut": 24,
+    "tps": "004",
+    "nama": "ANDRIANA SUWARSINI",
+    "jenis_kelamin": "P",
+    "status_pemilih": "K",
+    "alamat": "DERESAN",
+    "rt": "005"
+  },
+  {
+    "no_urut": 25,
+    "tps": "004",
+    "nama": "ANDRIYANTI REJEKI",
+    "jenis_kelamin": "P",
+    "status_pemilih": "BK",
+    "alamat": "DERESAN",
+    "rt": "005"
+  },
+  {
+    "no_urut": 26,
+    "tps": "004",
+    "nama": "APRILIA ZUDHI KURNIASARI",
+    "jenis_kelamin": "P",
+    "status_pemilih": "BK",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "005"
+  },
+  {
+    "no_urut": 27,
+    "tps": "004",
+    "nama": "ARI MULYO",
+    "jenis_kelamin": "L",
+    "status_pemilih": "K",
+    "alamat": "DERESAN",
+    "rt": "005"
+  },
+  {
+    "no_urut": 28,
+    "tps": "004",
+    "nama": "ARIEF WIJANARKO",
+    "jenis_kelamin": "L",
+    "status_pemilih": "K",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "005"
+  },
+  {
+    "no_urut": 29,
+    "tps": "004",
+    "nama": "ATIKA ZUDHI SAFITRI",
+    "jenis_kelamin": "P",
+    "status_pemilih": "BK",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "005"
+  },
+  {
+    "no_urut": 30,
+    "tps": "004",
+    "nama": "BADIAH",
+    "jenis_kelamin": "P",
+    "status_pemilih": "K",
+    "alamat": "DERESAN",
+    "rt": "005"
+  },
+  {
+    "no_urut": 31,
+    "tps": "004",
+    "nama": "BAGOES YULIANTO",
+    "jenis_kelamin": "L",
+    "status_pemilih": "BK",
+    "alamat": "DERESAN",
+    "rt": "005"
+  },
+  {
+    "no_urut": 32,
+    "tps": "004",
+    "nama": "BALI ERFIANTO",
+    "jenis_kelamin": "L",
+    "status_pemilih": "K",
+    "alamat": "DERESAN",
+    "rt": "005"
+  },
+  {
+    "no_urut": 33,
+    "tps": "004",
+    "nama": "BASRI",
+    "jenis_kelamin": "L",
+    "status_pemilih": "K",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "005"
+  },
+  {
+    "no_urut": 34,
+    "tps": "004",
+    "nama": "BONIYEM",
+    "jenis_kelamin": "P",
+    "status_pemilih": "C",
+    "alamat": "DERESAN",
+    "rt": "005"
+  },
+  {
+    "no_urut": 35,
+    "tps": "004",
+    "nama": "BUDI UTOMO",
+    "jenis_kelamin": "L",
+    "status_pemilih": "K",
+    "alamat": "DERESAN",
+    "rt": "005"
+  },
+  {
+    "no_urut": 36,
+    "tps": "004",
+    "nama": "BUDIONO",
+    "jenis_kelamin": "L",
+    "status_pemilih": "K",
+    "alamat": "DERESAN",
+    "rt": "005"
+  },
+  {
+    "no_urut": 37,
+    "tps": "004",
+    "nama": "CHUSNUL ARYANTI",
+    "jenis_kelamin": "P",
+    "status_pemilih": "K",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "005"
+  },
+  {
+    "no_urut": 38,
+    "tps": "004",
+    "nama": "DARMAWAN SULISTYO",
+    "jenis_kelamin": "L",
+    "status_pemilih": "K",
+    "alamat": "DERESAN",
+    "rt": "005"
+  },
+  {
+    "no_urut": 39,
+    "tps": "004",
+    "nama": "DHAMASTYA ADHI PUTRA",
+    "jenis_kelamin": "L",
+    "status_pemilih": "K",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "005"
+  },
+  {
+    "no_urut": 40,
+    "tps": "004",
+    "nama": "DWI FITRIYANI",
+    "jenis_kelamin": "P",
+    "status_pemilih": "BK",
+    "alamat": "DERESAN",
+    "rt": "005"
+  },
+  {
+    "no_urut": 41,
+    "tps": "004",
+    "nama": "DWI MURTANTO YUWONO",
+    "jenis_kelamin": "L",
+    "status_pemilih": "K",
+    "alamat": "DERESAN",
+    "rt": "005"
+  },
+  {
+    "no_urut": 42,
+    "tps": "004",
+    "nama": "DWI PURNOMO",
+    "jenis_kelamin": "L",
+    "status_pemilih": "K",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "005"
+  },
+  {
+    "no_urut": 43,
+    "tps": "004",
+    "nama": "DWI YUNI ASTUTI",
+    "jenis_kelamin": "P",
+    "status_pemilih": "K",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "005"
+  },
+  {
+    "no_urut": 44,
+    "tps": "004",
+    "nama": "EKO WINANTI",
+    "jenis_kelamin": "P",
+    "status_pemilih": "K",
+    "alamat": "DERESAN",
+    "rt": "005"
+  },
+  {
+    "no_urut": 45,
+    "tps": "004",
+    "nama": "EMI WAFIROH",
+    "jenis_kelamin": "P",
+    "status_pemilih": "K",
+    "alamat": "DERESAN",
+    "rt": "005"
+  },
+  {
+    "no_urut": 46,
+    "tps": "004",
+    "nama": "ENI SUPRAPTI",
+    "jenis_kelamin": "P",
+    "status_pemilih": "K",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "005"
+  },
+  {
+    "no_urut": 47,
+    "tps": "004",
+    "nama": "ERLINA PUJI RAHAYU",
+    "jenis_kelamin": "P",
+    "status_pemilih": "K",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "005"
+  },
+  {
+    "no_urut": 48,
+    "tps": "004",
+    "nama": "ERMA JANU ARI ATMAJA",
+    "jenis_kelamin": "L",
+    "status_pemilih": "K",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "005"
+  },
+  {
+    "no_urut": 49,
+    "tps": "004",
+    "nama": "ERRY SULISTYANI",
+    "jenis_kelamin": "P",
+    "status_pemilih": "K",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "005"
+  },
+  {
+    "no_urut": 50,
+    "tps": "004",
+    "nama": "FITRIANA TRI ASTUTI",
+    "jenis_kelamin": "P",
+    "status_pemilih": "K",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "005"
+  },
+  {
+    "no_urut": 51,
+    "tps": "004",
+    "nama": "FRANSISKA ISKANDARWATI",
+    "jenis_kelamin": "P",
+    "status_pemilih": "K",
+    "alamat": "DERESAN",
+    "rt": "005"
+  },
+  {
+    "no_urut": 52,
+    "tps": "004",
+    "nama": "HANUM TIRTANINGRUM",
+    "jenis_kelamin": "P",
+    "status_pemilih": "K",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "005"
+  },
+  {
+    "no_urut": 53,
+    "tps": "004",
+    "nama": "HARIYANTO",
+    "jenis_kelamin": "L",
+    "status_pemilih": "K",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "005"
+  },
+  {
+    "no_urut": 54,
+    "tps": "004",
+    "nama": "HARTINI SULASTRI",
+    "jenis_kelamin": "P",
+    "status_pemilih": "C",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "005"
+  },
+  {
+    "no_urut": 55,
+    "tps": "004",
+    "nama": "HARTONI",
+    "jenis_kelamin": "P",
+    "status_pemilih": "K",
+    "alamat": "DERESAN",
+    "rt": "005"
+  },
+  {
+    "no_urut": 56,
+    "tps": "004",
+    "nama": "HARUMNI MELATI NINGTYAS",
+    "jenis_kelamin": "P",
+    "status_pemilih": "BK",
+    "alamat": "DERESAN",
+    "rt": "005"
+  },
+  {
+    "no_urut": 57,
+    "tps": "004",
+    "nama": "HARUN MS.",
+    "jenis_kelamin": "L",
+    "status_pemilih": "BK",
+    "alamat": "DERESAN",
+    "rt": "005"
+  },
+  {
+    "no_urut": 58,
+    "tps": "004",
+    "nama": "HERMAWAN SULISTYO",
+    "jenis_kelamin": "L",
+    "status_pemilih": "K",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "005"
+  },
+  {
+    "no_urut": 59,
+    "tps": "004",
+    "nama": "HIDAYAT TUSYADIAH",
+    "jenis_kelamin": "P",
+    "status_pemilih": "K",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "005"
+  },
+  {
+    "no_urut": 60,
+    "tps": "004",
+    "nama": "HONIE WULANDARI",
+    "jenis_kelamin": "P",
+    "status_pemilih": "K",
+    "alamat": "DERESAN",
+    "rt": "005"
+  },
+  {
+    "no_urut": 61,
+    "tps": "004",
+    "nama": "HUSNA RIFAATUL MAHMUDAH",
+    "jenis_kelamin": "P",
+    "status_pemilih": "K",
+    "alamat": "DERESAN",
+    "rt": "005"
+  },
+  {
+    "no_urut": 62,
+    "tps": "004",
+    "nama": "IKA NUR ANGGRAINI",
+    "jenis_kelamin": "P",
+    "status_pemilih": "BK",
+    "alamat": "DERESAN",
+    "rt": "005"
+  },
+  {
+    "no_urut": 63,
+    "tps": "004",
+    "nama": "INGGID AGNA AURELLIA",
+    "jenis_kelamin": "P",
+    "status_pemilih": "BK",
+    "alamat": "DERESAN",
+    "rt": "005"
+  },
+  {
+    "no_urut": 64,
+    "tps": "004",
+    "nama": "IRENE PANGESTI SAPUTRI",
+    "jenis_kelamin": "P",
+    "status_pemilih": "K",
+    "alamat": "DERESAN",
+    "rt": "005"
+  },
+  {
+    "no_urut": 65,
+    "tps": "004",
+    "nama": "IRFAN KHAIRI MUSTOFA",
+    "jenis_kelamin": "L",
+    "status_pemilih": "BK",
+    "alamat": "DERESAN",
+    "rt": "005"
+  },
+  {
+    "no_urut": 66,
+    "tps": "004",
+    "nama": "ISTINGANAH",
+    "jenis_kelamin": "P",
+    "status_pemilih": "K",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "005"
+  },
+  {
+    "no_urut": 67,
+    "tps": "004",
+    "nama": "JAKA PRASETYA",
+    "jenis_kelamin": "L",
+    "status_pemilih": "K",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "005"
+  },
+  {
+    "no_urut": 68,
+    "tps": "004",
+    "nama": "JAMILAH",
+    "jenis_kelamin": "P",
+    "status_pemilih": "C",
+    "alamat": "DERESAN",
+    "rt": "005"
+  },
+  {
+    "no_urut": 69,
+    "tps": "004",
+    "nama": "JUMIDAH",
+    "jenis_kelamin": "P",
+    "status_pemilih": "K",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "005"
+  },
+  {
+    "no_urut": 70,
+    "tps": "004",
+    "nama": "JURIYAH",
+    "jenis_kelamin": "P",
+    "status_pemilih": "K",
+    "alamat": "DERESAN",
+    "rt": "005"
+  },
+  {
+    "no_urut": 71,
+    "tps": "004",
+    "nama": "KARJIMAH",
+    "jenis_kelamin": "P",
+    "status_pemilih": "K",
+    "alamat": "DERESAN",
+    "rt": "005"
+  },
+  {
+    "no_urut": 72,
+    "tps": "004",
+    "nama": "KHAIRUL FIKRI",
+    "jenis_kelamin": "L",
+    "status_pemilih": "BK",
+    "alamat": "DERESAN",
+    "rt": "005"
+  },
+  {
+    "no_urut": 73,
+    "tps": "004",
+    "nama": "KHUSNUL KHOTIMAH",
+    "jenis_kelamin": "P",
+    "status_pemilih": "K",
+    "alamat": "DERESAN",
+    "rt": "005"
+  },
+  {
+    "no_urut": 74,
+    "tps": "004",
+    "nama": "KRIS INDRAWAN",
+    "jenis_kelamin": "L",
+    "status_pemilih": "K",
+    "alamat": "DERESAN",
+    "rt": "005"
+  },
+  {
+    "no_urut": 75,
+    "tps": "004",
+    "nama": "KUNI ASSYATUL MUBAROKAH",
+    "jenis_kelamin": "P",
+    "status_pemilih": "BK",
+    "alamat": "DERESAN",
+    "rt": "005"
+  },
+  {
+    "no_urut": 76,
+    "tps": "004",
+    "nama": "KURNIA DWI PUSPITANINGRUM",
+    "jenis_kelamin": "P",
+    "status_pemilih": "K",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "005"
+  },
+  {
+    "no_urut": 77,
+    "tps": "004",
+    "nama": "LUGAS PELEYANTO",
+    "jenis_kelamin": "L",
+    "status_pemilih": "BK",
+    "alamat": "DERESAN",
+    "rt": "005"
+  },
+  {
+    "no_urut": 78,
+    "tps": "004",
+    "nama": "MARYANTO",
+    "jenis_kelamin": "L",
+    "status_pemilih": "K",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "005"
+  },
+  {
+    "no_urut": 79,
+    "tps": "004",
+    "nama": "MISBAH",
+    "jenis_kelamin": "L",
+    "status_pemilih": "BK",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "005"
+  },
+  {
+    "no_urut": 80,
+    "tps": "004",
+    "nama": "MOH. RIFANGI",
+    "jenis_kelamin": "L",
+    "status_pemilih": "K",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "005"
+  },
+  {
+    "no_urut": 81,
+    "tps": "004",
+    "nama": "MUFIDATUL LAILI",
+    "jenis_kelamin": "P",
+    "status_pemilih": "K",
+    "alamat": "DERESAN",
+    "rt": "005"
+  },
+  {
+    "no_urut": 82,
+    "tps": "004",
+    "nama": "MUH FAUZAN",
+    "jenis_kelamin": "L",
+    "status_pemilih": "K",
+    "alamat": "DERESAN",
+    "rt": "005"
+  },
+  {
+    "no_urut": 83,
+    "tps": "004",
+    "nama": "MUH. DIANA",
+    "jenis_kelamin": "L",
+    "status_pemilih": "K",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "005"
+  },
+  {
+    "no_urut": 84,
+    "tps": "004",
+    "nama": "MUHAMMAD AZKA FIRMANSYAH",
+    "jenis_kelamin": "L",
+    "status_pemilih": "BK",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "005"
+  },
+  {
+    "no_urut": 85,
+    "tps": "004",
+    "nama": "MUHAMMAD FACHRUDIN",
+    "jenis_kelamin": "L",
+    "status_pemilih": "K",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "005"
+  },
+  {
+    "no_urut": 86,
+    "tps": "004",
+    "nama": "MUHAMMAD FAHRIZAL",
+    "jenis_kelamin": "L",
+    "status_pemilih": "BK",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "005"
+  },
+  {
+    "no_urut": 87,
+    "tps": "004",
+    "nama": "MUHAMMAD FAISAL KHUSAIN",
+    "jenis_kelamin": "L",
+    "status_pemilih": "BK",
+    "alamat": "DERESAN",
+    "rt": "005"
+  },
+  {
+    "no_urut": 88,
+    "tps": "004",
+    "nama": "MUHAMMAD HANDOKO",
+    "jenis_kelamin": "L",
+    "status_pemilih": "K",
+    "alamat": "DERESAN",
+    "rt": "005"
+  },
+  {
+    "no_urut": 89,
+    "tps": "004",
+    "nama": "MUHAMMAD IBRAHIM AL MUNAWAR",
+    "jenis_kelamin": "L",
+    "status_pemilih": "BK",
+    "alamat": "DERESAN",
+    "rt": "005"
+  },
+  {
+    "no_urut": 90,
+    "tps": "004",
+    "nama": "MUHAMMAD IQBAL FIRMANSYAH",
+    "jenis_kelamin": "L",
+    "status_pemilih": "K",
+    "alamat": "DERESAN",
+    "rt": "005"
+  },
+  {
+    "no_urut": 91,
+    "tps": "004",
+    "nama": "MUHAMMAD MUSTAFID AMNA",
+    "jenis_kelamin": "L",
+    "status_pemilih": "BK",
+    "alamat": "DERESAN",
+    "rt": "005"
+  },
+  {
+    "no_urut": 92,
+    "tps": "004",
+    "nama": "MUHAMMAD NURDIN",
+    "jenis_kelamin": "L",
+    "status_pemilih": "K",
+    "alamat": "DERESAN",
+    "rt": "005"
+  },
+  {
+    "no_urut": 93,
+    "tps": "004",
+    "nama": "MUHAMMAD TAUFIQ",
+    "jenis_kelamin": "L",
+    "status_pemilih": "K",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "005"
+  },
+  {
+    "no_urut": 94,
+    "tps": "004",
+    "nama": "MUHAMMAD ZILDAN PRASETYA",
+    "jenis_kelamin": "L",
+    "status_pemilih": "BK",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "005"
+  },
+  {
+    "no_urut": 95,
+    "tps": "004",
+    "nama": "MUJIYEM",
+    "jenis_kelamin": "P",
+    "status_pemilih": "K",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "005"
+  },
+  {
+    "no_urut": 96,
+    "tps": "004",
+    "nama": "MUNIR",
+    "jenis_kelamin": "L",
+    "status_pemilih": "BK",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "005"
+  },
+  {
+    "no_urut": 97,
+    "tps": "004",
+    "nama": "MURJILAH",
+    "jenis_kelamin": "P",
+    "status_pemilih": "K",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "005"
+  },
+  {
+    "no_urut": 98,
+    "tps": "004",
+    "nama": "MURJILAH",
+    "jenis_kelamin": "P",
+    "status_pemilih": "C",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "005"
+  },
+  {
+    "no_urut": 99,
+    "tps": "004",
+    "nama": "MURTINEM",
+    "jenis_kelamin": "P",
+    "status_pemilih": "C",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "005"
+  },
+  {
+    "no_urut": 100,
+    "tps": "004",
+    "nama": "MUSLIH",
+    "jenis_kelamin": "L",
+    "status_pemilih": "K",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "005"
+  },
+  {
+    "no_urut": 101,
+    "tps": "004",
+    "nama": "MUSLIMIN",
+    "jenis_kelamin": "L",
+    "status_pemilih": "K",
+    "alamat": "DERESAN",
+    "rt": "005"
+  },
+  {
+    "no_urut": 102,
+    "tps": "004",
+    "nama": "NADYA AZALIA WIBAWA",
+    "jenis_kelamin": "P",
+    "status_pemilih": "BK",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "005"
+  },
+  {
+    "no_urut": 103,
+    "tps": "004",
+    "nama": "NGADINAH",
+    "jenis_kelamin": "P",
+    "status_pemilih": "C",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "005"
+  },
+  {
+    "no_urut": 104,
+    "tps": "004",
+    "nama": "NIDA HUSNA",
+    "jenis_kelamin": "P",
+    "status_pemilih": "BK",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "005"
+  },
+  {
+    "no_urut": 105,
+    "tps": "004",
+    "nama": "NINING PRIYANTI",
+    "jenis_kelamin": "P",
+    "status_pemilih": "K",
+    "alamat": "DERESAN",
+    "rt": "005"
+  },
+  {
+    "no_urut": 106,
+    "tps": "004",
+    "nama": "NUR AZIZAH KURNIAWATI",
+    "jenis_kelamin": "P",
+    "status_pemilih": "K",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "005"
+  },
+  {
+    "no_urut": 107,
+    "tps": "004",
+    "nama": "NUR ROCHMAN",
+    "jenis_kelamin": "L",
+    "status_pemilih": "K",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "005"
+  },
+  {
+    "no_urut": 108,
+    "tps": "004",
+    "nama": "NUR SAHID",
+    "jenis_kelamin": "L",
+    "status_pemilih": "K",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "005"
+  },
+  {
+    "no_urut": 109,
+    "tps": "004",
+    "nama": "NURROCHMAH",
+    "jenis_kelamin": "P",
+    "status_pemilih": "BK",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "005"
+  },
+  {
+    "no_urut": 110,
+    "tps": "004",
+    "nama": "NURYATI",
+    "jenis_kelamin": "P",
+    "status_pemilih": "K",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "005"
+  },
+  {
+    "no_urut": 111,
+    "tps": "004",
+    "nama": "PAIJAH",
+    "jenis_kelamin": "P",
+    "status_pemilih": "C",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "005"
+  },
+  {
+    "no_urut": 112,
+    "tps": "004",
+    "nama": "PRAPTANA",
+    "jenis_kelamin": "L",
+    "status_pemilih": "K",
+    "alamat": "DERESAN",
+    "rt": "005"
+  },
+  {
+    "no_urut": 113,
+    "tps": "004",
+    "nama": "PURWANTI",
+    "jenis_kelamin": "P",
+    "status_pemilih": "K",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "005"
+  },
+  {
+    "no_urut": 114,
+    "tps": "004",
+    "nama": "RAHARJO",
+    "jenis_kelamin": "L",
+    "status_pemilih": "K",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "005"
+  },
+  {
+    "no_urut": 115,
+    "tps": "004",
+    "nama": "RAHMATIKA MAULIDA PINAKESTI",
+    "jenis_kelamin": "P",
+    "status_pemilih": "BK",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "005"
+  },
+  {
+    "no_urut": 116,
+    "tps": "004",
+    "nama": "RAHMIANA SALSABILA PINAKESTI",
+    "jenis_kelamin": "P",
+    "status_pemilih": "BK",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "005"
+  },
+  {
+    "no_urut": 117,
+    "tps": "004",
+    "nama": "RATNA WULANDARI",
+    "jenis_kelamin": "P",
+    "status_pemilih": "BK",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "005"
+  },
+  {
+    "no_urut": 118,
+    "tps": "004",
+    "nama": "RESI GUTOMO",
+    "jenis_kelamin": "L",
+    "status_pemilih": "BK",
+    "alamat": "DERESAN",
+    "rt": "005"
+  },
+  {
+    "no_urut": 119,
+    "tps": "004",
+    "nama": "RIKZA MUSTOFA",
+    "jenis_kelamin": "L",
+    "status_pemilih": "BK",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "005"
+  },
+  {
+    "no_urut": 120,
+    "tps": "004",
+    "nama": "RISA RAHMAWATI",
+    "jenis_kelamin": "P",
+    "status_pemilih": "K",
+    "alamat": "DERESAN",
+    "rt": "005"
+  },
+  {
+    "no_urut": 121,
+    "tps": "004",
+    "nama": "RIZSKI NURAISYIYAH",
+    "jenis_kelamin": "P",
+    "status_pemilih": "K",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "005"
+  },
+  {
+    "no_urut": 122,
+    "tps": "004",
+    "nama": "ROBIUN MUNADI",
+    "jenis_kelamin": "L",
+    "status_pemilih": "K",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "005"
+  },
+  {
+    "no_urut": 123,
+    "tps": "004",
+    "nama": "ROCHMIYATI",
+    "jenis_kelamin": "P",
+    "status_pemilih": "K",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "005"
+  },
+  {
+    "no_urut": 124,
+    "tps": "004",
+    "nama": "RUBIDI",
+    "jenis_kelamin": "L",
+    "status_pemilih": "C",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "005"
+  },
+  {
+    "no_urut": 125,
+    "tps": "004",
+    "nama": "RUFAIDA ANIS ISFIATI CHOLIFAH",
+    "jenis_kelamin": "P",
+    "status_pemilih": "C",
+    "alamat": "DERESAN",
+    "rt": "005"
+  },
+  {
+    "no_urut": 126,
+    "tps": "004",
+    "nama": "SAFAWI",
+    "jenis_kelamin": "L",
+    "status_pemilih": "K",
+    "alamat": "DERESAN",
+    "rt": "005"
+  },
+  {
+    "no_urut": 127,
+    "tps": "004",
+    "nama": "SALWA AINUNNISA",
+    "jenis_kelamin": "P",
+    "status_pemilih": "BK",
+    "alamat": "DERESAN",
+    "rt": "005"
+  },
+  {
+    "no_urut": 128,
+    "tps": "004",
+    "nama": "SARJONO",
+    "jenis_kelamin": "L",
+    "status_pemilih": "K",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "005"
+  },
+  {
+    "no_urut": 129,
+    "tps": "004",
+    "nama": "SEPTIANA",
+    "jenis_kelamin": "P",
+    "status_pemilih": "K",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "005"
+  },
+  {
+    "no_urut": 130,
+    "tps": "004",
+    "nama": "SINDY PRIMASARI",
+    "jenis_kelamin": "P",
+    "status_pemilih": "K",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "005"
+  },
+  {
+    "no_urut": 131,
+    "tps": "004",
+    "nama": "SITI FATIMATUZ ZAHRAH",
+    "jenis_kelamin": "P",
+    "status_pemilih": "BK",
+    "alamat": "DERESAN",
+    "rt": "005"
+  },
+  {
+    "no_urut": 132,
+    "tps": "004",
+    "nama": "SITI HIDAYAH",
+    "jenis_kelamin": "P",
+    "status_pemilih": "K",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "005"
+  },
+  {
+    "no_urut": 133,
+    "tps": "004",
+    "nama": "SITI YUANIS",
+    "jenis_kelamin": "P",
+    "status_pemilih": "C",
+    "alamat": "DERESAN",
+    "rt": "005"
+  },
+  {
+    "no_urut": 134,
+    "tps": "004",
+    "nama": "SITI YULAIFAH",
+    "jenis_kelamin": "P",
+    "status_pemilih": "K",
+    "alamat": "DERESAN",
+    "rt": "005"
+  },
+  {
+    "no_urut": 135,
+    "tps": "004",
+    "nama": "SOFYAN",
+    "jenis_kelamin": "L",
+    "status_pemilih": "K",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "005"
+  },
+  {
+    "no_urut": 136,
+    "tps": "004",
+    "nama": "SRI SUDARYANTI",
+    "jenis_kelamin": "P",
+    "status_pemilih": "K",
+    "alamat": "DERESAN",
+    "rt": "005"
+  },
+  {
+    "no_urut": 137,
+    "tps": "004",
+    "nama": "SUBANDI",
+    "jenis_kelamin": "L",
+    "status_pemilih": "K",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "005"
+  },
+  {
+    "no_urut": 138,
+    "tps": "004",
+    "nama": "SUBIRAH",
+    "jenis_kelamin": "P",
+    "status_pemilih": "K",
+    "alamat": "DERESAN",
+    "rt": "005"
+  },
+  {
+    "no_urut": 139,
+    "tps": "004",
+    "nama": "SUDIYEM",
+    "jenis_kelamin": "P",
+    "status_pemilih": "K",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "005"
+  },
+  {
+    "no_urut": 140,
+    "tps": "004",
+    "nama": "SUGI WAHONO",
+    "jenis_kelamin": "L",
+    "status_pemilih": "K",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "005"
+  },
+  {
+    "no_urut": 141,
+    "tps": "004",
+    "nama": "SUGIYAH",
+    "jenis_kelamin": "P",
+    "status_pemilih": "C",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "005"
+  },
+  {
+    "no_urut": 142,
+    "tps": "004",
+    "nama": "SUHARTI",
+    "jenis_kelamin": "P",
+    "status_pemilih": "K",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "005"
+  },
+  {
+    "no_urut": 143,
+    "tps": "004",
+    "nama": "SUKAMTO",
+    "jenis_kelamin": "L",
+    "status_pemilih": "K",
+    "alamat": "DERESAN",
+    "rt": "005"
+  },
+  {
+    "no_urut": 144,
+    "tps": "004",
+    "nama": "SUMARMIYATI",
+    "jenis_kelamin": "P",
+    "status_pemilih": "K",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "005"
+  },
+  {
+    "no_urut": 145,
+    "tps": "004",
+    "nama": "SUNARNO",
+    "jenis_kelamin": "L",
+    "status_pemilih": "K",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "005"
+  },
+  {
+    "no_urut": 146,
+    "tps": "004",
+    "nama": "SUNARYONO",
+    "jenis_kelamin": "L",
+    "status_pemilih": "BK",
+    "alamat": "DERESAN",
+    "rt": "005"
+  },
+  {
+    "no_urut": 147,
+    "tps": "004",
+    "nama": "SUPARJILAH",
+    "jenis_kelamin": "P",
+    "status_pemilih": "C",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "005"
+  },
+  {
+    "no_urut": 148,
+    "tps": "004",
+    "nama": "SUPARMAN",
+    "jenis_kelamin": "L",
+    "status_pemilih": "K",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "005"
+  },
+  {
+    "no_urut": 149,
+    "tps": "004",
+    "nama": "SUPRAPTI",
+    "jenis_kelamin": "P",
+    "status_pemilih": "C",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "005"
+  },
+  {
+    "no_urut": 150,
+    "tps": "004",
+    "nama": "SUPRAYITNO",
+    "jenis_kelamin": "L",
+    "status_pemilih": "K",
+    "alamat": "DERESAN",
+    "rt": "005"
+  },
+  {
+    "no_urut": 151,
+    "tps": "004",
+    "nama": "SUPRIYADI",
+    "jenis_kelamin": "L",
+    "status_pemilih": "K",
+    "alamat": "DERESAN",
+    "rt": "005"
+  },
+  {
+    "no_urut": 152,
+    "tps": "004",
+    "nama": "SUSANTORO",
+    "jenis_kelamin": "L",
+    "status_pemilih": "C",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "005"
+  },
+  {
+    "no_urut": 153,
+    "tps": "004",
+    "nama": "SUWARDI",
+    "jenis_kelamin": "L",
+    "status_pemilih": "K",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "005"
+  },
+  {
+    "no_urut": 154,
+    "tps": "004",
+    "nama": "SUYANTO",
+    "jenis_kelamin": "L",
+    "status_pemilih": "K",
+    "alamat": "DERESAN",
+    "rt": "005"
+  },
+  {
+    "no_urut": 155,
+    "tps": "004",
+    "nama": "TANITDIA GADIS",
+    "jenis_kelamin": "P",
+    "status_pemilih": "BK",
+    "alamat": "DERESAN",
+    "rt": "005"
+  },
+  {
+    "no_urut": 156,
+    "tps": "004",
+    "nama": "TIARA ANESTILITA",
+    "jenis_kelamin": "P",
+    "status_pemilih": "BK",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "005"
+  },
+  {
+    "no_urut": 157,
+    "tps": "004",
+    "nama": "TIARA DEWI",
+    "jenis_kelamin": "P",
+    "status_pemilih": "K",
+    "alamat": "DERESAN",
+    "rt": "005"
+  },
+  {
+    "no_urut": 158,
+    "tps": "004",
+    "nama": "TIMBUL MARKOCO",
+    "jenis_kelamin": "L",
+    "status_pemilih": "K",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "005"
+  },
+  {
+    "no_urut": 159,
+    "tps": "004",
+    "nama": "TRISNAWATI",
+    "jenis_kelamin": "P",
+    "status_pemilih": "K",
+    "alamat": "DERESAN",
+    "rt": "005"
+  },
+  {
+    "no_urut": 160,
+    "tps": "004",
+    "nama": "TUGIRAH",
+    "jenis_kelamin": "P",
+    "status_pemilih": "C",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "005"
+  },
+  {
+    "no_urut": 161,
+    "tps": "004",
+    "nama": "UMI NGAZIZAH",
+    "jenis_kelamin": "P",
+    "status_pemilih": "K",
+    "alamat": "DERESAN",
+    "rt": "005"
+  },
+  {
+    "no_urut": 162,
+    "tps": "004",
+    "nama": "WACHIDIN",
+    "jenis_kelamin": "L",
+    "status_pemilih": "C",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "005"
+  },
+  {
+    "no_urut": 163,
+    "tps": "004",
+    "nama": "WAGIYO",
+    "jenis_kelamin": "L",
+    "status_pemilih": "K",
+    "alamat": "DERESAN",
+    "rt": "005"
+  },
+  {
+    "no_urut": 164,
+    "tps": "004",
+    "nama": "WAHID NURROHMAT",
+    "jenis_kelamin": "L",
+    "status_pemilih": "K",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "005"
+  },
+  {
+    "no_urut": 165,
+    "tps": "004",
+    "nama": "WASINGAH",
+    "jenis_kelamin": "P",
+    "status_pemilih": "C",
+    "alamat": "DERESAN",
+    "rt": "005"
+  },
+  {
+    "no_urut": 166,
+    "tps": "004",
+    "nama": "WATINI",
+    "jenis_kelamin": "P",
+    "status_pemilih": "K",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "005"
+  },
+  {
+    "no_urut": 167,
+    "tps": "004",
+    "nama": "WEGA PUTRANTO",
+    "jenis_kelamin": "L",
+    "status_pemilih": "K",
+    "alamat": "DERESAN",
+    "rt": "005"
+  },
+  {
+    "no_urut": 168,
+    "tps": "004",
+    "nama": "WINARYONO",
+    "jenis_kelamin": "L",
+    "status_pemilih": "C",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "005"
+  },
+  {
+    "no_urut": 169,
+    "tps": "004",
+    "nama": "YASIN",
+    "jenis_kelamin": "L",
+    "status_pemilih": "K",
+    "alamat": "DERESAN",
+    "rt": "005"
+  },
+  {
+    "no_urut": 170,
+    "tps": "004",
+    "nama": "YENI ARI KINASIH",
+    "jenis_kelamin": "P",
+    "status_pemilih": "K",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "005"
+  },
+  {
+    "no_urut": 171,
+    "tps": "004",
+    "nama": "YUDHA SETIA PERDANA",
+    "jenis_kelamin": "L",
+    "status_pemilih": "K",
+    "alamat": "DERESAN",
+    "rt": "005"
+  },
+  {
+    "no_urut": 172,
+    "tps": "004",
+    "nama": "YULI ROMANSAH",
+    "jenis_kelamin": "L",
+    "status_pemilih": "K",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "005"
+  },
+  {
+    "no_urut": 173,
+    "tps": "004",
+    "nama": "YULIYANTO",
+    "jenis_kelamin": "L",
+    "status_pemilih": "K",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "005"
+  },
+  {
+    "no_urut": 174,
+    "tps": "004",
+    "nama": "YUNI SUBEKTI",
+    "jenis_kelamin": "P",
+    "status_pemilih": "K",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "005"
+  },
+  {
+    "no_urut": 175,
+    "tps": "004",
+    "nama": "ZAKY PUTRA RAMADHAN",
+    "jenis_kelamin": "L",
+    "status_pemilih": "BK",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "005"
+  },
+  {
+    "no_urut": 176,
+    "tps": "004",
+    "nama": "ZENTIK HARSASI",
+    "jenis_kelamin": "P",
+    "status_pemilih": "K",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "005"
+  },
+  {
+    "no_urut": 177,
+    "tps": "004",
+    "nama": "ZUKRIYAH",
+    "jenis_kelamin": "P",
+    "status_pemilih": "C",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "005"
+  },
+  {
+    "no_urut": 178,
+    "tps": "004",
+    "nama": "ZULIANTI",
+    "jenis_kelamin": "P",
+    "status_pemilih": "K",
+    "alamat": "DERESAN",
+    "rt": "005"
+  },
+  {
+    "no_urut": 179,
+    "tps": "004",
+    "nama": "AFRILIA CHRISNAWATI",
+    "jenis_kelamin": "P",
+    "status_pemilih": "K",
+    "alamat": "DERESAN",
+    "rt": "006"
+  },
+  {
+    "no_urut": 180,
+    "tps": "004",
+    "nama": "AGUS ARI PURWANTO",
+    "jenis_kelamin": "L",
+    "status_pemilih": "K",
+    "alamat": "DERESAN",
+    "rt": "006"
+  },
+  {
+    "no_urut": 181,
+    "tps": "004",
+    "nama": "AGUS SUPRIYADI",
+    "jenis_kelamin": "L",
+    "status_pemilih": "L",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "006"
+  },
+  {
+    "no_urut": 182,
+    "tps": "004",
+    "nama": "AISYAH FAHMA RAHMA DEWI P",
+    "jenis_kelamin": "P",
+    "status_pemilih": "K",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "006"
+  },
+  {
+    "no_urut": 183,
+    "tps": "004",
+    "nama": "AL HADAD",
+    "jenis_kelamin": "L",
+    "status_pemilih": "BK",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "006"
+  },
+  {
+    "no_urut": 184,
+    "tps": "004",
+    "nama": "AMANAT",
+    "jenis_kelamin": "L",
+    "status_pemilih": "K",
+    "alamat": "DERESAN",
+    "rt": "006"
+  },
+  {
+    "no_urut": 185,
+    "tps": "004",
+    "nama": "AMEILIA ARIFIYANTI CAHYANI",
+    "jenis_kelamin": "P",
+    "status_pemilih": "BK",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "006"
+  },
+  {
+    "no_urut": 186,
+    "tps": "004",
+    "nama": "ANIS WAHYUNI",
+    "jenis_kelamin": "P",
+    "status_pemilih": "K",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "006"
+  },
+  {
+    "no_urut": 187,
+    "tps": "004",
+    "nama": "ARGA NUR ARYANTO",
+    "jenis_kelamin": "L",
+    "status_pemilih": "BK",
+    "alamat": "DERESAN",
+    "rt": "006"
+  },
+  {
+    "no_urut": 188,
+    "tps": "004",
+    "nama": "ARI ABDILAH",
+    "jenis_kelamin": "L",
+    "status_pemilih": "BK",
+    "alamat": "DERESAN",
+    "rt": "006"
+  },
+  {
+    "no_urut": 189,
+    "tps": "004",
+    "nama": "ARI PRIYO SURYONO",
+    "jenis_kelamin": "L",
+    "status_pemilih": "K",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "006"
+  },
+  {
+    "no_urut": 190,
+    "tps": "004",
+    "nama": "ARIEF SETIAWAN",
+    "jenis_kelamin": "L",
+    "status_pemilih": "K",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "006"
+  },
+  {
+    "no_urut": 191,
+    "tps": "004",
+    "nama": "ARIF MUN KADARIYAH",
+    "jenis_kelamin": "P",
+    "status_pemilih": "K",
+    "alamat": "DERESAN",
+    "rt": "006"
+  },
+  {
+    "no_urut": 192,
+    "tps": "004",
+    "nama": "ARISTA DEVI ARIYANTI",
+    "jenis_kelamin": "P",
+    "status_pemilih": "BK",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "006"
+  },
+  {
+    "no_urut": 193,
+    "tps": "004",
+    "nama": "ASKURNIAWAN",
+    "jenis_kelamin": "L",
+    "status_pemilih": "K",
+    "alamat": "DERESAN",
+    "rt": "006"
+  },
+  {
+    "no_urut": 194,
+    "tps": "004",
+    "nama": "ASMORO RIANTO",
+    "jenis_kelamin": "L",
+    "status_pemilih": "K",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "006"
+  },
+  {
+    "no_urut": 195,
+    "tps": "004",
+    "nama": "ASNAWI",
+    "jenis_kelamin": "L",
+    "status_pemilih": "K",
+    "alamat": "DERESAN",
+    "rt": "006"
+  },
+  {
+    "no_urut": 196,
+    "tps": "004",
+    "nama": "ATIEK WIJAYANTI, SE",
+    "jenis_kelamin": "P",
+    "status_pemilih": "K",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "006"
+  },
+  {
+    "no_urut": 197,
+    "tps": "004",
+    "nama": "BADIYAH",
+    "jenis_kelamin": "P",
+    "status_pemilih": "C",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "006"
+  },
+  {
+    "no_urut": 198,
+    "tps": "004",
+    "nama": "BASUKI",
+    "jenis_kelamin": "L",
+    "status_pemilih": "C",
+    "alamat": "DERESAN",
+    "rt": "006"
+  },
+  {
+    "no_urut": 199,
+    "tps": "004",
+    "nama": "BAYU APRILLA BINTANG",
+    "jenis_kelamin": "L",
+    "status_pemilih": "BK",
+    "alamat": "DERESAN",
+    "rt": "006"
+  },
+  {
+    "no_urut": 200,
+    "tps": "004",
+    "nama": "BERLIANSYAH PUTRA DARMAWAN",
+    "jenis_kelamin": "L",
+    "status_pemilih": "BK",
+    "alamat": "DERESAN",
+    "rt": "006"
+  },
+  {
+    "no_urut": 201,
+    "tps": "004",
+    "nama": "BUDIMAN",
+    "jenis_kelamin": "L",
+    "status_pemilih": "K",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "006"
+  },
+  {
+    "no_urut": 202,
+    "tps": "004",
+    "nama": "DALIMIN",
+    "jenis_kelamin": "L",
+    "status_pemilih": "BK",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "006"
+  },
+  {
+    "no_urut": 203,
+    "tps": "004",
+    "nama": "DALYONO",
+    "jenis_kelamin": "L",
+    "status_pemilih": "BK",
+    "alamat": "DERESAN",
+    "rt": "006"
+  },
+  {
+    "no_urut": 204,
+    "tps": "004",
+    "nama": "DAMAYANTI SETYO ARINI",
+    "jenis_kelamin": "P",
+    "status_pemilih": "K",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "006"
+  },
+  {
+    "no_urut": 205,
+    "tps": "004",
+    "nama": "DANANG NURFIANTO",
+    "jenis_kelamin": "L",
+    "status_pemilih": "BK",
+    "alamat": "DERESAN",
+    "rt": "006"
+  },
+  {
+    "no_urut": 206,
+    "tps": "004",
+    "nama": "DAROJAH",
+    "jenis_kelamin": "P",
+    "status_pemilih": "K",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "006"
+  },
+  {
+    "no_urut": 207,
+    "tps": "004",
+    "nama": "DENI NUR DWIANTO",
+    "jenis_kelamin": "L",
+    "status_pemilih": "K",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "006"
+  },
+  {
+    "no_urut": 208,
+    "tps": "004",
+    "nama": "DJAZILAH",
+    "jenis_kelamin": "P",
+    "status_pemilih": "K",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "006"
+  },
+  {
+    "no_urut": 209,
+    "tps": "004",
+    "nama": "DONI LESMANA",
+    "jenis_kelamin": "L",
+    "status_pemilih": "BK",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "006"
+  },
+  {
+    "no_urut": 210,
+    "tps": "004",
+    "nama": "EKO BUDIYANTO",
+    "jenis_kelamin": "L",
+    "status_pemilih": "K",
+    "alamat": "DERESAN",
+    "rt": "006"
+  },
+  {
+    "no_urut": 211,
+    "tps": "004",
+    "nama": "ENDANG PRISTIWATI",
+    "jenis_kelamin": "P",
+    "status_pemilih": "K",
+    "alamat": "DERESAN",
+    "rt": "006"
+  },
+  {
+    "no_urut": 212,
+    "tps": "004",
+    "nama": "ERNITA EKA INDRIANAWATI",
+    "jenis_kelamin": "P",
+    "status_pemilih": "K",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "006"
+  },
+  {
+    "no_urut": 213,
+    "tps": "004",
+    "nama": "FARRAS ROIHANAH",
+    "jenis_kelamin": "P",
+    "status_pemilih": "BK",
+    "alamat": "DERESAN",
+    "rt": "006"
+  },
+  {
+    "no_urut": 214,
+    "tps": "004",
+    "nama": "FINA RAHMAWATI",
+    "jenis_kelamin": "P",
+    "status_pemilih": "",
+    "alamat": "DERESAN",
+    "rt": "006"
+  },
+  {
+    "no_urut": 215,
+    "tps": "004",
+    "nama": "FINNI ALQORINA",
+    "jenis_kelamin": "P",
+    "status_pemilih": "BK",
+    "alamat": "DERESAN",
+    "rt": "006"
+  },
+  {
+    "no_urut": 216,
+    "tps": "004",
+    "nama": "FITRIYATUL HIDAYAH",
+    "jenis_kelamin": "P",
+    "status_pemilih": "K",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "006"
+  },
+  {
+    "no_urut": 217,
+    "tps": "004",
+    "nama": "HERI FERIYANTO",
+    "jenis_kelamin": "L",
+    "status_pemilih": "K",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "006"
+  },
+  {
+    "no_urut": 218,
+    "tps": "004",
+    "nama": "HERY SETYANAH",
+    "jenis_kelamin": "P",
+    "status_pemilih": "K",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "006"
+  },
+  {
+    "no_urut": 219,
+    "tps": "004",
+    "nama": "ISWANTO",
+    "jenis_kelamin": "L",
+    "status_pemilih": "K",
+    "alamat": "DERESAN",
+    "rt": "006"
+  },
+  {
+    "no_urut": 220,
+    "tps": "004",
+    "nama": "JASRON",
+    "jenis_kelamin": "L",
+    "status_pemilih": "C",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "006"
+  },
+  {
+    "no_urut": 221,
+    "tps": "004",
+    "nama": "JULIA RAHMAWATI",
+    "jenis_kelamin": "P",
+    "status_pemilih": "BK",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "006"
+  },
+  {
+    "no_urut": 222,
+    "tps": "004",
+    "nama": "JUWARIYAH",
+    "jenis_kelamin": "P",
+    "status_pemilih": "K",
+    "alamat": "DERESAN",
+    "rt": "006"
+  },
+  {
+    "no_urut": 223,
+    "tps": "004",
+    "nama": "KHAFID IMAM BUSTOMI",
+    "jenis_kelamin": "L",
+    "status_pemilih": "BK",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "006"
+  },
+  {
+    "no_urut": 224,
+    "tps": "004",
+    "nama": "KURNIAWAN SETIA BUDI",
+    "jenis_kelamin": "L",
+    "status_pemilih": "BK",
+    "alamat": "DERESAN",
+    "rt": "006"
+  },
+  {
+    "no_urut": 225,
+    "tps": "004",
+    "nama": "LASMININGSIH",
+    "jenis_kelamin": "P",
+    "status_pemilih": "K",
+    "alamat": "DERESAN",
+    "rt": "006"
+  },
+  {
+    "no_urut": 226,
+    "tps": "004",
+    "nama": "LATIF MUSTOFA",
+    "jenis_kelamin": "L",
+    "status_pemilih": "K",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "006"
+  },
+  {
+    "no_urut": 227,
+    "tps": "004",
+    "nama": "LAZUARDI HANGGARA JAVITZ",
+    "jenis_kelamin": "L",
+    "status_pemilih": "BK",
+    "alamat": "DERESAN",
+    "rt": "006"
+  },
+  {
+    "no_urut": 228,
+    "tps": "004",
+    "nama": "LINDA ADHA DEWIPRABAMUKTI",
+    "jenis_kelamin": "P",
+    "status_pemilih": "BK",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "006"
+  },
+  {
+    "no_urut": 229,
+    "tps": "004",
+    "nama": "MAROJI",
+    "jenis_kelamin": "L",
+    "status_pemilih": "K",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "006"
+  },
+  {
+    "no_urut": 230,
+    "tps": "004",
+    "nama": "MISDIYANA",
+    "jenis_kelamin": "L",
+    "status_pemilih": "K",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "006"
+  },
+  {
+    "no_urut": 231,
+    "tps": "004",
+    "nama": "MUH ZAMIL",
+    "jenis_kelamin": "L",
+    "status_pemilih": "K",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "006"
+  },
+  {
+    "no_urut": 232,
+    "tps": "004",
+    "nama": "MUHAMMAD BISMA ARIYANTO PURNAMA",
+    "jenis_kelamin": "L",
+    "status_pemilih": "BK",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "006"
+  },
+  {
+    "no_urut": 233,
+    "tps": "004",
+    "nama": "MUHAMMAD NAUFAL HAKIM",
+    "jenis_kelamin": "L",
+    "status_pemilih": "BK",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "006"
+  },
+  {
+    "no_urut": 234,
+    "tps": "004",
+    "nama": "MUIJYO",
+    "jenis_kelamin": "L",
+    "status_pemilih": "K",
+    "alamat": "DERESAN",
+    "rt": "006"
+  },
+  {
+    "no_urut": 235,
+    "tps": "004",
+    "nama": "MURTINI",
+    "jenis_kelamin": "P",
+    "status_pemilih": "C",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "006"
+  },
+  {
+    "no_urut": 236,
+    "tps": "004",
+    "nama": "NAILA ILMA KAUNI",
+    "jenis_kelamin": "P",
+    "status_pemilih": "BK",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "006"
+  },
+  {
+    "no_urut": 237,
+    "tps": "004",
+    "nama": "NGADILAH",
+    "jenis_kelamin": "P",
+    "status_pemilih": "C",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "006"
+  },
+  {
+    "no_urut": 238,
+    "tps": "004",
+    "nama": "NGADIYAH",
+    "jenis_kelamin": "P",
+    "status_pemilih": "C",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "006"
+  },
+  {
+    "no_urut": 239,
+    "tps": "004",
+    "nama": "NINING SUMIYANTI",
+    "jenis_kelamin": "P",
+    "status_pemilih": "C",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "006"
+  },
+  {
+    "no_urut": 240,
+    "tps": "004",
+    "nama": "NOVA DESTIRA",
+    "jenis_kelamin": "P",
+    "status_pemilih": "BK",
+    "alamat": "DERESAN",
+    "rt": "006"
+  },
+  {
+    "no_urut": 241,
+    "tps": "004",
+    "nama": "NUR ARIFIN",
+    "jenis_kelamin": "L",
+    "status_pemilih": "BK",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "006"
+  },
+  {
+    "no_urut": 242,
+    "tps": "004",
+    "nama": "NUR LAILI FAUZIAH",
+    "jenis_kelamin": "P",
+    "status_pemilih": "BK",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "006"
+  },
+  {
+    "no_urut": 243,
+    "tps": "004",
+    "nama": "NUR RACHMAWATI",
+    "jenis_kelamin": "P",
+    "status_pemilih": "K",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "006"
+  },
+  {
+    "no_urut": 244,
+    "tps": "004",
+    "nama": "NUR WIDAYANTI",
+    "jenis_kelamin": "P",
+    "status_pemilih": "K",
+    "alamat": "DERESAN",
+    "rt": "006"
+  },
+  {
+    "no_urut": 245,
+    "tps": "004",
+    "nama": "NURHOLONG LIMBONG",
+    "jenis_kelamin": "P",
+    "status_pemilih": "BK",
+    "alamat": "DERESAN",
+    "rt": "006"
+  },
+  {
+    "no_urut": 246,
+    "tps": "004",
+    "nama": "NURJANAH",
+    "jenis_kelamin": "P",
+    "status_pemilih": "C",
+    "alamat": "DERESAN",
+    "rt": "006"
+  },
+  {
+    "no_urut": 247,
+    "tps": "004",
+    "nama": "NY.SUTINI",
+    "jenis_kelamin": "L",
+    "status_pemilih": "K",
+    "alamat": "DERESAN",
+    "rt": "006"
+  },
+  {
+    "no_urut": 248,
+    "tps": "004",
+    "nama": "PAIDO",
+    "jenis_kelamin": "L",
+    "status_pemilih": "K",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "006"
+  },
+  {
+    "no_urut": 249,
+    "tps": "004",
+    "nama": "PRATIWI SUHARTI",
+    "jenis_kelamin": "P",
+    "status_pemilih": "K",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "006"
+  },
+  {
+    "no_urut": 250,
+    "tps": "004",
+    "nama": "PRAWOTO",
+    "jenis_kelamin": "L",
+    "status_pemilih": "K",
+    "alamat": "DERESAN",
+    "rt": "006"
+  },
+  {
+    "no_urut": 251,
+    "tps": "004",
+    "nama": "PURWANTI",
+    "jenis_kelamin": "P",
+    "status_pemilih": "K",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "006"
+  },
+  {
+    "no_urut": 252,
+    "tps": "004",
+    "nama": "PURWANTO",
+    "jenis_kelamin": "L",
+    "status_pemilih": "",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "006"
+  },
+  {
+    "no_urut": 253,
+    "tps": "004",
+    "nama": "RIONO AGUNG PRASETYO",
+    "jenis_kelamin": "L",
+    "status_pemilih": "BK",
+    "alamat": "DERESAN",
+    "rt": "006"
+  },
+  {
+    "no_urut": 254,
+    "tps": "004",
+    "nama": "RIRIN DWI YULIYANTI",
+    "jenis_kelamin": "P",
+    "status_pemilih": "BK",
+    "alamat": "DERESAN",
+    "rt": "006"
+  },
+  {
+    "no_urut": 255,
+    "tps": "004",
+    "nama": "RIYANTI",
+    "jenis_kelamin": "P",
+    "status_pemilih": "K",
+    "alamat": "DERESAN",
+    "rt": "006"
+  },
+  {
+    "no_urut": 256,
+    "tps": "004",
+    "nama": "RIYATUN",
+    "jenis_kelamin": "P",
+    "status_pemilih": "K",
+    "alamat": "DERESAN",
+    "rt": "006"
+  },
+  {
+    "no_urut": 257,
+    "tps": "004",
+    "nama": "RIZKY NABELLA PUTRI",
+    "jenis_kelamin": "P",
+    "status_pemilih": "BK",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "006"
+  },
+  {
+    "no_urut": 258,
+    "tps": "004",
+    "nama": "RIZQI WULANDARI",
+    "jenis_kelamin": "P",
+    "status_pemilih": "K",
+    "alamat": "DERESAN",
+    "rt": "006"
+  },
+  {
+    "no_urut": 259,
+    "tps": "004",
+    "nama": "ROHMADI",
+    "jenis_kelamin": "L",
+    "status_pemilih": "K",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "006"
+  },
+  {
+    "no_urut": 260,
+    "tps": "004",
+    "nama": "RUBIYAH",
+    "jenis_kelamin": "P",
+    "status_pemilih": "C",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "006"
+  },
+  {
+    "no_urut": 261,
+    "tps": "004",
+    "nama": "RUMIYATUN",
+    "jenis_kelamin": "P",
+    "status_pemilih": "K",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "006"
+  },
+  {
+    "no_urut": 262,
+    "tps": "004",
+    "nama": "RUSMIYATI",
+    "jenis_kelamin": "P",
+    "status_pemilih": "K",
+    "alamat": "DERESAN",
+    "rt": "006"
+  },
+  {
+    "no_urut": 263,
+    "tps": "004",
+    "nama": "SAHIRO",
+    "jenis_kelamin": "L",
+    "status_pemilih": "K",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "006"
+  },
+  {
+    "no_urut": 264,
+    "tps": "004",
+    "nama": "SALAMAH",
+    "jenis_kelamin": "P",
+    "status_pemilih": "K",
+    "alamat": "DERESAN",
+    "rt": "006"
+  },
+  {
+    "no_urut": 265,
+    "tps": "004",
+    "nama": "SANI PERWITASARI",
+    "jenis_kelamin": "P",
+    "status_pemilih": "K",
+    "alamat": "DERESAN",
+    "rt": "006"
+  },
+  {
+    "no_urut": 266,
+    "tps": "004",
+    "nama": "SAPTO YUWONO",
+    "jenis_kelamin": "L",
+    "status_pemilih": "K",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "006"
+  },
+  {
+    "no_urut": 267,
+    "tps": "004",
+    "nama": "SARIFAH",
+    "jenis_kelamin": "P",
+    "status_pemilih": "K",
+    "alamat": "DERESAN",
+    "rt": "006"
+  },
+  {
+    "no_urut": 268,
+    "tps": "004",
+    "nama": "SARIJAH",
+    "jenis_kelamin": "P",
+    "status_pemilih": "BK",
+    "alamat": "DERESAN",
+    "rt": "006"
+  },
+  {
+    "no_urut": 269,
+    "tps": "004",
+    "nama": "SARIJYAH",
+    "jenis_kelamin": "P",
+    "status_pemilih": "K",
+    "alamat": "DERESAN",
+    "rt": "006"
+  },
+  {
+    "no_urut": 270,
+    "tps": "004",
+    "nama": "SEHONO",
+    "jenis_kelamin": "L",
+    "status_pemilih": "BK",
+    "alamat": "DERESAN",
+    "rt": "006"
+  },
+  {
+    "no_urut": 271,
+    "tps": "004",
+    "nama": "SETIYO RAHARJO",
+    "jenis_kelamin": "L",
+    "status_pemilih": "K",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "006"
+  },
+  {
+    "no_urut": 272,
+    "tps": "004",
+    "nama": "SETYA WIBAWA",
+    "jenis_kelamin": "L",
+    "status_pemilih": "K",
+    "alamat": "DERESAN",
+    "rt": "006"
+  },
+  {
+    "no_urut": 273,
+    "tps": "004",
+    "nama": "SLAMET",
+    "jenis_kelamin": "L",
+    "status_pemilih": "BK",
+    "alamat": "DERESAN",
+    "rt": "006"
+  },
+  {
+    "no_urut": 274,
+    "tps": "004",
+    "nama": "SLAMET",
+    "jenis_kelamin": "L",
+    "status_pemilih": "C",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "006"
+  },
+  {
+    "no_urut": 275,
+    "tps": "004",
+    "nama": "SOFIYATUN",
+    "jenis_kelamin": "P",
+    "status_pemilih": "C",
+    "alamat": "DERESAN",
+    "rt": "006"
+  },
+  {
+    "no_urut": 276,
+    "tps": "004",
+    "nama": "SONNY MUSHONEF",
+    "jenis_kelamin": "L",
+    "status_pemilih": "K",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "006"
+  },
+  {
+    "no_urut": 277,
+    "tps": "004",
+    "nama": "SRI AGUSTINA",
+    "jenis_kelamin": "P",
+    "status_pemilih": "K",
+    "alamat": "DERESAN",
+    "rt": "006"
+  },
+  {
+    "no_urut": 278,
+    "tps": "004",
+    "nama": "SRI PURWANINGSIH",
+    "jenis_kelamin": "P",
+    "status_pemilih": "K",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "006"
+  },
+  {
+    "no_urut": 279,
+    "tps": "004",
+    "nama": "SRI RIYANI",
+    "jenis_kelamin": "P",
+    "status_pemilih": "BK",
+    "alamat": "DERESAN",
+    "rt": "006"
+  },
+  {
+    "no_urut": 280,
+    "tps": "004",
+    "nama": "SUBAGYA",
+    "jenis_kelamin": "L",
+    "status_pemilih": "K",
+    "alamat": "DERESAN",
+    "rt": "006"
+  },
+  {
+    "no_urut": 281,
+    "tps": "004",
+    "nama": "SUBANDIYAH",
+    "jenis_kelamin": "P",
+    "status_pemilih": "C",
+    "alamat": "DERESAN",
+    "rt": "006"
+  },
+  {
+    "no_urut": 282,
+    "tps": "004",
+    "nama": "SUJIDAH",
+    "jenis_kelamin": "P",
+    "status_pemilih": "K",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "006"
+  },
+  {
+    "no_urut": 283,
+    "tps": "004",
+    "nama": "SUKIMAN",
+    "jenis_kelamin": "L",
+    "status_pemilih": "K",
+    "alamat": "DERESAN",
+    "rt": "006"
+  },
+  {
+    "no_urut": 284,
+    "tps": "004",
+    "nama": "SUKIRNO, DRS",
+    "jenis_kelamin": "L",
+    "status_pemilih": "C",
+    "alamat": "DERESAN",
+    "rt": "006"
+  },
+  {
+    "no_urut": 285,
+    "tps": "004",
+    "nama": "SUMARJANA",
+    "jenis_kelamin": "L",
+    "status_pemilih": "K",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "006"
+  },
+  {
+    "no_urut": 286,
+    "tps": "004",
+    "nama": "SUNARDI",
+    "jenis_kelamin": "L",
+    "status_pemilih": "K",
+    "alamat": "DERESAN",
+    "rt": "006"
+  },
+  {
+    "no_urut": 287,
+    "tps": "004",
+    "nama": "SUNARTRI",
+    "jenis_kelamin": "P",
+    "status_pemilih": "K",
+    "alamat": "DERESAN",
+    "rt": "006"
+  },
+  {
+    "no_urut": 288,
+    "tps": "004",
+    "nama": "SUPARNI",
+    "jenis_kelamin": "P",
+    "status_pemilih": "K",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "006"
+  },
+  {
+    "no_urut": 289,
+    "tps": "004",
+    "nama": "SURATMI",
+    "jenis_kelamin": "P",
+    "status_pemilih": "",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "006"
+  },
+  {
+    "no_urut": 290,
+    "tps": "004",
+    "nama": "SURATNO",
+    "jenis_kelamin": "L",
+    "status_pemilih": "K",
+    "alamat": "DERESAN",
+    "rt": "006"
+  },
+  {
+    "no_urut": 291,
+    "tps": "004",
+    "nama": "SURYANTO",
+    "jenis_kelamin": "L",
+    "status_pemilih": "K",
+    "alamat": "DERESAN",
+    "rt": "006"
+  },
+  {
+    "no_urut": 292,
+    "tps": "004",
+    "nama": "SUTINI",
+    "jenis_kelamin": "P",
+    "status_pemilih": "C",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "006"
+  },
+  {
+    "no_urut": 293,
+    "tps": "004",
+    "nama": "SYIFA' ALIFIA ZAHRO",
+    "jenis_kelamin": "P",
+    "status_pemilih": "BK",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "006"
+  },
+  {
+    "no_urut": 294,
+    "tps": "004",
+    "nama": "TARJONO",
+    "jenis_kelamin": "L",
+    "status_pemilih": "K",
+    "alamat": "DERESAN",
+    "rt": "006"
+  },
+  {
+    "no_urut": 295,
+    "tps": "004",
+    "nama": "TATIK NURHIDAYAH, A.Md",
+    "jenis_kelamin": "P",
+    "status_pemilih": "K",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "006"
+  },
+  {
+    "no_urut": 296,
+    "tps": "004",
+    "nama": "TAUFAN KRISTIANA",
+    "jenis_kelamin": "P",
+    "status_pemilih": "K",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "006"
+  },
+  {
+    "no_urut": 297,
+    "tps": "004",
+    "nama": "TUDJILAH",
+    "jenis_kelamin": "P",
+    "status_pemilih": "K",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "006"
+  },
+  {
+    "no_urut": 298,
+    "tps": "004",
+    "nama": "TUKIJAN",
+    "jenis_kelamin": "L",
+    "status_pemilih": "K",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "006"
+  },
+  {
+    "no_urut": 299,
+    "tps": "004",
+    "nama": "TUTIK WAHYUNDARI",
+    "jenis_kelamin": "P",
+    "status_pemilih": "K",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "006"
+  },
+  {
+    "no_urut": 300,
+    "tps": "004",
+    "nama": "UMI KHOZANAH",
+    "jenis_kelamin": "P",
+    "status_pemilih": "C",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "006"
+  },
+  {
+    "no_urut": 301,
+    "tps": "004",
+    "nama": "WAHANA",
+    "jenis_kelamin": "L",
+    "status_pemilih": "K",
+    "alamat": "DERESAN",
+    "rt": "006"
+  },
+  {
+    "no_urut": 302,
+    "tps": "004",
+    "nama": "WALIYANTI",
+    "jenis_kelamin": "P",
+    "status_pemilih": "K",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "006"
+  },
+  {
+    "no_urut": 303,
+    "tps": "004",
+    "nama": "WASIYAH",
+    "jenis_kelamin": "P",
+    "status_pemilih": "BK",
+    "alamat": "DERESAN",
+    "rt": "006"
+  },
+  {
+    "no_urut": 304,
+    "tps": "004",
+    "nama": "WIDI ASTUTI",
+    "jenis_kelamin": "P",
+    "status_pemilih": "K",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "006"
+  },
+  {
+    "no_urut": 305,
+    "tps": "004",
+    "nama": "WIDODO",
+    "jenis_kelamin": "L",
+    "status_pemilih": "C",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "006"
+  },
+  {
+    "no_urut": 306,
+    "tps": "004",
+    "nama": "WILIANTO BESAR ARISTU GAMA",
+    "jenis_kelamin": "L",
+    "status_pemilih": "K",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "006"
+  },
+  {
+    "no_urut": 307,
+    "tps": "004",
+    "nama": "WISNU AGEL NUGROHO",
+    "jenis_kelamin": "L",
+    "status_pemilih": "BK",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "006"
+  },
+  {
+    "no_urut": 308,
+    "tps": "004",
+    "nama": "YENI SUSIYANTI",
+    "jenis_kelamin": "P",
+    "status_pemilih": "K",
+    "alamat": "DERESAN",
+    "rt": "006"
+  },
+  {
+    "no_urut": 309,
+    "tps": "004",
+    "nama": "YUAN FERY RIYANTO",
+    "jenis_kelamin": "L",
+    "status_pemilih": "BK",
+    "alamat": "DERESAN",
+    "rt": "006"
+  },
+  {
+    "no_urut": 310,
+    "tps": "004",
+    "nama": "ZAYYAN HAFIZH RAFIANSYAH",
+    "jenis_kelamin": "L",
+    "status_pemilih": "BK",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "006"
+  },
+  {
+    "no_urut": 311,
+    "tps": "004",
+    "nama": "ZUSYA SAF SAHANE",
+    "jenis_kelamin": "L",
+    "status_pemilih": "BK",
+    "alamat": "DERESAN",
+    "rt": "006"
+  },
+  {
+    "no_urut": 312,
+    "tps": "004",
+    "nama": "ABANJA NUR ALFA KHASANAH",
+    "jenis_kelamin": "P",
+    "status_pemilih": "BK",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "007"
+  },
+  {
+    "no_urut": 313,
+    "tps": "004",
+    "nama": "AFIANA LARASATI",
+    "jenis_kelamin": "P",
+    "status_pemilih": "BK",
+    "alamat": "DUSUN DERESAN",
+    "rt": "007"
+  },
+  {
+    "no_urut": 314,
+    "tps": "004",
+    "nama": "AGUS SUPRIANTO",
+    "jenis_kelamin": "L",
+    "status_pemilih": "BK",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "007"
+  },
+  {
+    "no_urut": 315,
+    "tps": "004",
+    "nama": "AHMAD ULINUHA",
+    "jenis_kelamin": "L",
+    "status_pemilih": "BK",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "007"
+  },
+  {
+    "no_urut": 316,
+    "tps": "004",
+    "nama": "ALAFIYA MAUILA",
+    "jenis_kelamin": "P",
+    "status_pemilih": "",
+    "alamat": "DERESAN",
+    "rt": "007"
+  },
+  {
+    "no_urut": 317,
+    "tps": "004",
+    "nama": "ALINDA MULIA INSANI",
+    "jenis_kelamin": "P",
+    "status_pemilih": "BK",
+    "alamat": "DERESAN",
+    "rt": "007"
+  },
+  {
+    "no_urut": 318,
+    "tps": "004",
+    "nama": "ANISA RIZKYA RAMADHANI",
+    "jenis_kelamin": "P",
+    "status_pemilih": "BK",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "007"
+  },
+  {
+    "no_urut": 319,
+    "tps": "004",
+    "nama": "APRILIA ULVA YUNITA",
+    "jenis_kelamin": "P",
+    "status_pemilih": "BK",
+    "alamat": "DERESAN",
+    "rt": "007"
+  },
+  {
+    "no_urut": 320,
+    "tps": "004",
+    "nama": "ARIESTA DWI RIAWATI",
+    "jenis_kelamin": "P",
+    "status_pemilih": "K",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "007"
+  },
+  {
+    "no_urut": 321,
+    "tps": "004",
+    "nama": "ARIYATI",
+    "jenis_kelamin": "P",
+    "status_pemilih": "K",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "007"
+  },
+  {
+    "no_urut": 322,
+    "tps": "004",
+    "nama": "ARWAN",
+    "jenis_kelamin": "L",
+    "status_pemilih": "K",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "007"
+  },
+  {
+    "no_urut": 323,
+    "tps": "004",
+    "nama": "ASMIYATI",
+    "jenis_kelamin": "P",
+    "status_pemilih": "K",
+    "alamat": "DERESAN",
+    "rt": "007"
+  },
+  {
+    "no_urut": 324,
+    "tps": "004",
+    "nama": "AYU FITRIYATI",
+    "jenis_kelamin": "P",
+    "status_pemilih": "BK",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "007"
+  },
+  {
+    "no_urut": 325,
+    "tps": "004",
+    "nama": "BAGUS MAY JHUNO",
+    "jenis_kelamin": "L",
+    "status_pemilih": "BK",
+    "alamat": "DERESAN",
+    "rt": "007"
+  },
+  {
+    "no_urut": 326,
+    "tps": "004",
+    "nama": "BARIYAH",
+    "jenis_kelamin": "P",
+    "status_pemilih": "K",
+    "alamat": "DERESAN",
+    "rt": "007"
+  },
+  {
+    "no_urut": 327,
+    "tps": "004",
+    "nama": "BENI SEPUTRA KURNIAWAN",
+    "jenis_kelamin": "L",
+    "status_pemilih": "K",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "007"
+  },
+  {
+    "no_urut": 328,
+    "tps": "004",
+    "nama": "BIMANTORO",
+    "jenis_kelamin": "L",
+    "status_pemilih": "K",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "007"
+  },
+  {
+    "no_urut": 329,
+    "tps": "004",
+    "nama": "BUGIMAN",
+    "jenis_kelamin": "L",
+    "status_pemilih": "K",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "007"
+  },
+  {
+    "no_urut": 330,
+    "tps": "004",
+    "nama": "C. MARLINA PRAJANTI",
+    "jenis_kelamin": "P",
+    "status_pemilih": "K",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "007"
+  },
+  {
+    "no_urut": 331,
+    "tps": "004",
+    "nama": "CAHYANI FATIKAWATI",
+    "jenis_kelamin": "P",
+    "status_pemilih": "K",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "007"
+  },
+  {
+    "no_urut": 332,
+    "tps": "004",
+    "nama": "DALBI",
+    "jenis_kelamin": "L",
+    "status_pemilih": "K",
+    "alamat": "DERESAN",
+    "rt": "007"
+  },
+  {
+    "no_urut": 333,
+    "tps": "004",
+    "nama": "DANIEL SURYA YUGA",
+    "jenis_kelamin": "L",
+    "status_pemilih": "",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "007"
+  },
+  {
+    "no_urut": 334,
+    "tps": "004",
+    "nama": "DARIYANTI",
+    "jenis_kelamin": "P",
+    "status_pemilih": "BK",
+    "alamat": "DERESAN",
+    "rt": "007"
+  },
+  {
+    "no_urut": 335,
+    "tps": "004",
+    "nama": "DESINTA ASTUTI",
+    "jenis_kelamin": "P",
+    "status_pemilih": "BK",
+    "alamat": "DERESAN",
+    "rt": "007"
+  },
+  {
+    "no_urut": 336,
+    "tps": "004",
+    "nama": "DEVINA RAHMAYA PUTRI",
+    "jenis_kelamin": "P",
+    "status_pemilih": "BK",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "007"
+  },
+  {
+    "no_urut": 337,
+    "tps": "004",
+    "nama": "DEWI PANGESTIKA",
+    "jenis_kelamin": "P",
+    "status_pemilih": "K",
+    "alamat": "DERESAN",
+    "rt": "007"
+  },
+  {
+    "no_urut": 338,
+    "tps": "004",
+    "nama": "DEWI WAHYUNINGRUM",
+    "jenis_kelamin": "P",
+    "status_pemilih": "K",
+    "alamat": "DERESAN",
+    "rt": "007"
+  },
+  {
+    "no_urut": 339,
+    "tps": "004",
+    "nama": "DIMAS PURASTO BANGUN NAGORO",
+    "jenis_kelamin": "L",
+    "status_pemilih": "K",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "007"
+  },
+  {
+    "no_urut": 340,
+    "tps": "004",
+    "nama": "DJUMINEM",
+    "jenis_kelamin": "P",
+    "status_pemilih": "C",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "007"
+  },
+  {
+    "no_urut": 341,
+    "tps": "004",
+    "nama": "DWI ANTORO",
+    "jenis_kelamin": "L",
+    "status_pemilih": "BK",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "007"
+  },
+  {
+    "no_urut": 342,
+    "tps": "004",
+    "nama": "DWI SUPARNO",
+    "jenis_kelamin": "L",
+    "status_pemilih": "C",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "007"
+  },
+  {
+    "no_urut": 343,
+    "tps": "004",
+    "nama": "F. FAHAM MULYANTA",
+    "jenis_kelamin": "L",
+    "status_pemilih": "K",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "007"
+  },
+  {
+    "no_urut": 344,
+    "tps": "004",
+    "nama": "FAHRIZAL HIMAWAN",
+    "jenis_kelamin": "L",
+    "status_pemilih": "K",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "007"
+  },
+  {
+    "no_urut": 345,
+    "tps": "004",
+    "nama": "FAIS EKA KURNIAWAN",
+    "jenis_kelamin": "L",
+    "status_pemilih": "BK",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "007"
+  },
+  {
+    "no_urut": 346,
+    "tps": "004",
+    "nama": "FEBRIKA PURNAMA SAPUTRA",
+    "jenis_kelamin": "L",
+    "status_pemilih": "K",
+    "alamat": "DERESAN",
+    "rt": "007"
+  },
+  {
+    "no_urut": 347,
+    "tps": "004",
+    "nama": "FITRIANA DEWI",
+    "jenis_kelamin": "P",
+    "status_pemilih": "K",
+    "alamat": "DERESAN",
+    "rt": "007"
+  },
+  {
+    "no_urut": 348,
+    "tps": "004",
+    "nama": "GAMPANG SUGIARTO",
+    "jenis_kelamin": "L",
+    "status_pemilih": "K",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "007"
+  },
+  {
+    "no_urut": 349,
+    "tps": "004",
+    "nama": "GANANG NUGROHO RACHMADHANA",
+    "jenis_kelamin": "L",
+    "status_pemilih": "BK",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "007"
+  },
+  {
+    "no_urut": 350,
+    "tps": "004",
+    "nama": "HADI PRANOTO NGAJIYO",
+    "jenis_kelamin": "L",
+    "status_pemilih": "C",
+    "alamat": "DERESAN",
+    "rt": "007"
+  },
+  {
+    "no_urut": 351,
+    "tps": "004",
+    "nama": "HAFSAH SHAFA'AN MAULIDA",
+    "jenis_kelamin": "P",
+    "status_pemilih": "BK",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "007"
+  },
+  {
+    "no_urut": 352,
+    "tps": "004",
+    "nama": "HESTINA NIMASTUTI",
+    "jenis_kelamin": "P",
+    "status_pemilih": "BK",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "007"
+  },
+  {
+    "no_urut": 353,
+    "tps": "004",
+    "nama": "HIDAYATUS SA'DIYYAH",
+    "jenis_kelamin": "P",
+    "status_pemilih": "BK",
+    "alamat": "DERESAN",
+    "rt": "007"
+  },
+  {
+    "no_urut": 354,
+    "tps": "004",
+    "nama": "HJ. KHOIRUL BARIYAH",
+    "jenis_kelamin": "P",
+    "status_pemilih": "C",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "007"
+  },
+  {
+    "no_urut": 355,
+    "tps": "004",
+    "nama": "ICHSAN",
+    "jenis_kelamin": "L",
+    "status_pemilih": "K",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "007"
+  },
+  {
+    "no_urut": 356,
+    "tps": "004",
+    "nama": "ICHWANNUDIN",
+    "jenis_kelamin": "L",
+    "status_pemilih": "K",
+    "alamat": "DERESAN",
+    "rt": "007"
+  },
+  {
+    "no_urut": 357,
+    "tps": "004",
+    "nama": "ISKANDARTA",
+    "jenis_kelamin": "L",
+    "status_pemilih": "K",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "007"
+  },
+  {
+    "no_urut": 358,
+    "tps": "004",
+    "nama": "ISTINAH",
+    "jenis_kelamin": "P",
+    "status_pemilih": "K",
+    "alamat": "DERESAN",
+    "rt": "007"
+  },
+  {
+    "no_urut": 359,
+    "tps": "004",
+    "nama": "JAKA ASIH KADARMAN",
+    "jenis_kelamin": "L",
+    "status_pemilih": "K",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "007"
+  },
+  {
+    "no_urut": 360,
+    "tps": "004",
+    "nama": "JALU RUCI PRADIPTO",
+    "jenis_kelamin": "L",
+    "status_pemilih": "BK",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "007"
+  },
+  {
+    "no_urut": 361,
+    "tps": "004",
+    "nama": "JAMHARI",
+    "jenis_kelamin": "L",
+    "status_pemilih": "K",
+    "alamat": "DERESAN",
+    "rt": "007"
+  },
+  {
+    "no_urut": 362,
+    "tps": "004",
+    "nama": "JAMYANAH",
+    "jenis_kelamin": "P",
+    "status_pemilih": "BK",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "007"
+  },
+  {
+    "no_urut": 363,
+    "tps": "004",
+    "nama": "JERRY MACHENA",
+    "jenis_kelamin": "L",
+    "status_pemilih": "BK",
+    "alamat": "DERESAN",
+    "rt": "007"
+  },
+  {
+    "no_urut": 364,
+    "tps": "004",
+    "nama": "JOKO MULYANTO",
+    "jenis_kelamin": "L",
+    "status_pemilih": "K",
+    "alamat": "DERESAN",
+    "rt": "007"
+  },
+  {
+    "no_urut": 365,
+    "tps": "004",
+    "nama": "KAMINEM",
+    "jenis_kelamin": "P",
+    "status_pemilih": "K",
+    "alamat": "DERESAN",
+    "rt": "007"
+  },
+  {
+    "no_urut": 366,
+    "tps": "004",
+    "nama": "KARIJYEM",
+    "jenis_kelamin": "P",
+    "status_pemilih": "C",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "007"
+  },
+  {
+    "no_urut": 367,
+    "tps": "004",
+    "nama": "KARSONO",
+    "jenis_kelamin": "L",
+    "status_pemilih": "K",
+    "alamat": "DERESAN",
+    "rt": "007"
+  },
+  {
+    "no_urut": 368,
+    "tps": "004",
+    "nama": "KURNIA SRI NINGSIH",
+    "jenis_kelamin": "P",
+    "status_pemilih": "C",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "007"
+  },
+  {
+    "no_urut": 369,
+    "tps": "004",
+    "nama": "LIS WANDARTI",
+    "jenis_kelamin": "P",
+    "status_pemilih": "K",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "007"
+  },
+  {
+    "no_urut": 370,
+    "tps": "004",
+    "nama": "M. JASWADI",
+    "jenis_kelamin": "L",
+    "status_pemilih": "K",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "007"
+  },
+  {
+    "no_urut": 371,
+    "tps": "004",
+    "nama": "MARDOKO",
+    "jenis_kelamin": "L",
+    "status_pemilih": "BK",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "007"
+  },
+  {
+    "no_urut": 372,
+    "tps": "004",
+    "nama": "MARIA GANDES MULYANTI",
+    "jenis_kelamin": "P",
+    "status_pemilih": "C",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "007"
+  },
+  {
+    "no_urut": 373,
+    "tps": "004",
+    "nama": "MARJIANTI",
+    "jenis_kelamin": "P",
+    "status_pemilih": "K",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "007"
+  },
+  {
+    "no_urut": 374,
+    "tps": "004",
+    "nama": "MARYATI",
+    "jenis_kelamin": "P",
+    "status_pemilih": "K",
+    "alamat": "DERESAN",
+    "rt": "007"
+  },
+  {
+    "no_urut": 375,
+    "tps": "004",
+    "nama": "MARYOTO",
+    "jenis_kelamin": "L",
+    "status_pemilih": "K",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "007"
+  },
+  {
+    "no_urut": 376,
+    "tps": "004",
+    "nama": "MIFTAKHUL JANNAH",
+    "jenis_kelamin": "P",
+    "status_pemilih": "K",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "007"
+  },
+  {
+    "no_urut": 377,
+    "tps": "004",
+    "nama": "MOHAMAD JUMADI",
+    "jenis_kelamin": "L",
+    "status_pemilih": "",
+    "alamat": "DERESAN",
+    "rt": "007"
+  },
+  {
+    "no_urut": 378,
+    "tps": "004",
+    "nama": "MUHAMMAD ARIFIN",
+    "jenis_kelamin": "L",
+    "status_pemilih": "BK",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "007"
+  },
+  {
+    "no_urut": 379,
+    "tps": "004",
+    "nama": "MUHAMMAD BROTO",
+    "jenis_kelamin": "L",
+    "status_pemilih": "K",
+    "alamat": "DERESAN",
+    "rt": "007"
+  },
+  {
+    "no_urut": 380,
+    "tps": "004",
+    "nama": "MUHAMMAD CHASANI",
+    "jenis_kelamin": "L",
+    "status_pemilih": "K",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "007"
+  },
+  {
+    "no_urut": 381,
+    "tps": "004",
+    "nama": "MUHAMMAD MUFLICHUN",
+    "jenis_kelamin": "L",
+    "status_pemilih": "BK",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "007"
+  },
+  {
+    "no_urut": 382,
+    "tps": "004",
+    "nama": "MUHAMMAD MUJIB",
+    "jenis_kelamin": "L",
+    "status_pemilih": "C",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "007"
+  },
+  {
+    "no_urut": 383,
+    "tps": "004",
+    "nama": "MUSLIMAH",
+    "jenis_kelamin": "P",
+    "status_pemilih": "K",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "007"
+  },
+  {
+    "no_urut": 384,
+    "tps": "004",
+    "nama": "NEILA ISKANDAR",
+    "jenis_kelamin": "P",
+    "status_pemilih": "BK",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "007"
+  },
+  {
+    "no_urut": 385,
+    "tps": "004",
+    "nama": "NI'AM MASDUQI",
+    "jenis_kelamin": "L",
+    "status_pemilih": "BK",
+    "alamat": "DERESAN",
+    "rt": "007"
+  },
+  {
+    "no_urut": 386,
+    "tps": "004",
+    "nama": "NISA NUR AFRIDA",
+    "jenis_kelamin": "P",
+    "status_pemilih": "BK",
+    "alamat": "DERESAN",
+    "rt": "007"
+  },
+  {
+    "no_urut": 387,
+    "tps": "004",
+    "nama": "NUR ANIFAH",
+    "jenis_kelamin": "P",
+    "status_pemilih": "BK",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "007"
+  },
+  {
+    "no_urut": 388,
+    "tps": "004",
+    "nama": "NUR ISHAQ MUBAROK",
+    "jenis_kelamin": "L",
+    "status_pemilih": "BK",
+    "alamat": "DERESAN",
+    "rt": "007"
+  },
+  {
+    "no_urut": 389,
+    "tps": "004",
+    "nama": "NUR MUHAMMAD SHOLIKHUN",
+    "jenis_kelamin": "L",
+    "status_pemilih": "K",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "007"
+  },
+  {
+    "no_urut": 390,
+    "tps": "004",
+    "nama": "PARJILAH",
+    "jenis_kelamin": "P",
+    "status_pemilih": "BK",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "007"
+  },
+  {
+    "no_urut": 391,
+    "tps": "004",
+    "nama": "PARNA",
+    "jenis_kelamin": "L",
+    "status_pemilih": "K",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "007"
+  },
+  {
+    "no_urut": 392,
+    "tps": "004",
+    "nama": "PAULUS FEBRIAN GAGAH WICAKSONO",
+    "jenis_kelamin": "L",
+    "status_pemilih": "BK",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "007"
+  },
+  {
+    "no_urut": 393,
+    "tps": "004",
+    "nama": "PUJI ASTUTI",
+    "jenis_kelamin": "P",
+    "status_pemilih": "K",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "007"
+  },
+  {
+    "no_urut": 394,
+    "tps": "004",
+    "nama": "PUJIYANTO",
+    "jenis_kelamin": "L",
+    "status_pemilih": "K",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "007"
+  },
+  {
+    "no_urut": 395,
+    "tps": "004",
+    "nama": "RAFA ADIB PRABOWO",
+    "jenis_kelamin": "L",
+    "status_pemilih": "BK",
+    "alamat": "DERESAN",
+    "rt": "007"
+  },
+  {
+    "no_urut": 396,
+    "tps": "004",
+    "nama": "RAHMA YUNITA",
+    "jenis_kelamin": "P",
+    "status_pemilih": "BK",
+    "alamat": "DUSUN DERESAN",
+    "rt": "007"
+  },
+  {
+    "no_urut": 397,
+    "tps": "004",
+    "nama": "REZA DWI PRAKOSO",
+    "jenis_kelamin": "L",
+    "status_pemilih": "BK",
+    "alamat": "DERESAN",
+    "rt": "007"
+  },
+  {
+    "no_urut": 398,
+    "tps": "004",
+    "nama": "RIA CANDRADINATA",
+    "jenis_kelamin": "P",
+    "status_pemilih": "K",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "007"
+  },
+  {
+    "no_urut": 399,
+    "tps": "004",
+    "nama": "RINA DEWI RETNOWATI",
+    "jenis_kelamin": "P",
+    "status_pemilih": "K",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "007"
+  },
+  {
+    "no_urut": 400,
+    "tps": "004",
+    "nama": "RIRIN FIANDARI",
+    "jenis_kelamin": "P",
+    "status_pemilih": "C",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "007"
+  },
+  {
+    "no_urut": 401,
+    "tps": "004",
+    "nama": "RIZKY GALANG SAPUTRA",
+    "jenis_kelamin": "L",
+    "status_pemilih": "BK",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "007"
+  },
+  {
+    "no_urut": 402,
+    "tps": "004",
+    "nama": "RUDITA HANDRINI UTAMI",
+    "jenis_kelamin": "P",
+    "status_pemilih": "K",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "007"
+  },
+  {
+    "no_urut": 403,
+    "tps": "004",
+    "nama": "RUSBANI",
+    "jenis_kelamin": "L",
+    "status_pemilih": "K",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "007"
+  },
+  {
+    "no_urut": 404,
+    "tps": "004",
+    "nama": "SAFA RAFFI KURNIAWAN",
+    "jenis_kelamin": "L",
+    "status_pemilih": "BK",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "007"
+  },
+  {
+    "no_urut": 405,
+    "tps": "004",
+    "nama": "SAMIYEM",
+    "jenis_kelamin": "P",
+    "status_pemilih": "K",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "007"
+  },
+  {
+    "no_urut": 406,
+    "tps": "004",
+    "nama": "SEKAR LISTIANI",
+    "jenis_kelamin": "P",
+    "status_pemilih": "C",
+    "alamat": "DUSUN DERESAN",
+    "rt": "007"
+  },
+  {
+    "no_urut": 407,
+    "tps": "004",
+    "nama": "SISWORO",
+    "jenis_kelamin": "L",
+    "status_pemilih": "K",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "007"
+  },
+  {
+    "no_urut": 408,
+    "tps": "004",
+    "nama": "SITI ASIYAH",
+    "jenis_kelamin": "P",
+    "status_pemilih": "C",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "007"
+  },
+  {
+    "no_urut": 409,
+    "tps": "004",
+    "nama": "SITI MUFLIKATUN",
+    "jenis_kelamin": "P",
+    "status_pemilih": "C",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "007"
+  },
+  {
+    "no_urut": 410,
+    "tps": "004",
+    "nama": "SITI WAFIROH",
+    "jenis_kelamin": "P",
+    "status_pemilih": "K",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "007"
+  },
+  {
+    "no_urut": 411,
+    "tps": "004",
+    "nama": "SLAMET ZAROWI",
+    "jenis_kelamin": "L",
+    "status_pemilih": "C",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "007"
+  },
+  {
+    "no_urut": 412,
+    "tps": "004",
+    "nama": "SOFA RAHMAWATI",
+    "jenis_kelamin": "P",
+    "status_pemilih": "K",
+    "alamat": "DERESAN",
+    "rt": "007"
+  },
+  {
+    "no_urut": 413,
+    "tps": "004",
+    "nama": "SRI DIANTINI",
+    "jenis_kelamin": "P",
+    "status_pemilih": "K",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "007"
+  },
+  {
+    "no_urut": 414,
+    "tps": "004",
+    "nama": "SRI HARIYARTI KHOMSAH",
+    "jenis_kelamin": "P",
+    "status_pemilih": "C",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "007"
+  },
+  {
+    "no_urut": 415,
+    "tps": "004",
+    "nama": "SRI SUHARTI",
+    "jenis_kelamin": "P",
+    "status_pemilih": "C",
+    "alamat": "DERESAN",
+    "rt": "007"
+  },
+  {
+    "no_urut": 416,
+    "tps": "004",
+    "nama": "SUHARTI",
+    "jenis_kelamin": "P",
+    "status_pemilih": "K",
+    "alamat": "DERESAN",
+    "rt": "007"
+  },
+  {
+    "no_urut": 417,
+    "tps": "004",
+    "nama": "SUIJYATI",
+    "jenis_kelamin": "P",
+    "status_pemilih": "K",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "007"
+  },
+  {
+    "no_urut": 418,
+    "tps": "004",
+    "nama": "SUKA WATI NINGSIH",
+    "jenis_kelamin": "P",
+    "status_pemilih": "K",
+    "alamat": "DERESAN",
+    "rt": "007"
+  },
+  {
+    "no_urut": 419,
+    "tps": "004",
+    "nama": "SUKIYATDANA",
+    "jenis_kelamin": "L",
+    "status_pemilih": "BK",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "007"
+  },
+  {
+    "no_urut": 420,
+    "tps": "004",
+    "nama": "SUMARNO",
+    "jenis_kelamin": "L",
+    "status_pemilih": "K",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "007"
+  },
+  {
+    "no_urut": 421,
+    "tps": "004",
+    "nama": "SUMARTINAH",
+    "jenis_kelamin": "P",
+    "status_pemilih": "K",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "007"
+  },
+  {
+    "no_urut": 422,
+    "tps": "004",
+    "nama": "SUMIDI",
+    "jenis_kelamin": "L",
+    "status_pemilih": "C",
+    "alamat": "DERESAN",
+    "rt": "007"
+  },
+  {
+    "no_urut": 423,
+    "tps": "004",
+    "nama": "SUNARDI",
+    "jenis_kelamin": "L",
+    "status_pemilih": "BK",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "007"
+  },
+  {
+    "no_urut": 424,
+    "tps": "004",
+    "nama": "SUNARTO",
+    "jenis_kelamin": "L",
+    "status_pemilih": "",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "007"
+  },
+  {
+    "no_urut": 425,
+    "tps": "004",
+    "nama": "SUPRIHATIN",
+    "jenis_kelamin": "P",
+    "status_pemilih": "C",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "007"
+  },
+  {
+    "no_urut": 426,
+    "tps": "004",
+    "nama": "SUPRIHATUN",
+    "jenis_kelamin": "P",
+    "status_pemilih": "C",
+    "alamat": "DERESAN",
+    "rt": "007"
+  },
+  {
+    "no_urut": 427,
+    "tps": "004",
+    "nama": "SURIP",
+    "jenis_kelamin": "L",
+    "status_pemilih": "K",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "007"
+  },
+  {
+    "no_urut": 428,
+    "tps": "004",
+    "nama": "SUSWADI",
+    "jenis_kelamin": "L",
+    "status_pemilih": "K",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "007"
+  },
+  {
+    "no_urut": 429,
+    "tps": "004",
+    "nama": "TANAYA HELGA LAKSITA",
+    "jenis_kelamin": "P",
+    "status_pemilih": "BK",
+    "alamat": "DERESAN",
+    "rt": "007"
+  },
+  {
+    "no_urut": 430,
+    "tps": "004",
+    "nama": "TRI SUMARMI",
+    "jenis_kelamin": "P",
+    "status_pemilih": "K",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "007"
+  },
+  {
+    "no_urut": 431,
+    "tps": "004",
+    "nama": "TRI YUNIARTA",
+    "jenis_kelamin": "L",
+    "status_pemilih": "K",
+    "alamat": "DERESAN",
+    "rt": "007"
+  },
+  {
+    "no_urut": 432,
+    "tps": "004",
+    "nama": "TUGIMAN",
+    "jenis_kelamin": "L",
+    "status_pemilih": "K",
+    "alamat": "DERESAN",
+    "rt": "007"
+  },
+  {
+    "no_urut": 433,
+    "tps": "004",
+    "nama": "TUKILAH",
+    "jenis_kelamin": "P",
+    "status_pemilih": "C",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "007"
+  },
+  {
+    "no_urut": 434,
+    "tps": "004",
+    "nama": "UMI MUNIFAH",
+    "jenis_kelamin": "P",
+    "status_pemilih": "BK",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "007"
+  },
+  {
+    "no_urut": 435,
+    "tps": "004",
+    "nama": "WAGINEM",
+    "jenis_kelamin": "P",
+    "status_pemilih": "K",
+    "alamat": "DERESAN",
+    "rt": "007"
+  },
+  {
+    "no_urut": 436,
+    "tps": "004",
+    "nama": "WAHYUNI",
+    "jenis_kelamin": "P",
+    "status_pemilih": "C",
+    "alamat": "DERESAN",
+    "rt": "007"
+  },
+  {
+    "no_urut": 437,
+    "tps": "004",
+    "nama": "WALIJYONO AWINK PAMUNGKAS",
+    "jenis_kelamin": "L",
+    "status_pemilih": "K",
+    "alamat": "DERESAN",
+    "rt": "007"
+  },
+  {
+    "no_urut": 438,
+    "tps": "004",
+    "nama": "WARINEM",
+    "jenis_kelamin": "P",
+    "status_pemilih": "K",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "007"
+  },
+  {
+    "no_urut": 439,
+    "tps": "004",
+    "nama": "WARSILAH",
+    "jenis_kelamin": "P",
+    "status_pemilih": "C",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "007"
+  },
+  {
+    "no_urut": 440,
+    "tps": "004",
+    "nama": "WURI ADIYANTI",
+    "jenis_kelamin": "P",
+    "status_pemilih": "K",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "007"
+  },
+  {
+    "no_urut": 441,
+    "tps": "004",
+    "nama": "YESAYA ANGKASA YUGA",
+    "jenis_kelamin": "L",
+    "status_pemilih": "K",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "007"
+  },
+  {
+    "no_urut": 442,
+    "tps": "004",
+    "nama": "YOHANA SEKAR AYU ARUM TYAS",
+    "jenis_kelamin": "P",
+    "status_pemilih": "BK",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "007"
+  },
+  {
+    "no_urut": 443,
+    "tps": "004",
+    "nama": "YULI KRISTIANA",
+    "jenis_kelamin": "P",
+    "status_pemilih": "C",
+    "alamat": "DERESAN",
+    "rt": "007"
+  },
+  {
+    "no_urut": 444,
+    "tps": "004",
+    "nama": "YULITA KURNIASIH",
+    "jenis_kelamin": "P",
+    "status_pemilih": "BK",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "007"
+  },
+  {
+    "no_urut": 445,
+    "tps": "004",
+    "nama": "YUNI ASTUTI",
+    "jenis_kelamin": "P",
+    "status_pemilih": "K",
+    "alamat": "DERESAN",
+    "rt": "007"
+  },
+  {
+    "no_urut": 446,
+    "tps": "004",
+    "nama": "ZAINUDIN",
+    "jenis_kelamin": "L",
+    "status_pemilih": "K",
+    "alamat": "DERESAN",
+    "rt": "007"
+  },
+  {
+    "no_urut": 447,
+    "tps": "004",
+    "nama": "ZARWATI",
+    "jenis_kelamin": "P",
+    "status_pemilih": "K",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "007"
+  },
+  {
+    "no_urut": 448,
+    "tps": "004",
+    "nama": "ADITIA MUSTOFA",
+    "jenis_kelamin": "L",
+    "status_pemilih": "K",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "008"
+  },
+  {
+    "no_urut": 449,
+    "tps": "004",
+    "nama": "AGUS APRIYANA",
+    "jenis_kelamin": "L",
+    "status_pemilih": "K",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "008"
+  },
+  {
+    "no_urut": 450,
+    "tps": "004",
+    "nama": "AGUS SUPRIYANTO",
+    "jenis_kelamin": "L",
+    "status_pemilih": "K",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "008"
+  },
+  {
+    "no_urut": 451,
+    "tps": "004",
+    "nama": "AHMAD ASIF ABDUL HAKIM",
+    "jenis_kelamin": "L",
+    "status_pemilih": "BK",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "008"
+  },
+  {
+    "no_urut": 452,
+    "tps": "004",
+    "nama": "AHMAD UAISY AL QORONI",
+    "jenis_kelamin": "L",
+    "status_pemilih": "BK",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "008"
+  },
+  {
+    "no_urut": 453,
+    "tps": "004",
+    "nama": "AHRI DIAH ISTIQOMAH",
+    "jenis_kelamin": "P",
+    "status_pemilih": "BK",
+    "alamat": "DERESAN",
+    "rt": "008"
+  },
+  {
+    "no_urut": 454,
+    "tps": "004",
+    "nama": "ALFAN MUZAKKI",
+    "jenis_kelamin": "L",
+    "status_pemilih": "BK",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "008"
+  },
+  {
+    "no_urut": 455,
+    "tps": "004",
+    "nama": "ANIS WINARNI",
+    "jenis_kelamin": "P",
+    "status_pemilih": "K",
+    "alamat": "DERESAN",
+    "rt": "008"
+  },
+  {
+    "no_urut": 456,
+    "tps": "004",
+    "nama": "ANISA SALMA",
+    "jenis_kelamin": "P",
+    "status_pemilih": "BK",
+    "alamat": "DERESAN",
+    "rt": "008"
+  },
+  {
+    "no_urut": 457,
+    "tps": "004",
+    "nama": "ARDIYANTO",
+    "jenis_kelamin": "L",
+    "status_pemilih": "K",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "008"
+  },
+  {
+    "no_urut": 458,
+    "tps": "004",
+    "nama": "ARIF NURYADI",
+    "jenis_kelamin": "L",
+    "status_pemilih": "K",
+    "alamat": "DERESAN",
+    "rt": "008"
+  },
+  {
+    "no_urut": 459,
+    "tps": "004",
+    "nama": "ARIFA NANDA KURNIA PUTRI",
+    "jenis_kelamin": "P",
+    "status_pemilih": "BK",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "008"
+  },
+  {
+    "no_urut": 460,
+    "tps": "004",
+    "nama": "ASHARI",
+    "jenis_kelamin": "L",
+    "status_pemilih": "BK",
+    "alamat": "DERESAN",
+    "rt": "008"
+  },
+  {
+    "no_urut": 461,
+    "tps": "004",
+    "nama": "ASHURI",
+    "jenis_kelamin": "L",
+    "status_pemilih": "K",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "008"
+  },
+  {
+    "no_urut": 462,
+    "tps": "004",
+    "nama": "ASRO",
+    "jenis_kelamin": "L",
+    "status_pemilih": "K",
+    "alamat": "DERESAN",
+    "rt": "008"
+  },
+  {
+    "no_urut": 463,
+    "tps": "004",
+    "nama": "AULIA HURIL'AIN",
+    "jenis_kelamin": "P",
+    "status_pemilih": "BK",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "008"
+  },
+  {
+    "no_urut": 464,
+    "tps": "004",
+    "nama": "AZIS FAISAL",
+    "jenis_kelamin": "L",
+    "status_pemilih": "K",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "008"
+  },
+  {
+    "no_urut": 465,
+    "tps": "004",
+    "nama": "BAGUS PRAMONO",
+    "jenis_kelamin": "L",
+    "status_pemilih": "BK",
+    "alamat": "DERESAN",
+    "rt": "008"
+  },
+  {
+    "no_urut": 466,
+    "tps": "004",
+    "nama": "BANDI",
+    "jenis_kelamin": "L",
+    "status_pemilih": "K",
+    "alamat": "DERESAN",
+    "rt": "008"
+  },
+  {
+    "no_urut": 467,
+    "tps": "004",
+    "nama": "BARYANTI",
+    "jenis_kelamin": "P",
+    "status_pemilih": "K",
+    "alamat": "DERESAN",
+    "rt": "008"
+  },
+  {
+    "no_urut": 468,
+    "tps": "004",
+    "nama": "BASTIANA SALENDRA PUTRI",
+    "jenis_kelamin": "P",
+    "status_pemilih": "K",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "008"
+  },
+  {
+    "no_urut": 469,
+    "tps": "004",
+    "nama": "BUDIYONO",
+    "jenis_kelamin": "L",
+    "status_pemilih": "K",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "008"
+  },
+  {
+    "no_urut": 470,
+    "tps": "004",
+    "nama": "CAKUP",
+    "jenis_kelamin": "L",
+    "status_pemilih": "C",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "008"
+  },
+  {
+    "no_urut": 471,
+    "tps": "004",
+    "nama": "CHOIRIYAH",
+    "jenis_kelamin": "P",
+    "status_pemilih": "K",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "008"
+  },
+  {
+    "no_urut": 472,
+    "tps": "004",
+    "nama": "CHOIRUL PUJI ASTUTI",
+    "jenis_kelamin": "P",
+    "status_pemilih": "K",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "008"
+  },
+  {
+    "no_urut": 473,
+    "tps": "004",
+    "nama": "DALIMAN HADI PRAYITNO",
+    "jenis_kelamin": "L",
+    "status_pemilih": "K",
+    "alamat": "DERESAN",
+    "rt": "008"
+  },
+  {
+    "no_urut": 474,
+    "tps": "004",
+    "nama": "DANURI",
+    "jenis_kelamin": "L",
+    "status_pemilih": "K",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "008"
+  },
+  {
+    "no_urut": 475,
+    "tps": "004",
+    "nama": "DARAJATUN NUR RAHMAH",
+    "jenis_kelamin": "P",
+    "status_pemilih": "BK",
+    "alamat": "DERESAN",
+    "rt": "008"
+  },
+  {
+    "no_urut": 476,
+    "tps": "004",
+    "nama": "DARMINI",
+    "jenis_kelamin": "P",
+    "status_pemilih": "C",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "008"
+  },
+  {
+    "no_urut": 477,
+    "tps": "004",
+    "nama": "DIAH NUR FAIZAH",
+    "jenis_kelamin": "P",
+    "status_pemilih": "BK",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "008"
+  },
+  {
+    "no_urut": 478,
+    "tps": "004",
+    "nama": "DWI ASTUTI",
+    "jenis_kelamin": "P",
+    "status_pemilih": "K",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "008"
+  },
+  {
+    "no_urut": 479,
+    "tps": "004",
+    "nama": "ERLINA ZAIN AFIFAH",
+    "jenis_kelamin": "P",
+    "status_pemilih": "BK",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "008"
+  },
+  {
+    "no_urut": 480,
+    "tps": "004",
+    "nama": "ERVIN RUSDWIASTUTI",
+    "jenis_kelamin": "P",
+    "status_pemilih": "K",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "008"
+  },
+  {
+    "no_urut": 481,
+    "tps": "004",
+    "nama": "EVA RIAS UTAMI",
+    "jenis_kelamin": "P",
+    "status_pemilih": "K",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "008"
+  },
+  {
+    "no_urut": 482,
+    "tps": "004",
+    "nama": "FAKHUROJI",
+    "jenis_kelamin": "L",
+    "status_pemilih": "BK",
+    "alamat": "DERESAN",
+    "rt": "008"
+  },
+  {
+    "no_urut": 483,
+    "tps": "004",
+    "nama": "FARAH DILA RAHMAWATI",
+    "jenis_kelamin": "P",
+    "status_pemilih": "BK",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "008"
+  },
+  {
+    "no_urut": 484,
+    "tps": "004",
+    "nama": "FATHAN ANANTA NUR",
+    "jenis_kelamin": "L",
+    "status_pemilih": "BK",
+    "alamat": "DERESAN",
+    "rt": "008"
+  },
+  {
+    "no_urut": 485,
+    "tps": "004",
+    "nama": "FERIYADI ISKANDAR",
+    "jenis_kelamin": "L",
+    "status_pemilih": "K",
+    "alamat": "DERESAN",
+    "rt": "008"
+  },
+  {
+    "no_urut": 486,
+    "tps": "004",
+    "nama": "FRIEDA FATIMATUZ ZAHRA",
+    "jenis_kelamin": "P",
+    "status_pemilih": "K",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "008"
+  },
+  {
+    "no_urut": 487,
+    "tps": "004",
+    "nama": "H. HARTANA",
+    "jenis_kelamin": "L",
+    "status_pemilih": "K",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "008"
+  },
+  {
+    "no_urut": 488,
+    "tps": "004",
+    "nama": "HARTINAH",
+    "jenis_kelamin": "P",
+    "status_pemilih": "K",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "008"
+  },
+  {
+    "no_urut": 489,
+    "tps": "004",
+    "nama": "HAZIM RIDWAN",
+    "jenis_kelamin": "L",
+    "status_pemilih": "K",
+    "alamat": "DERESAN",
+    "rt": "008"
+  },
+  {
+    "no_urut": 490,
+    "tps": "004",
+    "nama": "HERNANY PUDJIASTUTI",
+    "jenis_kelamin": "P",
+    "status_pemilih": "C",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "008"
+  },
+  {
+    "no_urut": 491,
+    "tps": "004",
+    "nama": "HERU WIYANTO",
+    "jenis_kelamin": "L",
+    "status_pemilih": "K",
+    "alamat": "DERESAN",
+    "rt": "008"
+  },
+  {
+    "no_urut": 492,
+    "tps": "004",
+    "nama": "HESTU SINGGIH SUGIYANTO",
+    "jenis_kelamin": "L",
+    "status_pemilih": "BK",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "008"
+  },
+  {
+    "no_urut": 493,
+    "tps": "004",
+    "nama": "ILHAM NGATO",
+    "jenis_kelamin": "L",
+    "status_pemilih": "K",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "008"
+  },
+  {
+    "no_urut": 494,
+    "tps": "004",
+    "nama": "INAVA ZUMIR",
+    "jenis_kelamin": "P",
+    "status_pemilih": "BK",
+    "alamat": "DERESAN",
+    "rt": "008"
+  },
+  {
+    "no_urut": 495,
+    "tps": "004",
+    "nama": "JAPAR",
+    "jenis_kelamin": "L",
+    "status_pemilih": "C",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "008"
+  },
+  {
+    "no_urut": 496,
+    "tps": "004",
+    "nama": "JUMINTEN",
+    "jenis_kelamin": "P",
+    "status_pemilih": "K",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "008"
+  },
+  {
+    "no_urut": 497,
+    "tps": "004",
+    "nama": "JUMITRI",
+    "jenis_kelamin": "P",
+    "status_pemilih": "K",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "008"
+  },
+  {
+    "no_urut": 498,
+    "tps": "004",
+    "nama": "KHAIRUL MU'AMMAR",
+    "jenis_kelamin": "L",
+    "status_pemilih": "K",
+    "alamat": "DK.DERESAN",
+    "rt": "008"
+  },
+  {
+    "no_urut": 499,
+    "tps": "004",
+    "nama": "KHOIRIA",
+    "jenis_kelamin": "P",
+    "status_pemilih": "K",
+    "alamat": "DERESAN",
+    "rt": "008"
+  },
+  {
+    "no_urut": 500,
+    "tps": "004",
+    "nama": "KOMARI",
+    "jenis_kelamin": "L",
+    "status_pemilih": "K",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "008"
+  },
+  {
+    "no_urut": 501,
+    "tps": "004",
+    "nama": "KUSBIANTORO",
+    "jenis_kelamin": "L",
+    "status_pemilih": "K",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "008"
+  },
+  {
+    "no_urut": 502,
+    "tps": "004",
+    "nama": "KUSIJO",
+    "jenis_kelamin": "L",
+    "status_pemilih": "C",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "008"
+  },
+  {
+    "no_urut": 503,
+    "tps": "004",
+    "nama": "MARGINI D.S.",
+    "jenis_kelamin": "P",
+    "status_pemilih": "C",
+    "alamat": "DERESAN",
+    "rt": "008"
+  },
+  {
+    "no_urut": 504,
+    "tps": "004",
+    "nama": "MARLIYAH",
+    "jenis_kelamin": "P",
+    "status_pemilih": "K",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "008"
+  },
+  {
+    "no_urut": 505,
+    "tps": "004",
+    "nama": "MARSIYAH",
+    "jenis_kelamin": "P",
+    "status_pemilih": "K",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "008"
+  },
+  {
+    "no_urut": 506,
+    "tps": "004",
+    "nama": "MARYONO",
+    "jenis_kelamin": "L",
+    "status_pemilih": "K",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "008"
+  },
+  {
+    "no_urut": 507,
+    "tps": "004",
+    "nama": "MUGIRAH",
+    "jenis_kelamin": "P",
+    "status_pemilih": "C",
+    "alamat": "DERESAN",
+    "rt": "008"
+  },
+  {
+    "no_urut": 508,
+    "tps": "004",
+    "nama": "MUGIYAH",
+    "jenis_kelamin": "P",
+    "status_pemilih": "C",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "008"
+  },
+  {
+    "no_urut": 509,
+    "tps": "004",
+    "nama": "MUGIYONO",
+    "jenis_kelamin": "L",
+    "status_pemilih": "K",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "008"
+  },
+  {
+    "no_urut": 510,
+    "tps": "004",
+    "nama": "MUHAMAD HARMUYI",
+    "jenis_kelamin": "L",
+    "status_pemilih": "BK",
+    "alamat": "DERESAN",
+    "rt": "008"
+  },
+  {
+    "no_urut": 511,
+    "tps": "004",
+    "nama": "MUHAMMAD ACHSAN",
+    "jenis_kelamin": "L",
+    "status_pemilih": "BK",
+    "alamat": "DERESAN",
+    "rt": "008"
+  },
+  {
+    "no_urut": 512,
+    "tps": "004",
+    "nama": "MUHAMMAD ALIF",
+    "jenis_kelamin": "L",
+    "status_pemilih": "BK",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "008"
+  },
+  {
+    "no_urut": 513,
+    "tps": "004",
+    "nama": "MUHAMMAD ALLAN SETIAWAN",
+    "jenis_kelamin": "L",
+    "status_pemilih": "BK",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "008"
+  },
+  {
+    "no_urut": 514,
+    "tps": "004",
+    "nama": "MUHAMMAD ARI NUGROHO",
+    "jenis_kelamin": "L",
+    "status_pemilih": "BK",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "008"
+  },
+  {
+    "no_urut": 515,
+    "tps": "004",
+    "nama": "MUHAMMAD ARIS KUSNANTA",
+    "jenis_kelamin": "L",
+    "status_pemilih": "K",
+    "alamat": "DERESAN",
+    "rt": "008"
+  },
+  {
+    "no_urut": 516,
+    "tps": "004",
+    "nama": "MUHAMMAD HAFIDZ",
+    "jenis_kelamin": "L",
+    "status_pemilih": "BK",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "008"
+  },
+  {
+    "no_urut": 517,
+    "tps": "004",
+    "nama": "MUHAMMAD JIBAN",
+    "jenis_kelamin": "L",
+    "status_pemilih": "BK",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "008"
+  },
+  {
+    "no_urut": 518,
+    "tps": "004",
+    "nama": "MUHAMMAD MUSLIM MUBAROK",
+    "jenis_kelamin": "L",
+    "status_pemilih": "BK",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "008"
+  },
+  {
+    "no_urut": 519,
+    "tps": "004",
+    "nama": "MUHAMMAD NURUZAMAN ROISASALIM",
+    "jenis_kelamin": "L",
+    "status_pemilih": "BK",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "008"
+  },
+  {
+    "no_urut": 520,
+    "tps": "004",
+    "nama": "MUHAMMAD RIFQI",
+    "jenis_kelamin": "L",
+    "status_pemilih": "K",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "008"
+  },
+  {
+    "no_urut": 521,
+    "tps": "004",
+    "nama": "MUHAMMAD SHOLEH",
+    "jenis_kelamin": "L",
+    "status_pemilih": "K",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "008"
+  },
+  {
+    "no_urut": 522,
+    "tps": "004",
+    "nama": "MUHTAR NAIM",
+    "jenis_kelamin": "L",
+    "status_pemilih": "K",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "008"
+  },
+  {
+    "no_urut": 523,
+    "tps": "004",
+    "nama": "MUJIYANA",
+    "jenis_kelamin": "L",
+    "status_pemilih": "K",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "008"
+  },
+  {
+    "no_urut": 524,
+    "tps": "004",
+    "nama": "MULYADI",
+    "jenis_kelamin": "L",
+    "status_pemilih": "BK",
+    "alamat": "DERESAN",
+    "rt": "008"
+  },
+  {
+    "no_urut": 525,
+    "tps": "004",
+    "nama": "MURJIMAT",
+    "jenis_kelamin": "P",
+    "status_pemilih": "K",
+    "alamat": "DERESAN",
+    "rt": "008"
+  },
+  {
+    "no_urut": 526,
+    "tps": "004",
+    "nama": "MUSLIKHAH",
+    "jenis_kelamin": "P",
+    "status_pemilih": "K",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "008"
+  },
+  {
+    "no_urut": 527,
+    "tps": "004",
+    "nama": "NAJMI HAFIZHAH ANANTA NUR",
+    "jenis_kelamin": "P",
+    "status_pemilih": "BK",
+    "alamat": "DERESAN",
+    "rt": "008"
+  },
+  {
+    "no_urut": 528,
+    "tps": "004",
+    "nama": "NANANG KUSMARTONO",
+    "jenis_kelamin": "L",
+    "status_pemilih": "K",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "008"
+  },
+  {
+    "no_urut": 529,
+    "tps": "004",
+    "nama": "NAUFAL SYAAFII SYAHRIZAL",
+    "jenis_kelamin": "L",
+    "status_pemilih": "BK",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "008"
+  },
+  {
+    "no_urut": 530,
+    "tps": "004",
+    "nama": "NAYYIROTUS SANIYAH",
+    "jenis_kelamin": "P",
+    "status_pemilih": "K",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "008"
+  },
+  {
+    "no_urut": 531,
+    "tps": "004",
+    "nama": "NGADIRAN",
+    "jenis_kelamin": "L",
+    "status_pemilih": "K",
+    "alamat": "DERESAN",
+    "rt": "008"
+  },
+  {
+    "no_urut": 532,
+    "tps": "004",
+    "nama": "NUR FITRIANINGSIH",
+    "jenis_kelamin": "P",
+    "status_pemilih": "BK",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "008"
+  },
+  {
+    "no_urut": 533,
+    "tps": "004",
+    "nama": "NUR HAYATI",
+    "jenis_kelamin": "P",
+    "status_pemilih": "K",
+    "alamat": "DERESAN",
+    "rt": "008"
+  },
+  {
+    "no_urut": 534,
+    "tps": "004",
+    "nama": "NUR KHABIBAH",
+    "jenis_kelamin": "P",
+    "status_pemilih": "K",
+    "alamat": "DK.DERESAN",
+    "rt": "008"
+  },
+  {
+    "no_urut": 535,
+    "tps": "004",
+    "nama": "NUR KHUSAINI",
+    "jenis_kelamin": "L",
+    "status_pemilih": "K",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "008"
+  },
+  {
+    "no_urut": 536,
+    "tps": "004",
+    "nama": "NUR MUHAMMAD HUSEN",
+    "jenis_kelamin": "L",
+    "status_pemilih": "BK",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "008"
+  },
+  {
+    "no_urut": 537,
+    "tps": "004",
+    "nama": "NUR RAHMAT MUZAKI",
+    "jenis_kelamin": "L",
+    "status_pemilih": "BK",
+    "alamat": "DERESAN",
+    "rt": "008"
+  },
+  {
+    "no_urut": 538,
+    "tps": "004",
+    "nama": "NURHADI",
+    "jenis_kelamin": "L",
+    "status_pemilih": "K",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "008"
+  },
+  {
+    "no_urut": 539,
+    "tps": "004",
+    "nama": "ONI WIDI PRASETIA",
+    "jenis_kelamin": "L",
+    "status_pemilih": "K",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "008"
+  },
+  {
+    "no_urut": 540,
+    "tps": "004",
+    "nama": "PARIYANI",
+    "jenis_kelamin": "P",
+    "status_pemilih": "C",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "008"
+  },
+  {
+    "no_urut": 541,
+    "tps": "004",
+    "nama": "PARJONO",
+    "jenis_kelamin": "L",
+    "status_pemilih": "BK",
+    "alamat": "DERESAN",
+    "rt": "008"
+  },
+  {
+    "no_urut": 542,
+    "tps": "004",
+    "nama": "PARYANTI",
+    "jenis_kelamin": "P",
+    "status_pemilih": "K",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "008"
+  },
+  {
+    "no_urut": 543,
+    "tps": "004",
+    "nama": "PRATIWI",
+    "jenis_kelamin": "P",
+    "status_pemilih": "K",
+    "alamat": "DERESAN",
+    "rt": "008"
+  },
+  {
+    "no_urut": 544,
+    "tps": "004",
+    "nama": "PURWANTA",
+    "jenis_kelamin": "L",
+    "status_pemilih": "BK",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "008"
+  },
+  {
+    "no_urut": 545,
+    "tps": "004",
+    "nama": "PURWANTO",
+    "jenis_kelamin": "L",
+    "status_pemilih": "K",
+    "alamat": "DERESAN",
+    "rt": "008"
+  },
+  {
+    "no_urut": 546,
+    "tps": "004",
+    "nama": "RANDI AHMAD BUDIYULIAN",
+    "jenis_kelamin": "L",
+    "status_pemilih": "BK",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "008"
+  },
+  {
+    "no_urut": 547,
+    "tps": "004",
+    "nama": "REFANGGA ALIFIANTO",
+    "jenis_kelamin": "L",
+    "status_pemilih": "BK",
+    "alamat": "DERESAN",
+    "rt": "008"
+  },
+  {
+    "no_urut": 548,
+    "tps": "004",
+    "nama": "REVI HIKARU",
+    "jenis_kelamin": "P",
+    "status_pemilih": "BK",
+    "alamat": "DERESAN",
+    "rt": "008"
+  },
+  {
+    "no_urut": 549,
+    "tps": "004",
+    "nama": "REVO HIKARI",
+    "jenis_kelamin": "L",
+    "status_pemilih": "BK",
+    "alamat": "DERESAN",
+    "rt": "008"
+  },
+  {
+    "no_urut": 550,
+    "tps": "004",
+    "nama": "RIDHA NUR HASANAH",
+    "jenis_kelamin": "P",
+    "status_pemilih": "BK",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "008"
+  },
+  {
+    "no_urut": 551,
+    "tps": "004",
+    "nama": "RIYANTI",
+    "jenis_kelamin": "P",
+    "status_pemilih": "K",
+    "alamat": "DERESAN",
+    "rt": "008"
+  },
+  {
+    "no_urut": 552,
+    "tps": "004",
+    "nama": "RIYANTO",
+    "jenis_kelamin": "L",
+    "status_pemilih": "K",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "008"
+  },
+  {
+    "no_urut": 553,
+    "tps": "004",
+    "nama": "RIZKI CESIRA WARDHANI",
+    "jenis_kelamin": "P",
+    "status_pemilih": "K",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "008"
+  },
+  {
+    "no_urut": 554,
+    "tps": "004",
+    "nama": "RIZKY NUR FAUZAN",
+    "jenis_kelamin": "L",
+    "status_pemilih": "BK",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "008"
+  },
+  {
+    "no_urut": 555,
+    "tps": "004",
+    "nama": "ROKHANIYAH",
+    "jenis_kelamin": "P",
+    "status_pemilih": "K",
+    "alamat": "DERESAN",
+    "rt": "008"
+  },
+  {
+    "no_urut": 556,
+    "tps": "004",
+    "nama": "ROKHAYAH",
+    "jenis_kelamin": "P",
+    "status_pemilih": "K",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "008"
+  },
+  {
+    "no_urut": 557,
+    "tps": "004",
+    "nama": "RUMIYATI",
+    "jenis_kelamin": "P",
+    "status_pemilih": "K",
+    "alamat": "DERESAN",
+    "rt": "008"
+  },
+  {
+    "no_urut": 558,
+    "tps": "004",
+    "nama": "SAHURI",
+    "jenis_kelamin": "L",
+    "status_pemilih": "K",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "008"
+  },
+  {
+    "no_urut": 559,
+    "tps": "004",
+    "nama": "SAIFUDIN HANIF",
+    "jenis_kelamin": "L",
+    "status_pemilih": "K",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "008"
+  },
+  {
+    "no_urut": 560,
+    "tps": "004",
+    "nama": "SARIYAH",
+    "jenis_kelamin": "P",
+    "status_pemilih": "C",
+    "alamat": "DERESAN",
+    "rt": "008"
+  },
+  {
+    "no_urut": 561,
+    "tps": "004",
+    "nama": "SARJIMAH",
+    "jenis_kelamin": "P",
+    "status_pemilih": "K",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "008"
+  },
+  {
+    "no_urut": 562,
+    "tps": "004",
+    "nama": "SARTINI",
+    "jenis_kelamin": "P",
+    "status_pemilih": "K",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "008"
+  },
+  {
+    "no_urut": 563,
+    "tps": "004",
+    "nama": "SIHANA",
+    "jenis_kelamin": "L",
+    "status_pemilih": "K",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "008"
+  },
+  {
+    "no_urut": 564,
+    "tps": "004",
+    "nama": "SITI ASTUTI",
+    "jenis_kelamin": "P",
+    "status_pemilih": "K",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "008"
+  },
+  {
+    "no_urut": 565,
+    "tps": "004",
+    "nama": "SITI JARIYAH SHALEH",
+    "jenis_kelamin": "P",
+    "status_pemilih": "K",
+    "alamat": "DERESAN",
+    "rt": "008"
+  },
+  {
+    "no_urut": 566,
+    "tps": "004",
+    "nama": "SITI MUNAWAROH",
+    "jenis_kelamin": "P",
+    "status_pemilih": "K",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "008"
+  },
+  {
+    "no_urut": 567,
+    "tps": "004",
+    "nama": "SITI NUR KHASANAH",
+    "jenis_kelamin": "P",
+    "status_pemilih": "K",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "008"
+  },
+  {
+    "no_urut": 568,
+    "tps": "004",
+    "nama": "SLAMET SUGIYANTO",
+    "jenis_kelamin": "L",
+    "status_pemilih": "C",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "008"
+  },
+  {
+    "no_urut": 569,
+    "tps": "004",
+    "nama": "SRI SULASTRI",
+    "jenis_kelamin": "P",
+    "status_pemilih": "K",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "008"
+  },
+  {
+    "no_urut": 570,
+    "tps": "004",
+    "nama": "SRI YULIWANTI RETNOJIWANTI",
+    "jenis_kelamin": "P",
+    "status_pemilih": "K",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "008"
+  },
+  {
+    "no_urut": 571,
+    "tps": "004",
+    "nama": "SUDARWATI",
+    "jenis_kelamin": "P",
+    "status_pemilih": "K",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "008"
+  },
+  {
+    "no_urut": 572,
+    "tps": "004",
+    "nama": "SUDJIYATI",
+    "jenis_kelamin": "P",
+    "status_pemilih": "C",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "008"
+  },
+  {
+    "no_urut": 573,
+    "tps": "004",
+    "nama": "SUGIYANTO",
+    "jenis_kelamin": "L",
+    "status_pemilih": "K",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "008"
+  },
+  {
+    "no_urut": 574,
+    "tps": "004",
+    "nama": "SUKAMTO",
+    "jenis_kelamin": "L",
+    "status_pemilih": "K",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "008"
+  },
+  {
+    "no_urut": 575,
+    "tps": "004",
+    "nama": "SUMARDIYAH",
+    "jenis_kelamin": "P",
+    "status_pemilih": "K",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "008"
+  },
+  {
+    "no_urut": 576,
+    "tps": "004",
+    "nama": "SUNARDI",
+    "jenis_kelamin": "L",
+    "status_pemilih": "K",
+    "alamat": "DERESAN",
+    "rt": "008"
+  },
+  {
+    "no_urut": 577,
+    "tps": "004",
+    "nama": "SUNDARI",
+    "jenis_kelamin": "P",
+    "status_pemilih": "BK",
+    "alamat": "DERESAN",
+    "rt": "008"
+  },
+  {
+    "no_urut": 578,
+    "tps": "004",
+    "nama": "SUPAENI",
+    "jenis_kelamin": "P",
+    "status_pemilih": "K",
+    "alamat": "DERESAN",
+    "rt": "008"
+  },
+  {
+    "no_urut": 579,
+    "tps": "004",
+    "nama": "SUPARNI",
+    "jenis_kelamin": "P",
+    "status_pemilih": "C",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "008"
+  },
+  {
+    "no_urut": 580,
+    "tps": "004",
+    "nama": "SUPRIHATIN",
+    "jenis_kelamin": "P",
+    "status_pemilih": "C",
+    "alamat": "DERESAN",
+    "rt": "008"
+  },
+  {
+    "no_urut": 581,
+    "tps": "004",
+    "nama": "SURATINEM",
+    "jenis_kelamin": "P",
+    "status_pemilih": "C",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "008"
+  },
+  {
+    "no_urut": 582,
+    "tps": "004",
+    "nama": "SUTARMAN",
+    "jenis_kelamin": "L",
+    "status_pemilih": "BK",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "008"
+  },
+  {
+    "no_urut": 583,
+    "tps": "004",
+    "nama": "SUYADI",
+    "jenis_kelamin": "L",
+    "status_pemilih": "K",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "008"
+  },
+  {
+    "no_urut": 584,
+    "tps": "004",
+    "nama": "SUYATNO",
+    "jenis_kelamin": "L",
+    "status_pemilih": "BK",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "008"
+  },
+  {
+    "no_urut": 585,
+    "tps": "004",
+    "nama": "TRI MUHAMMAD ASNGAT",
+    "jenis_kelamin": "L",
+    "status_pemilih": "K",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "008"
+  },
+  {
+    "no_urut": 586,
+    "tps": "004",
+    "nama": "TUGIYEM",
+    "jenis_kelamin": "P",
+    "status_pemilih": "K",
+    "alamat": "DERESAN",
+    "rt": "008"
+  },
+  {
+    "no_urut": 587,
+    "tps": "004",
+    "nama": "TUKIJEM",
+    "jenis_kelamin": "P",
+    "status_pemilih": "C",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "008"
+  },
+  {
+    "no_urut": 588,
+    "tps": "004",
+    "nama": "UMI SALAMAH",
+    "jenis_kelamin": "P",
+    "status_pemilih": "K",
+    "alamat": "DERESAN",
+    "rt": "008"
+  },
+  {
+    "no_urut": 589,
+    "tps": "004",
+    "nama": "UNIK TRI HARTATI",
+    "jenis_kelamin": "P",
+    "status_pemilih": "K",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "008"
+  },
+  {
+    "no_urut": 590,
+    "tps": "004",
+    "nama": "UTAMI DEWI",
+    "jenis_kelamin": "P",
+    "status_pemilih": "K",
+    "alamat": "DERESAN",
+    "rt": "008"
+  },
+  {
+    "no_urut": 591,
+    "tps": "004",
+    "nama": "UTITA AGUSTINA",
+    "jenis_kelamin": "P",
+    "status_pemilih": "K",
+    "alamat": "DERESAN",
+    "rt": "008"
+  },
+  {
+    "no_urut": 592,
+    "tps": "004",
+    "nama": "WAGINI",
+    "jenis_kelamin": "P",
+    "status_pemilih": "K",
+    "alamat": "DERESAN",
+    "rt": "008"
+  },
+  {
+    "no_urut": 593,
+    "tps": "004",
+    "nama": "WALIMAH",
+    "jenis_kelamin": "P",
+    "status_pemilih": "C",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "008"
+  },
+  {
+    "no_urut": 594,
+    "tps": "004",
+    "nama": "WALIYADI",
+    "jenis_kelamin": "L",
+    "status_pemilih": "K",
+    "alamat": "DERESAN",
+    "rt": "008"
+  },
+  {
+    "no_urut": 595,
+    "tps": "004",
+    "nama": "WASIMAH",
+    "jenis_kelamin": "P",
+    "status_pemilih": "C",
+    "alamat": "DERESAN",
+    "rt": "008"
+  },
+  {
+    "no_urut": 596,
+    "tps": "004",
+    "nama": "WIDADA",
+    "jenis_kelamin": "L",
+    "status_pemilih": "K",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "008"
+  },
+  {
+    "no_urut": 597,
+    "tps": "004",
+    "nama": "WIJAYATI",
+    "jenis_kelamin": "P",
+    "status_pemilih": "C",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "008"
+  },
+  {
+    "no_urut": 598,
+    "tps": "004",
+    "nama": "WINARNO",
+    "jenis_kelamin": "L",
+    "status_pemilih": "K",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "008"
+  },
+  {
+    "no_urut": 599,
+    "tps": "004",
+    "nama": "WURYANTI",
+    "jenis_kelamin": "P",
+    "status_pemilih": "K",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "008"
+  },
+  {
+    "no_urut": 600,
+    "tps": "004",
+    "nama": "YATINAH",
+    "jenis_kelamin": "P",
+    "status_pemilih": "K",
+    "alamat": "DERESAN DK.DERESAN",
+    "rt": "008"
+  }
+]

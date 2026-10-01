@@ -25,6 +25,14 @@ service cloud.firestore {
     }
 
     match /dpt/{noUrut} {
+      // Legacy rollback path. Runtime app no longer uses Firestore as DPT
+      // master; voter identity is bundled as local JSON, while mutable
+      // presence state lives in presensi_status below.
+      allow read: if request.auth != null;
+      allow write: if isAuthorized();
+    }
+
+    match /presensi_status/{noUrut} {
       allow read: if request.auth != null;
       allow write: if isAuthorized();
     }
