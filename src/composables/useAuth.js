@@ -1,10 +1,14 @@
 import { ref, computed } from 'vue'
 import {
+  GoogleAuthProvider,
+  signInWithCredential,
   signInWithPopup,
   signInWithRedirect,
   signOut,
   onAuthStateChanged
 } from 'firebase/auth'
+import { Capacitor } from '@capacitor/core'
+import { FirebaseAuthentication } from '@capacitor-firebase/authentication'
 import { doc, getDoc } from 'firebase/firestore'
 import { auth, db, googleProvider } from '../config/firebase.js'
 
@@ -87,7 +91,17 @@ export function useAuth() {
     () => Boolean(currentUser.value && !currentUser.value.isAnonymous)
   )
 
-  function loginWithGoogle() {
+  async function loginWithGoogle() {
+    // App Android (Capacitor): popup/redirect OAuth tidak jalan di WebView,
+    // jadi pakai Google Sign-In native lalu teruskan credential-nya ke
+    // Firebase JS SDK (skipNativeAuth: true di capacitor.config.json) supaya
+    // seluruh app tetap memakai satu sesi auth yang sama.
+    if (Capacitor.isNativePlatform()) {
+      const result = await FirebaseAuthentication.signInWithGoogle()
+      const credential = GoogleAuthProvider.credential(result.credential?.idToken)
+      return signInWithCredential(auth, credential)
+    }
+
     // Browser biasa memakai popup agar hasil OAuth tidak bergantung pada
     // penyimpanan lintas-domain saat kembali dari redirect. PWA standalone
     // tetap memakai redirect karena popup sering diblokir di WebView/mobile.
@@ -103,6 +117,9 @@ export function useAuth() {
   async function logout() {
     localStorage.removeItem(AUTHORIZED_CACHE_KEY)
     await signOut(auth)
+    if (Capacitor.isNativePlatform()) {
+      await FirebaseAuthentication.signOut().catch(() => {})
+    }
   }
 
   return {

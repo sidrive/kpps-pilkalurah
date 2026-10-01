@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">KPPS Pilkalurah</string>
+    <string name="title_activity_main">KPPS Pilkalurah</string>
+    <string name="package_name">id.pilkalurah.kpps</string>
+    <string name="custom_url_scheme">id.pilkalurah.kpps</string>
+</resources>

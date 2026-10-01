@@ -5,3 +5,16 @@ dev-dist/
 scripts/serviceAccountKey.json
 .env
 .DS_Store
+
+# Android (Capacitor) — hasil build & file rahasia lokal
+android/app/google-services.json
+android/app/build/
+android/build/
+android/.gradle/
+android/local.properties
+android/app/src/main/assets/public/
+android/app/src/main/assets/capacitor.config.json
+android/app/src/main/assets/capacitor.plugins.json
+android/capacitor-cordova-android-plugins/
+*.keystore
+*.jks

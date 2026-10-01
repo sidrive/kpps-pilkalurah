@@ -7,15 +7,22 @@
     "dev": "node scripts/dev-random-port.mjs",
     "build": "vite build",
     "preview": "vite preview",
-    "emulators": "firebase emulators:start --only firestore,auth"
+    "emulators": "firebase emulators:start --only firestore,auth",
+    "android:sync": "vite build && cap sync android",
+    "android:open": "cap open android",
+    "android:build": "vite build && cap sync android && cd android && ./gradlew assembleDebug"
   },
   "dependencies": {
+    "@capacitor-firebase/authentication": "^6.3.1",
+    "@capacitor/android": "^6.2.2",
+    "@capacitor/core": "^6.2.2",
     "firebase": "^10.14.0",
     "jspdf": "^2.5.2",
     "vue": "^3.4.31",
     "vue-router": "^4.4.0"
   },
   "devDependencies": {
+    "@capacitor/cli": "^6.2.2",
     "@vitejs/plugin-vue": "^5.0.5",
     "firebase-admin": "^13.10.0",
     "firebase-tools": "^15.29.0",

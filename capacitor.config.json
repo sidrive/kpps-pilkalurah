@@ -1,0 +1,14 @@
+{
+  "appId": "id.pilkalurah.kpps",
+  "appName": "KPPS Pilkalurah",
+  "webDir": "dist",
+  "server": {
+    "androidScheme": "https"
+  },
+  "plugins": {
+    "FirebaseAuthentication": {
+      "skipNativeAuth": true,
+      "providers": ["google.com"]
+    }
+  }
+}
