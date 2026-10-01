@@ -1,0 +1,11 @@
+# Folder ./public di-mount, jadi `git pull` cukup — tidak perlu rebuild image.
+services:
+  kpps:
+    image: nginx:alpine
+    container_name: kpps-pilkalurah
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:8080:80"
+    volumes:
+      - ./public:/usr/share/nginx/html:ro
+      - ./nginx.conf:/etc/nginx/conf.d/default.conf:ro

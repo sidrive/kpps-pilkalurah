@@ -7,7 +7,8 @@
     "dev": "node scripts/dev-random-port.mjs",
     "build": "vite build",
     "preview": "vite preview",
-    "emulators": "firebase emulators:start --only firestore,auth"
+    "emulators": "firebase emulators:start --only firestore,auth",
+    "publish:dist": "bash scripts/publish-dist.sh"
   },
   "dependencies": {
     "firebase": "^10.14.0",
