@@ -8,6 +8,7 @@
     :logo="zknetLogo"
     sponsor-label="Supported by"
     promo-text="Pasang internet Murah, klik disini"
+    sub-text="Area Deresan, Gemahan, Gayam, dll"
     href="https://zknet.my.id/"
   />
 </template>

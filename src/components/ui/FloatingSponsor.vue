@@ -4,7 +4,10 @@
     <span class="sponsor-card">
       <span class="sponsor-main">
         <img class="sponsor-logo" :src="logo" :alt="logoAlt">
-        <span class="promo-text">{{ promoText }}</span>
+        <span class="promo-text-wrap">
+          <span class="promo-text">{{ promoText }}</span>
+          <span v-if="subText" class="promo-subtext">{{ subText }}</span>
+        </span>
       </span>
       <span class="sponsor-arrow" aria-hidden="true">
         <svg viewBox="0 0 20 20" focusable="false">
@@ -20,6 +23,7 @@ defineProps({
   logo: { type: String, required: true },
   sponsorLabel: { type: String, default: 'Supported by' },
   promoText: { type: String, default: 'Pasang internet Murah, klik disini' },
+  subText: { type: String, default: '' },
   href: { type: String, required: true },
   logoAlt: { type: String, default: 'ZKNet Internet untuk Desa' },
   ariaLabel: { type: String, default: 'Kunjungi zknet.my.id untuk informasi pemasangan internet' }
@@ -80,6 +84,12 @@ defineProps({
   object-fit: contain;
   object-position: left center;
 }
+.promo-text-wrap {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  gap: .15rem;
+}
 .promo-text {
   max-width: none;
   color: var(--color-navy-dark);
@@ -87,6 +97,12 @@ defineProps({
   font-weight: 820;
   line-height: 1.18;
   text-shadow: 0 1px 5px rgba(6,45,61,.18);
+}
+.promo-subtext {
+  color: #58707c;
+  font-size: .6rem;
+  font-weight: 600;
+  line-height: 1.15;
 }
 .sponsor-arrow {
   display: grid;
@@ -132,7 +148,9 @@ defineProps({
   .sponsor-card { min-height:54px; grid-template-columns:minmax(0,1fr) 28px; gap:.45rem; padding:.52rem .55rem .48rem; border-radius:16px; }
   .sponsor-main { flex-direction:row; align-items:center; gap:.5rem; }
   .sponsor-logo { flex:0 0 auto; width:78px; max-width:78px; height:24px; }
+  .promo-text-wrap { gap:.1rem; }
   .promo-text { max-width:none; font-size:.58rem; line-height:1.13; }
+  .promo-subtext { font-size:.5rem; line-height:1.1; }
   .sponsor-arrow { width:28px; height:28px; }
   .sponsor-arrow svg { width:17px; height:17px; }
 }
