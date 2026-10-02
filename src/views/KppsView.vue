@@ -8,71 +8,77 @@
       <article><span class="stat-icon amber">⌛</span><strong class="amber-text">{{ antreanList.length }}</strong><small>Menunggu</small></article>
     </section>
 
-    <div class="input-card">
-      <div class="card-topline"><span>MASUKKAN NOMOR URUT DPT</span><strong class="buffer-badge" :class="{ full: bufferPenuh }">ANTREAN <span class="mono">{{ bufferCount }}/{{ MAX_QUEUE_BUFFER }}</span></strong></div>
-      <p>Masukkan nomor urut pemilih, cocokkan data yang muncul, lalu validasi masuk.</p>
-      <div class="display mono">{{ inputBuffer || '—' }}</div>
-      <span v-if="staleDetik > 15" class="stale-warning">Terakhir sinkron {{ staleDetik }} detik lalu</span>
+    <div class="ops-layout">
+      <section class="input-pane" aria-label="Input dan validasi DPT">
+        <div class="input-card">
+          <div class="card-topline"><span>MASUKKAN NOMOR URUT DPT</span><strong class="buffer-badge" :class="{ full: bufferPenuh }">ANTREAN <span class="mono">{{ bufferCount }}/{{ MAX_QUEUE_BUFFER }}</span></strong></div>
+          <p>Masukkan nomor urut pemilih, cocokkan data yang muncul, lalu validasi masuk.</p>
+          <div class="display mono">{{ inputBuffer || '—' }}</div>
+          <span v-if="staleDetik > 15" class="stale-warning">Terakhir sinkron {{ staleDetik }} detik lalu</span>
+        </div>
+
+        <div v-if="feedback" class="feedback" :class="feedback.type">
+          <template v-if="feedback.type === 'success' && feedback.arrivalNo">
+            <span class="arrival-label">NOMOR KEDATANGAN</span>
+            <strong class="arrival-big mono">#{{ feedback.arrivalNo }}</strong>
+            <span class="arrival-message">{{ feedback.message }}</span>
+          </template>
+          <template v-else>{{ feedback.message }}</template>
+        </div>
+
+        <section v-if="selectedVoter" class="validation-card">
+          <p class="eyebrow">VALIDASI DATA PEMILIH</p>
+          <h2>{{ selectedVoter.nama }}</h2>
+          <div class="detail-grid">
+            <span>No. DPT</span><strong class="mono">{{ selectedVoter.no_urut }}</strong>
+            <span>JK / Status</span><strong>{{ selectedVoter.jenis_kelamin || '-' }} / {{ selectedVoter.status_pemilih || '-' }}</strong>
+            <span>Alamat</span><strong>{{ selectedVoter.alamat || '-' }}</strong>
+            <span>RT</span><strong class="mono">{{ selectedVoter.rt || '-' }}</strong>
+          </div>
+          <div class="validation-actions">
+            <button class="btn-secondary" type="button" :disabled="isPending" @click="resetValidasi">Batal</button>
+            <button class="btn-primary" type="button" :disabled="isPending || bufferPenuh" @click="validasiMasuk">Validasi Masuk</button>
+          </div>
+        </section>
+
+        <div class="numpad" :class="{ muted: selectedVoter }">
+          <button v-for="n in [1,2,3,4,5,6,7,8,9]" :key="n" class="numpad-btn" :disabled="bufferPenuh || !!selectedVoter" @click="tambahDigit(n)">{{ n }}</button>
+          <button class="numpad-btn ghost" :disabled="bufferPenuh || !!selectedVoter" @click="hapusDigit">⌫</button>
+          <button class="numpad-btn" :disabled="bufferPenuh || !!selectedVoter" @click="tambahDigit(0)">0</button>
+          <button class="numpad-btn submit" :disabled="!inputBuffer || bufferPenuh || isPending || !!selectedVoter" @click="submit">Cari</button>
+        </div>
+
+        <p v-if="bufferPenuh" class="full-notice">Antrean penuh ({{ MAX_QUEUE_BUFFER }}/{{ MAX_QUEUE_BUFFER }}). Tunggu KPPS memproses pemilih.</p>
+      </section>
+
+      <section class="queue-pane" aria-label="Daftar antrean dan absensi">
+        <div class="tabs">
+          <button :class="{ active: tab === 'antrean' }" @click="tab = 'antrean'">Menunggu ({{ antreanList.length }})</button>
+          <button :class="{ active: tab === 'manual' }" @click="tab = 'manual'">Belum Dicentang</button>
+        </div>
+
+        <section v-if="tab === 'antrean'" class="list">
+          <h2>MENUNGGU KONFIRMASI</h2>
+          <p v-if="antreanList.length === 0" class="empty">Belum ada pemilih di antrean.</p>
+          <article v-for="item in antreanList" :key="item.id" class="voter-row">
+            <span class="arrival-no mono">#{{ item.nomor_kedatangan || '-' }}</span>
+            <span class="identity"><strong>{{ item.nama }}</strong><small>No. DPT {{ item.no_urut }} · RT {{ item.rt || '-' }} · {{ item.alamat || '-' }}</small></span>
+            <span class="actions"><button class="btn-cancel" :disabled="isPending" @click="batalkan(item.no_urut)">Batal</button><button class="btn-confirm" :disabled="isPending" @click="konfirmasi(item.no_urut)">Hadir</button></span>
+          </article>
+        </section>
+
+        <section v-else class="list">
+          <h2>BELUM DICENTANG MANUAL</h2>
+          <p class="hint">Pemilih berstatus hadir sah yang belum dicentang pada lembar DPT fisik.</p>
+          <p v-if="belumCentangManual.length === 0" class="empty">Semua sudah dicentang manual.</p>
+          <article v-for="item in belumCentangManual" :key="item.id" class="voter-row">
+            <span class="arrival-no mono">#{{ item.nomor_kedatangan || '-' }}</span>
+            <span class="identity"><strong>{{ item.nama }}</strong><small>No. DPT {{ item.no_urut }} · RT {{ item.rt || '-' }} · {{ item.alamat || '-' }}</small></span>
+            <button class="btn-confirm" @click="tandaiCentangManual(item.no_urut)">Dicentang</button>
+          </article>
+        </section>
+      </section>
     </div>
-
-    <div v-if="feedback" class="feedback" :class="feedback.type">
-      <template v-if="feedback.type === 'success' && feedback.arrivalNo">
-        <span class="arrival-label">NOMOR KEDATANGAN</span>
-        <strong class="arrival-big mono">#{{ feedback.arrivalNo }}</strong>
-        <span class="arrival-message">{{ feedback.message }}</span>
-      </template>
-      <template v-else>{{ feedback.message }}</template>
-    </div>
-
-    <section v-if="selectedVoter" class="validation-card">
-      <p class="eyebrow">VALIDASI DATA PEMILIH</p>
-      <h2>{{ selectedVoter.nama }}</h2>
-      <div class="detail-grid">
-        <span>No. DPT</span><strong class="mono">{{ selectedVoter.no_urut }}</strong>
-        <span>JK / Status</span><strong>{{ selectedVoter.jenis_kelamin || '-' }} / {{ selectedVoter.status_pemilih || '-' }}</strong>
-        <span>Alamat</span><strong>{{ selectedVoter.alamat || '-' }}</strong>
-        <span>RT</span><strong class="mono">{{ selectedVoter.rt || '-' }}</strong>
-      </div>
-      <div class="validation-actions">
-        <button class="btn-secondary" type="button" :disabled="isPending" @click="resetValidasi">Batal</button>
-        <button class="btn-primary" type="button" :disabled="isPending || bufferPenuh" @click="validasiMasuk">Validasi Masuk</button>
-      </div>
-    </section>
-
-    <div class="numpad" :class="{ muted: selectedVoter }">
-      <button v-for="n in [1,2,3,4,5,6,7,8,9]" :key="n" class="numpad-btn" :disabled="bufferPenuh || !!selectedVoter" @click="tambahDigit(n)">{{ n }}</button>
-      <button class="numpad-btn ghost" :disabled="bufferPenuh || !!selectedVoter" @click="hapusDigit">⌫</button>
-      <button class="numpad-btn" :disabled="bufferPenuh || !!selectedVoter" @click="tambahDigit(0)">0</button>
-      <button class="numpad-btn submit" :disabled="!inputBuffer || bufferPenuh || isPending || !!selectedVoter" @click="submit">Cari</button>
-    </div>
-
-    <p v-if="bufferPenuh" class="full-notice">Antrean penuh ({{ MAX_QUEUE_BUFFER }}/{{ MAX_QUEUE_BUFFER }}). Tunggu KPPS memproses pemilih.</p>
-
-    <div class="tabs">
-      <button :class="{ active: tab === 'antrean' }" @click="tab = 'antrean'">Menunggu ({{ antreanList.length }})</button>
-      <button :class="{ active: tab === 'manual' }" @click="tab = 'manual'">Belum Dicentang</button>
-    </div>
-
-    <section v-if="tab === 'antrean'" class="list">
-      <h2>MENUNGGU KONFIRMASI</h2>
-      <p v-if="antreanList.length === 0" class="empty">Belum ada pemilih di antrean.</p>
-      <article v-for="item in antreanList" :key="item.id" class="voter-row">
-        <span class="arrival-no mono">#{{ item.nomor_kedatangan || '-' }}</span>
-        <span class="identity"><strong>{{ item.nama }}</strong><small>No. DPT {{ item.no_urut }} · RT {{ item.rt || '-' }} · {{ item.alamat || '-' }}</small></span>
-        <span class="actions"><button class="btn-cancel" :disabled="isPending" @click="batalkan(item.no_urut)">Batal</button><button class="btn-confirm" :disabled="isPending" @click="konfirmasi(item.no_urut)">Hadir</button></span>
-      </article>
-    </section>
-
-    <section v-else class="list">
-      <h2>BELUM DICENTANG MANUAL</h2>
-      <p class="hint">Pemilih berstatus hadir sah yang belum dicentang pada lembar DPT fisik.</p>
-      <p v-if="belumCentangManual.length === 0" class="empty">Semua sudah dicentang manual.</p>
-      <article v-for="item in belumCentangManual" :key="item.id" class="voter-row">
-        <span class="arrival-no mono">#{{ item.nomor_kedatangan || '-' }}</span>
-        <span class="identity"><strong>{{ item.nama }}</strong><small>No. DPT {{ item.no_urut }} · RT {{ item.rt || '-' }} · {{ item.alamat || '-' }}</small></span>
-        <button class="btn-confirm" @click="tandaiCentangManual(item.no_urut)">Dicentang</button>
-      </article>
-    </section>
   </div>
 </template>
 
@@ -150,6 +156,8 @@ async function batalkan(noUrut) {
 
 <style scoped>
 .wrap { max-width:520px; margin:0 auto; padding:1.5rem 1rem 3rem; }
+.ops-layout { display:grid; gap:1rem; }
+.input-pane,.queue-pane { min-width:0; }
 .stats-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:.65rem; margin-bottom:1rem; }
 .stats-grid article { display:flex; flex-direction:column; align-items:center; padding:.8rem .4rem; background:#fff; border-radius:12px; box-shadow:var(--shadow-card); }
 .stat-icon { display:grid; place-items:center; width:30px; height:30px; margin-bottom:.25rem; border-radius:50%; font-size:.8rem; }
@@ -189,5 +197,24 @@ async function batalkan(noUrut) {
 .arrival-no { display:grid; place-items:center; min-height:36px; color:#fff; background:var(--color-navy); border-radius:10px; font-size:.86rem; font-weight:900; }
 .identity { display:flex; flex-direction:column; min-width:0; }.identity strong{font-size:.83rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.identity small{margin-top:.15rem;color:var(--color-muted);font-size:.62rem;line-height:1.35}
 .actions{display:flex;gap:.4rem}.actions button,.voter-row>button{min-height:38px;padding:0 .72rem;font-size:.68rem;font-weight:750}.btn-cancel{color:var(--color-red);background:#fff;border:1px solid #e7b9bd}.btn-confirm{color:#fff;background:var(--color-green)}
+@media (min-width:768px) and (orientation:landscape){
+  .wrap{max-width:1120px;padding:1.25rem clamp(1rem,2vw,2rem) 2rem;}
+  .stats-grid{max-width:720px;margin-left:auto;}
+  .ops-layout{grid-template-columns:minmax(0,1fr) minmax(340px,420px);align-items:start;}
+  .queue-pane{grid-column:1;grid-row:1;display:flex;flex-direction:column;max-height:calc(100vh - 10rem);}
+  .input-pane{grid-column:2;position:sticky;top:1rem;}
+  .tabs{flex-shrink:0;}
+  .list{min-height:0;overflow:auto;padding-right:.25rem;}
+  .voter-row{grid-template-columns:56px minmax(0,1fr) auto;min-height:72px;gap:.75rem;}
+  .arrival-no{min-height:42px;font-size:.95rem;}
+  .identity strong{font-size:.95rem;}
+  .identity small{font-size:.72rem;}
+  .actions button,.voter-row>button{min-height:44px;padding:0 .9rem;font-size:.76rem;}
+  .display{min-height:76px;font-size:2.6rem;}
+  .numpad{gap:.7rem;}
+  .numpad-btn{min-height:72px;font-size:1.75rem;}
+  .numpad-btn.submit{font-size:1.05rem;}
+  .arrival-big{font-size:3.6rem;}
+}
 @media(max-width:420px){.voter-row{grid-template-columns:42px 1fr}.actions,.voter-row>button{grid-column:2;justify-self:stretch}.actions button,.voter-row>button{flex:1}}
 </style>
