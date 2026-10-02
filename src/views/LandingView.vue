@@ -18,7 +18,7 @@
     <section class="hero-dashboard">
       <div class="hero-copy">
         <span class="eyebrow">PORTAL INFORMASI TPS</span>
-        <h1>Pantau suasana TPS secara langsung.</h1>
+        <h1>Pantau proses pemilihan<br>secara transparan.</h1>
         <p>Informasi kehadiran, antrean, dan penghitungan suara diperbarui dari TPS agar warga dapat mengikuti proses pemilihan dengan transparan.</p>
         <div class="event-meta">
           <span class="status-badge large" :class="statusClass"><i />{{ statusLabel }}</span>
@@ -52,29 +52,6 @@
           </div>
         </div>
       </aside>
-    </section>
-
-    <section class="menu-grid" aria-label="Informasi publik">
-      <router-link to="/cek-dpt" class="menu-card">
-        <span class="menu-icon">⌕</span>
-        <span class="menu-copy"><small>CEK DATA</small><strong>Cek Daftar DPT</strong><em>Cari nama atau nomor DPT pemilih</em></span>
-        <span class="arrow">→</span>
-      </router-link>
-      <router-link to="/display/presensi" class="menu-card">
-        <span class="menu-icon">♟</span>
-        <span class="menu-copy"><small>PARTISIPASI</small><strong>Status Kehadiran</strong><em>Pantau jumlah pemilih yang sudah hadir</em></span>
-        <span class="arrow">→</span>
-      </router-link>
-      <router-link to="/display/tally" class="menu-card">
-        <span class="menu-icon">▥</span>
-        <span class="menu-copy"><small>REAL-TIME</small><strong>Penghitungan Suara</strong><em>Pantau proses hitung suara secara langsung</em></span>
-        <span class="arrow">→</span>
-      </router-link>
-      <router-link to="/display/hasil-akhir" class="menu-card">
-        <span class="menu-icon">✓</span>
-        <span class="menu-copy"><small>TERVERIFIKASI</small><strong>Hasil Akhir TPS</strong><em>Lihat hasil setelah penghitungan dikunci</em></span>
-        <span class="arrow">→</span>
-      </router-link>
     </section>
 
     <section class="activity-section" aria-label="Aktivitas pemilih">
@@ -121,6 +98,29 @@
       </div>
     </section>
 
+    <section class="menu-grid" aria-label="Informasi publik">
+      <router-link to="/cek-dpt" class="menu-card">
+        <span class="menu-icon">⌕</span>
+        <span class="menu-copy"><small>CEK DATA</small><strong>Cek Daftar DPT</strong><em>Cari nama atau nomor DPT pemilih</em></span>
+        <span class="arrow">→</span>
+      </router-link>
+      <router-link to="/display/presensi" class="menu-card">
+        <span class="menu-icon">♟</span>
+        <span class="menu-copy"><small>PARTISIPASI</small><strong>Status Kehadiran</strong><em>Pantau jumlah pemilih yang sudah hadir</em></span>
+        <span class="arrow">→</span>
+      </router-link>
+      <router-link to="/display/tally" class="menu-card">
+        <span class="menu-icon">▥</span>
+        <span class="menu-copy"><small>REAL-TIME</small><strong>Penghitungan Suara</strong><em>Pantau proses hitung suara secara langsung</em></span>
+        <span class="arrow">→</span>
+      </router-link>
+      <router-link to="/display/hasil-akhir" class="menu-card">
+        <span class="menu-icon">✓</span>
+        <span class="menu-copy"><small>TERVERIFIKASI</small><strong>Hasil Akhir TPS</strong><em>Lihat hasil setelah penghitungan dikunci</em></span>
+        <span class="arrow">→</span>
+      </router-link>
+    </section>
+
     <footer>Asisten Digital KPPS · Data TPS diperbarui secara real-time</footer>
   </main>
 </template>
@@ -139,12 +139,23 @@ const visibleQueued = ref([])
 const rotationKey = ref(0)
 let rotationTimer
 
+const electionDate = new Date(2026, 9, 4)
+const dayAfterElection = new Date(2026, 9, 5)
+
 const statusLabel = computed(() => {
+  const today = new Date()
+  if (today < electionDate) return 'Sedang masa percobaan'
+  if (today >= dayAfterElection) return 'Pemungutan Selesai'
   if (config.value?.status_tps === STATUS_TPS.PRESENSI_LOCKED) return 'Penghitungan Berlangsung'
   if (config.value?.status_tps === STATUS_TPS.TALLY_DONE) return 'Hasil Final'
   return config.value ? 'Pemungutan Berlangsung' : 'Memuat Status'
 })
-const statusClass = computed(() => config.value?.status_tps === STATUS_TPS.TALLY_DONE ? 'done' : config.value?.status_tps === STATUS_TPS.PRESENSI_LOCKED ? 'progress' : 'open')
+const statusClass = computed(() => {
+  const today = new Date()
+  if (today >= dayAfterElection || config.value?.status_tps === STATUS_TPS.TALLY_DONE) return 'done'
+  if (config.value?.status_tps === STATUS_TPS.PRESENSI_LOCKED) return 'progress'
+  return 'open'
+})
 const attendancePercent = computed(() => totalDpt.value === 0 ? 0 : Math.min(100, Math.round((jumlahHadir.value / totalDpt.value) * 100)))
 
 function pickRandomItems(list, count = 4) {
@@ -268,7 +279,7 @@ h1 { max-width:760px; margin:.75rem 0 1rem; color:var(--color-navy-dark); font-s
 .section-title.compact { justify-content:flex-start; }
 .section-title h2 { margin:.25rem 0 0; color:var(--color-navy-dark); font-size:clamp(1.5rem,3vw,2.2rem); letter-spacing:-.04em; }
 .section-title p { max-width:420px; margin:0; color:var(--color-muted); font-size:.82rem; line-height:1.55; }
-.activity-board { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:1rem; }
+.activity-board { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); align-items:start; gap:1rem; }
 .activity-panel { min-width:0; padding:1rem; border:1px solid rgba(255,255,255,.76); border-radius:24px; background:rgba(255,255,255,.7); box-shadow:var(--shadow-card); backdrop-filter:blur(14px); }
 .activity-panel header { display:flex; align-items:center; gap:.8rem; margin-bottom:.9rem; }
 .panel-icon { display:grid; place-items:center; width:42px; height:42px; border-radius:14px; font-weight:950; }
@@ -284,7 +295,7 @@ h1 { max-width:760px; margin:.75rem 0 1rem; color:var(--color-navy-dark); font-s
 .voter-card small { display:block; margin:.28rem 0 .42rem; color:var(--color-muted); font-size:.74rem; letter-spacing:0; }
 .voter-card span { display:inline-flex; padding:.33rem .55rem; border-radius:999px; color:var(--color-green); background:rgba(25,129,93,.09); font-size:.72rem; font-weight:820; }
 .voter-card.queued span { color:var(--color-blue); background:rgba(43,94,173,.1); }
-.empty-state { display:grid; place-items:center; min-height:164px; padding:1rem; border:1px dashed rgba(6,45,61,.16); border-radius:17px; color:var(--color-muted); background:rgba(255,255,255,.46); text-align:center; font-size:.82rem; line-height:1.5; }
+.empty-state { display:grid; place-items:center; min-height:86px; padding:1rem; border:1px dashed rgba(6,45,61,.16); border-radius:17px; color:var(--color-muted); background:rgba(255,255,255,.46); text-align:center; font-size:.82rem; line-height:1.5; }
 .voter-fade-enter-active, .voter-fade-leave-active { transition:opacity .32s ease, transform .32s ease; }
 .voter-fade-enter-from, .voter-fade-leave-to { opacity:0; transform:translateY(10px) scale(.98); }
 .voter-fade-leave-active { position:absolute; width:100%; }
