@@ -6,6 +6,7 @@ import KppsView from '../views/KppsView.vue'
 import TallyView from '../views/TallyView.vue'
 import RekapView from '../views/RekapView.vue'
 import AdminView from '../views/AdminView.vue'
+import DptCheckView from '../views/DptCheckView.vue'
 import PresensiDisplayView from '../views/PresensiDisplayView.vue'
 import TallyDisplayView from '../views/TallyDisplayView.vue'
 import HasilAkhirView from '../views/HasilAkhirView.vue'
@@ -15,6 +16,7 @@ const routes = [
   // Publik -- tanpa login sama sekali, dashboard untuk warga
   { path: '/', name: 'landing', component: LandingView },
   { path: '/login', name: 'login', component: LoginView },
+  { path: '/cek-dpt', name: 'cek-dpt', component: DptCheckView },
 
   // Fitur petugas -- wajib Google Sign-In + email ada di authorized_emails
   { path: '/setup', name: 'setup', component: SetupView, meta: { requiresAuth: true } },

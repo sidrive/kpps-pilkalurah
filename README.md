@@ -160,3 +160,53 @@ Dua lapis yang berjalan bersamaan:
 ## Catatan keamanan
 
 `src/config/firebase.js` berisi `apiKey` publik Firebase — ini **normal dan aman** untuk web app Firebase (bukan secret), karena akses sebenarnya dikontrol lewat Firestore Security Rules (`firestore.rules`), bukan lewat kerahasiaan config. Yang **harus** dijaga kerahasiaannya adalah `scripts/serviceAccountKey.json` — jangan commit ke git (sudah ada di `.gitignore`).
+
+## Deploy — web (STB, container nginx)
+
+Pola sama dengan `landingpage-zknet-frontend`: build dilakukan **di luar STB** (device ARM lambat),
+folder `dist/` di-commit ke repo, STB tinggal `git pull`. Disajikan oleh container nginx static
+(`nginx-kpps-pilkalurah`) yang me-mount `dist/` sebagai document root, lalu dipublish lewat
+**Cloudflare Tunnel yang sama** dengan app lain di STB (bukan tunnel/port-forward baru).
+
+### Rilis (di local/sandbox)
+```bash
+npm ci
+npm run build                 # -> dist/ (config Firebase sudah hardcode di src/config/firebase.js, tidak butuh .env)
+git add -A dist && git commit -m "build: dist/ untuk deploy STB" && git push
+```
+
+### Setup pertama di STB
+```bash
+git clone https://github.com/sidrive/kpps-pilkalurah.git /opt/kpps-pilkalurah
+cd /opt/kpps-pilkalurah && git checkout <branch-yang-dipublish>
+
+# 1. nginx config (SPA fallback sudah di deploy/kpps.conf)
+mkdir -p /opt/nginx-kpps-pilkalurah
+cp deploy/kpps.conf /opt/nginx-kpps-pilkalurah/kpps.conf
+
+# 2. Container — mount dist/ read-only. Pilih port host yang kosong dulu: ss -tulpn | grep LISTEN
+docker run -d \
+  --name nginx-kpps-pilkalurah \
+  --restart unless-stopped \
+  -p <PORT>:80 \
+  -v /opt/nginx-kpps-pilkalurah:/etc/nginx/conf.d \
+  -v "$(pwd)/dist":/usr/share/nginx/html:ro \
+  nginx
+
+curl http://localhost:<PORT>      # sanity check sebelum ke Cloudflare
+```
+```bash
+# 3. Tambahkan ke Cloudflare Tunnel (/etc/cloudflared/config.yml), SEBELUM catch-all http_status:404:
+#      - hostname: <kpps.domainanda.com>
+#        service: http://localhost:<PORT>
+cloudflared tunnel route dns <tunnel-id> <kpps.domainanda.com>
+systemctl restart cloudflared
+# kalau resolver STB masih cache negatif: resolvectl flush-caches
+curl https://<kpps.domainanda.com>
+```
+**Wajib:** tambahkan hostname itu di Firebase Console → Authentication → Settings → **Authorized
+domains**, kalau tidak login Google petugas gagal.
+
+### Update berikutnya
+Di STB: `git pull` saja. `dist/` di-bind-mount, jadi perubahan langsung dilayani tanpa restart
+container. Service worker (PWA) update otomatis di device saat app dibuka lagi.
