@@ -41,7 +41,10 @@
       </div>
     </section>
 
-    <router-link to="/setup" class="back-link">← Kembali ke Setup Device</router-link>
+    <div class="bottom-links">
+      <router-link to="/setup" class="back-link">← Kembali ke Setup Device</router-link>
+      <router-link to="/" class="home-link">⌂ Kembali ke Beranda / Landing</router-link>
+    </div>
 
     <div v-if="showPinPrompt" class="pin-overlay" @click.self="closePinPrompt">
       <div class="pin-card">
@@ -160,7 +163,10 @@ async function submitPin() {
 .self-label{color:var(--color-green);font-size:.78rem}
 .empty-state{padding:1rem;color:var(--color-muted);text-align:center;font-size:.78rem}
 .error-text,.pin-error{margin:.25rem 0 .75rem;color:var(--color-red);font-size:.78rem}
-.back-link{display:block;margin-top:1.25rem;color:var(--color-navy);text-align:center;text-decoration:none;font-size:.8rem;font-weight:750}
+.bottom-links{display:flex;flex-direction:column;gap:.65rem;margin-top:1.25rem;text-align:center}
+.back-link,.home-link{display:block;color:var(--color-navy);text-decoration:none;font-size:.8rem;font-weight:750}
+.home-link{color:var(--color-muted)}
+.home-link:hover{color:var(--color-navy-dark);text-decoration:underline}
 .pin-overlay{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;padding:1.5rem;background:rgba(6,45,61,.45);z-index:10}
 .pin-card{width:min(100%,340px);padding:1.5rem;background:#fff;border-radius:14px}
 .pin-card h3{margin:0 0 .35rem;color:var(--color-navy-dark);text-align:center;font-size:1rem}
