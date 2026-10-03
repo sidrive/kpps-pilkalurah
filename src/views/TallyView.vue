@@ -28,7 +28,10 @@
       </button>
     </section>
 
-    <button class="btn-secondary full undo" :disabled="isTapDisabled || votes.length === 0" @click="undo">↩ Batalkan Suara Terakhir</button>
+    <div class="action-grid">
+      <button class="btn-secondary undo" :disabled="isTapDisabled || votes.length === 0" @click="undo">↩ Batal Terakhir</button>
+      <button class="btn-secondary batch" :disabled="isTapDisabled" @click="openBatchModal">+ Input Massal</button>
+    </div>
     <p v-if="lastUndo" class="undo-feedback">Suara terakhir untuk "{{ namaCalonById(lastUndo) }}" dibatalkan.</p>
 
     <section class="lock-section">
@@ -46,6 +49,39 @@
         <div class="pin-actions"><button class="btn-secondary" @click="closePinPrompt">Batal</button><button class="btn-primary" @click="submitPin">Kunci</button></div>
       </div>
     </div>
+
+    <div v-if="showBatchModal" class="pin-overlay" @click.self="closeBatchModal">
+      <div class="batch-card">
+        <h3>Input Suara Massal</h3>
+        <p class="batch-hint">Pilih calon / tidak sah dan masukkan jumlah suara yang ingin ditambahkan sekaligus.</p>
+
+        <div class="batch-form">
+          <label class="form-group">
+            <span>Pilihan / Paslon</span>
+            <select v-model="batchCalonId" class="batch-select">
+              <option v-for="(calon, idx) in daftarCalon" :key="calon.id" :value="calon.id">
+                Calon {{ idx + 1 }} - {{ calon.nama }}
+              </option>
+              <option :value="TIDAK_SAH_ID">! Suara Tidak Sah</option>
+            </select>
+          </label>
+
+          <label class="form-group">
+            <span>Jumlah Suara</span>
+            <input v-model.number="batchJumlah" type="number" min="1" max="500" inputmode="numeric" class="batch-input" placeholder="Misal: 10">
+          </label>
+        </div>
+
+        <p v-if="batchError" class="pin-error">{{ batchError }}</p>
+
+        <div class="pin-actions">
+          <button class="btn-secondary" :disabled="isBatchPending" @click="closeBatchModal">Batal</button>
+          <button class="btn-primary" :disabled="isBatchPending || !batchJumlah || batchJumlah <= 0" @click="submitBatch">
+            {{ isBatchPending ? 'Menyimpan...' : `Tambah ${batchJumlah || 0} Suara` }}
+          </button>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -58,7 +94,7 @@ import { useDpt } from '../composables/useDpt.js'
 import { STATUS_TPS, TIDAK_SAH_ID } from '../config/constants.js'
 import OperationalHeader from '../components/OperationalHeader.vue'
 
-const { votes, countsByCalonId, totalTidakSah, totalKeseluruhan, catatSuara, batalkanSuaraTerakhir } = useTally()
+const { votes, countsByCalonId, totalTidakSah, totalKeseluruhan, catatSuara, catatSuaraBatch, batalkanSuaraTerakhir } = useTally()
 const { config, daftarCalon, lockPresensi, lockTally } = useTpsConfig()
 const { deviceId, namaPetugas } = useDevice()
 const { jumlahHadir } = useDpt()
@@ -72,6 +108,45 @@ const showPinPrompt = ref(false)
 const pinInput = ref('')
 const pinError = ref(false)
 const pinAction = ref(null)
+
+const showBatchModal = ref(false)
+const batchCalonId = ref('')
+const batchJumlah = ref(null)
+const batchError = ref('')
+const isBatchPending = ref(false)
+
+function openBatchModal() {
+  batchCalonId.value = daftarCalon.value[0]?.id || TIDAK_SAH_ID
+  batchJumlah.value = null
+  batchError.value = ''
+  showBatchModal.value = true
+}
+
+function closeBatchModal() {
+  showBatchModal.value = false
+  batchCalonId.value = ''
+  batchJumlah.value = null
+  batchError.value = ''
+  isBatchPending.value = false
+}
+
+async function submitBatch() {
+  if (isBatchPending.value) return
+  if (!batchJumlah.value || batchJumlah.value <= 0) {
+    batchError.value = 'Masukkan jumlah suara yang valid'
+    return
+  }
+  batchError.value = ''
+  isBatchPending.value = true
+
+  const res = await catatSuaraBatch(batchCalonId.value, batchJumlah.value, deviceId, namaPetugas.value)
+  if (res.success) {
+    closeBatchModal()
+  } else {
+    batchError.value = 'Gagal menyimpan: ' + (res.reason || 'Terjadi kesalahan')
+    isBatchPending.value = false
+  }
+}
 const pinPromptLabel = computed(() => pinAction.value === 'lock_presensi' ? 'Mengunci data presensi (tidak bisa diubah lagi).' : 'Submit hasil akhir tally (tidak bisa diubah lagi).')
 async function tap(calonId) { if (isTapDisabled.value) return; await catatSuara(calonId, deviceId, namaPetugas.value) }
 async function undo() { if (isTapDisabled.value) return; const result = await batalkanSuaraTerakhir(); if (result.success) { lastUndo.value = result.calonId; setTimeout(() => { if (lastUndo.value === result.calonId) lastUndo.value = null }, 2500) } }
@@ -100,17 +175,20 @@ async function submitPin() { const result = pinAction.value === 'lock_presensi' 
 .calon-index{display:grid;place-items:center;width:30px;height:30px;color:#fff;border-radius:50%;font-size:.72rem;font-weight:900}
 .calon-copy{display:flex;flex-direction:column;min-width:0}.calon-copy strong{font-size:.85rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.calon-copy small{color:var(--color-muted);font-size:.63rem}
 .calon-count{color:var(--color-navy-dark);font-size:1.55rem;font-weight:900}
-.undo.full{margin-bottom:.6rem}
+.action-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:.6rem;margin-bottom:.75rem}
 .undo-feedback{color:var(--color-amber-dark);text-align:center;font-size:.76rem;margin-bottom:.8rem}
 .lock-section{border-top:1px solid var(--color-line); padding-top:1rem}
 .lock-hint{color:var(--color-muted);text-align:center;font-size:.72rem;margin-top:.45rem}
 .link-rekap{display:block;margin-top:.7rem;color:var(--color-navy);text-align:center;text-decoration:none;font-size:.8rem;font-weight:750}
 .btn-primary.full,.btn-secondary.full{width:100%}
 .pin-overlay{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;padding:1.5rem;background:rgba(6,45,61,.45);z-index:10}
-.pin-card{width:min(100%,340px);padding:1.5rem;background:#fff;border-radius:14px}
-.pin-card h3{margin:0 0 .35rem;color:var(--color-navy-dark);text-align:center;font-size:1rem}
-.pin-context{color:var(--color-muted);text-align:center;font-size:.72rem}
+.pin-card,.batch-card{width:min(100%,360px);padding:1.5rem;background:#fff;border-radius:14px;box-shadow:0 12px 32px rgba(6,45,61,.18)}
+.pin-card h3,.batch-card h3{margin:0 0 .35rem;color:var(--color-navy-dark);text-align:center;font-size:1.05rem}
+.pin-context,.batch-hint{color:var(--color-muted);text-align:center;font-size:.74rem;line-height:1.4}
 .pin-card input{width:100%;min-height:var(--touch-min);margin:1rem 0;padding:0 1rem;border:1px solid var(--color-line);border-radius:10px;text-align:center;font-size:1.2rem}
-.pin-error{color:var(--color-red);text-align:center;font-size:.75rem;margin-top:-.5rem}
+.batch-form{display:flex;flex-direction:column;gap:.85rem;margin:1.1rem 0}
+.form-group{display:flex;flex-direction:column;gap:.35rem;text-align:left;font-size:.75rem;font-weight:750;color:var(--color-navy-dark)}
+.batch-select,.batch-input{width:100%;min-height:44px;padding:0 .8rem;border:1px solid var(--color-line);border-radius:10px;background:#fff;font-size:.9rem}
+.pin-error{color:var(--color-red);text-align:center;font-size:.75rem;margin-top:-.3rem;margin-bottom:.6rem}
 .pin-actions{display:flex;gap:.6rem}.pin-actions button{flex:1}
 </style>

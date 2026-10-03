@@ -7,7 +7,8 @@ import {
   onSnapshot,
   query,
   where,
-  serverTimestamp
+  serverTimestamp,
+  writeBatch
 } from 'firebase/firestore'
 import { db } from '../config/firebase.js'
 import { TIDAK_SAH_ID } from '../config/constants.js'
@@ -74,6 +75,36 @@ export function useTally() {
     })
   }
 
+  async function catatSuaraBatch(calonId, jumlah, deviceId, namaPetugas) {
+    const total = Number(jumlah)
+    if (!total || total <= 0) return { success: false, reason: 'JUMLAH_INVALID' }
+
+    const batchSize = 500
+    let countRemaining = total
+
+    while (countRemaining > 0) {
+      const currentChunk = Math.min(countRemaining, batchSize)
+      const batch = writeBatch(db)
+
+      for (let i = 0; i < currentChunk; i++) {
+        const newDocRef = doc(tallyVotesCollection)
+        batch.set(newDocRef, {
+          calon_id: calonId,
+          dibatalkan: false,
+          waktu: Date.now() + i, // sedikit stagger millisecond jika perlu
+          device_id: deviceId,
+          nama_petugas: namaPetugas,
+          waktu_server: serverTimestamp()
+        })
+      }
+
+      await batch.commit()
+      countRemaining -= currentChunk
+    }
+
+    return { success: true, count: total }
+  }
+
   /**
    * Undo suara terakhir (lintas calon, urut berdasarkan waktu client).
    * Accepted edge case: kalau 2 device menghitung bersamaan (tidak
@@ -97,6 +128,7 @@ export function useTally() {
     totalTidakSah,
     totalKeseluruhan,
     catatSuara,
+    catatSuaraBatch,
     batalkanSuaraTerakhir
   }
 }

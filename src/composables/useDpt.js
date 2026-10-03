@@ -89,7 +89,11 @@ export function useDpt() {
   const antreanList = computed(() => allDpt.value.filter((d) => d.status_proses === STATUS_PROSES.DI_ANTREAN).sort(sortByArrival))
   const arrivalList = computed(() => allDpt.value.filter((d) => d.nomor_kedatangan && d.status_proses !== STATUS_PROSES.BELUM_HADIR).sort(sortByArrival))
   const hadirList = computed(() => allDpt.value.filter((d) => d.status_proses === STATUS_PROSES.HADIR_SAH).sort(sortByArrival))
-  const belumCentangManual = computed(() => hadirList.value.filter((d) => d.status_centang_manual === false))
+  const belumCentangManual = computed(() =>
+    hadirList.value
+      .filter((d) => d.status_centang_manual === false)
+      .sort((a, b) => Number(a.no_urut) - Number(b.no_urut))
+  )
   const bufferCount = computed(() => antreanList.value.length)
   const totalDpt = computed(() => totalDptCount)
   const jumlahHadir = computed(() => hadirList.value.length)
