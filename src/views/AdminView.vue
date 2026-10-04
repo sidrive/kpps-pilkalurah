@@ -133,7 +133,7 @@ function labelStatus(status) {
 }
 function formatTime(value) {
   if (!value) return '-'
-  return new Date(value).toLocaleTimeString('id-ID', { hour: '2-digit', minute: '2-digit' })
+  return new Date(value).toLocaleTimeString('id-ID', { timeZone: 'Asia/Jakarta', hour: '2-digit', minute: '2-digit' }) + ' WIB'
 }
 function requestAddEmail() {
   const email = newEmail.value.trim().toLowerCase()

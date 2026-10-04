@@ -1,9 +1,14 @@
 const STATUS_LABEL = { BELUM_HADIR: 'Belum hadir', DI_ANTREAN: 'Menunggu KPPS', HADIR_SAH: 'Hadir sah' }
 
-function toDate(value) {
-  if (!value) return null
+function toWib(value) {
+  if (!value) return ''
   const d = new Date(value)
-  return Number.isNaN(d.getTime()) ? null : d
+  if (Number.isNaN(d.getTime())) return ''
+  const text = d.toLocaleString('id-ID', {
+    timeZone: 'Asia/Jakarta', day: '2-digit', month: '2-digit', year: 'numeric',
+    hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false,
+  }).replace(',', '').replace(/\./g, ':')
+  return `${text} WIB`
 }
 
 export async function generateKehadiranExcel({ namaTps, daftar }) {
@@ -21,7 +26,7 @@ export async function generateKehadiranExcel({ namaTps, daftar }) {
   ringkas.columns = [{ width: 32 }, { width: 24 }]
   ringkas.addRow(['Laporan Daftar Kehadiran Pemilih']).font = { bold: true, size: 14 }
   ringkas.addRow(['TPS', namaTps || '-'])
-  ringkas.addRow(['Dicetak', new Date().toLocaleString('id-ID')])
+  ringkas.addRow(['Dicetak', toWib(new Date())])
   ringkas.addRow([])
   ringkas.addRow(['Total DPT', total])
   ringkas.addRow(['Hadir sah', hadir])
@@ -40,15 +45,14 @@ export async function generateKehadiranExcel({ namaTps, daftar }) {
     { header: 'Alamat', key: 'alamat', width: 34 },
     { header: 'Status Kehadiran', key: 'status', width: 17 },
     { header: 'No. Kedatangan', key: 'kedatangan', width: 15 },
-    { header: 'Waktu Validasi', key: 'validasi', width: 20 },
-    { header: 'Waktu Hadir', key: 'hadir', width: 20 },
+    { header: 'Waktu Validasi', key: 'validasi', width: 25 },
+    { header: 'Waktu Hadir', key: 'hadir', width: 25 },
     { header: 'Petugas', key: 'petugas', width: 20 },
   ]
   ws.getRow(1).font = { bold: true, color: { argb: 'FFFFFFFF' } }
   ws.getRow(1).fill = { type: 'pattern', pattern: 'solid', fgColor: { argb: 'FF1F3A5F' } }
-  const fmt = 'dd/mm/yyyy hh:mm'
   daftar.forEach((v) => {
-    const row = ws.addRow({
+    ws.addRow({
       no: v.no_urut,
       nama: v.nama,
       jk: v.jenis_kelamin || '',
@@ -58,12 +62,10 @@ export async function generateKehadiranExcel({ namaTps, daftar }) {
       alamat: v.alamat || '',
       status: STATUS_LABEL[v.status_proses] || STATUS_LABEL.BELUM_HADIR,
       kedatangan: v.nomor_kedatangan || '',
-      validasi: toDate(v.waktu_validasi),
-      hadir: toDate(v.waktu_konfirmasi),
+      validasi: toWib(v.waktu_validasi),
+      hadir: toWib(v.waktu_konfirmasi),
       petugas: v.updated_by_nama || '',
     })
-    row.getCell('validasi').numFmt = fmt
-    row.getCell('hadir').numFmt = fmt
   })
   ws.autoFilter = { from: 'A1', to: 'L1' }
 
