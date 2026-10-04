@@ -34,6 +34,8 @@
       <h2>Laporan Kedatangan</h2>
       <p class="section-hint">Urutan pemilih yang sudah divalidasi Petugas Depan berdasarkan nomor kedatangan.</p>
       <div class="report-summary"><span>Total divalidasi</span><strong class="mono">{{ arrivalList.length }}</strong></div>
+      <button class="btn-save btn-excel" type="button" :disabled="exporting" @click="unduhExcel">{{ exporting ? 'Menyiapkan...' : '⬇ Download Daftar Kehadiran (Excel)' }}</button>
+      <p v-if="exportError" class="error-text">{{ exportError }}</p>
       <div v-if="arrivalList.length === 0" class="empty-state">Belum ada pemilih yang divalidasi masuk.</div>
       <div v-for="item in arrivalList" :key="item.id" class="arrival-row">
         <span class="arrival-number mono">#{{ item.nomor_kedatangan }}</span>
@@ -67,6 +69,7 @@ import { useAuth } from '../composables/useAuth.js'
 import { useTally } from '../composables/useTally.js'
 import { useDevice } from '../composables/useDevice.js'
 import { useDpt } from '../composables/useDpt.js'
+import { generateKehadiranExcel } from '../utils/generateKehadiranExcel.js'
 import OperationalHeader from '../components/OperationalHeader.vue'
 
 const { config, daftarCalon, validasiPin, updateRekapInfo } = useTpsConfig()
@@ -74,7 +77,21 @@ const { emails, addEmail, removeEmail } = useAuthorizedEmails()
 const { currentUser } = useAuth()
 const { totalKeseluruhan } = useTally()
 const { namaPetugas } = useDevice()
-const { arrivalList } = useDpt()
+const { arrivalList, allDpt } = useDpt()
+const exporting = ref(false)
+const exportError = ref('')
+async function unduhExcel() {
+  if (exporting.value) return
+  exporting.value = true
+  exportError.value = ''
+  try {
+    await generateKehadiranExcel({ namaTps: config.value?.nama_tps, daftar: allDpt.value })
+  } catch (e) {
+    exportError.value = 'Gagal membuat file Excel. Coba lagi.'
+  } finally {
+    exporting.value = false
+  }
+}
 
 const calonList = ref([])
 const calonSaved = ref(false)
@@ -152,6 +169,7 @@ async function submitPin() {
 .item-row input,.email-add-row input{flex:1;min-width:0;padding:.6rem .75rem;color:var(--color-ink);background:#fff;border:1px solid var(--color-line);border-radius:9px;font-size:.9rem}
 .btn-remove{min-width:44px;color:var(--color-red);background:#fff;border:1px solid #e7b9bd}
 .btn-add{width:100%;margin-bottom:.75rem;color:var(--color-navy);background:#fff;border:1px dashed var(--color-line);font-weight:700}
+.btn-excel{margin-bottom:.65rem}.btn-excel:disabled{opacity:.6}
 .btn-save{width:100%;color:#fff;background:var(--color-green);font-weight:800}
 .btn-add-email{min-height:44px;padding:0 .9rem;color:#fff;background:var(--color-navy);font-weight:700}
 .email-row{justify-content:space-between;padding-top:.5rem;border-top:1px solid var(--color-line);font-size:.85rem}
